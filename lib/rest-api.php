@@ -32,7 +32,7 @@ function gutenberg_register_rest_pattern_directory() {
 add_filter( 'rest_api_init', 'gutenberg_register_rest_pattern_directory' );
 
 /**
- * Registers the menu locations area REST API routes.
+ * Registers the menu locations REST API routes.
  */
 function gutenberg_register_rest_menu_location() {
 	$nav_menu_location = new WP_REST_Menu_Locations_Controller();
@@ -41,11 +41,20 @@ function gutenberg_register_rest_menu_location() {
 add_action( 'rest_api_init', 'gutenberg_register_rest_menu_location' );
 
 /**
- * Registers the menu locations area REST API routes.
+ * Registers the navigation areas REST API routes.
+ */
+function gutenberg_register_rest_navigation_areas() {
+	$navigation_areas = new WP_REST_Block_Navigation_Areas_Controller();
+	$navigation_areas->register_routes();
+}
+add_action( 'rest_api_init', 'gutenberg_register_rest_navigation_areas' );
+
+/**
+ * Registers the customizer nonces REST API routes.
  */
 function gutenberg_register_rest_customizer_nonces() {
-	$nav_menu_location = new WP_Rest_Customizer_Nonces();
-	$nav_menu_location->register_routes();
+	$customizer_nonces = new WP_Rest_Customizer_Nonces();
+	$customizer_nonces->register_routes();
 }
 add_action( 'rest_api_init', 'gutenberg_register_rest_customizer_nonces' );
 
@@ -183,3 +192,53 @@ function gutenberg_auto_draft_get_sample_permalink( $permalink, $id, $title, $na
 	return $permalink;
 }
 add_filter( 'get_sample_permalink', 'gutenberg_auto_draft_get_sample_permalink', 10, 5 );
+
+/**
+ * Filters WP_User_Query arguments when querying users via the REST API.
+ *
+ * Allow using the has_published_post argument.
+ *
+ * @param array           $prepared_args Array of arguments for WP_User_Query.
+ * @param WP_REST_Request $request       The REST API request.
+ *
+ * @return array Returns modified $prepared_args.
+ */
+function gutenberg_rest_user_query_has_published_posts( $prepared_args, $request ) {
+	if ( ! empty( $request['has_published_posts'] ) ) {
+		$prepared_args['has_published_posts'] = ( true === $request['has_published_posts'] )
+			? get_post_types( array( 'show_in_rest' => true ), 'names' )
+			: (array) $request['has_published_posts'];
+	}
+	return $prepared_args;
+}
+add_filter( 'rest_user_query', 'gutenberg_rest_user_query_has_published_posts', 10, 2 );
+
+
+/**
+ * Filters REST API collection parameters for the users controller.
+ *
+ * @param array $query_params JSON Schema-formatted collection parameters.
+ *
+ * @return array Returns the $query_params with "has_published_posts".
+ */
+function gutenberg_rest_user_collection_params_has_published_posts( $query_params ) {
+	$query_params['has_published_posts'] = array(
+		'description' => __( 'Limit result set to users who have published posts.', 'gutenberg' ),
+		'type'        => array( 'boolean', 'array' ),
+		'items'       => array(
+			'type' => 'string',
+			'enum' => get_post_types( array( 'show_in_rest' => true ), 'names' ),
+		),
+	);
+	return $query_params;
+}
+add_filter( 'rest_user_collection_params', 'gutenberg_rest_user_collection_params_has_published_posts' );
+
+/**
+ * Registers the Global Styles REST API routes.
+ */
+function gutenberg_register_global_styles_endpoints() {
+	$editor_settings = new Gutenberg_REST_Global_Styles_Controller();
+	$editor_settings->register_routes();
+}
+add_action( 'rest_api_init', 'gutenberg_register_global_styles_endpoints' );

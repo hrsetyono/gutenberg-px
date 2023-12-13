@@ -1,8 +1,3268 @@
-window.wp=window.wp||{},window.wp.customizeWidgets=function(e){var t={};function r(i){if(t[i])return t[i].exports;var o=t[i]={i:i,l:!1,exports:{}};return e[i].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.d=function(e,t,i){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:i})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var i=Object.create(null);if(r.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(i,o,function(t){return e[t]}.bind(null,o));return i},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=421)}({0:function(e,t){e.exports=window.wp.element},1:function(e,t){e.exports=window.wp.i18n},100:function(e,t,r){"use strict";var i=r(0),o=r(6);const s=Object(i.createElement)(o.SVG,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"},Object(i.createElement)(o.Path,{d:"M12 13.06l3.712 3.713 1.061-1.06L13.061 12l3.712-3.712-1.06-1.06L12 10.938 8.288 7.227l-1.061 1.06L10.939 12l-3.712 3.712 1.06 1.061L12 13.061z"}));t.a=s},101:function(e,t,r){"use strict";var i=r(0),o=r(6);const s=Object(i.createElement)(o.SVG,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"},Object(i.createElement)(o.Path,{d:"M18.3 5.6L9.9 16.9l-4.6-3.4-.9 1.2 5.8 4.3 9.3-12.6z"}));t.a=s},12:function(e,t){e.exports=window.wp.keycodes},13:function(e,t){e.exports=window.wp.coreData},132:function(e,t,r){"use strict";var i=r(0),o=r(6);const s=Object(i.createElement)(o.SVG,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"},Object(i.createElement)(o.Path,{d:"M18 11.2h-5.2V6h-1.6v5.2H6v1.6h5.2V18h1.6v-5.2H18z"}));t.a=s},156:function(e,t,r){"use strict";var i=r(0),o=r(6);const s=Object(i.createElement)(o.SVG,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"},Object(i.createElement)(o.Path,{d:"M13 19h-2v-2h2v2zm0-6h-2v-2h2v2zm0-6h-2V5h2v2z"}));t.a=s},178:function(e,t,r){var i;!function(){"use strict";var r={}.hasOwnProperty;function o(){for(var e=[],t=0;t<arguments.length;t++){var i=arguments[t];if(i){var s=typeof i;if("string"===s||"number"===s)e.push(i);else if(Array.isArray(i)&&i.length){var n=o.apply(null,i);n&&e.push(n)}else if("object"===s)for(var c in i)r.call(i,c)&&i[c]&&e.push(c)}}return e.join(" ")}e.exports?(o.default=o,e.exports=o):void 0===(i=function(){return o}.apply(t,[]))||(e.exports=i)}()},18:function(e,t){e.exports=window.wp.hooks},2:function(e,t){e.exports=window.lodash},203:function(e,t,r){"use strict";var i=r(0),o=r(6);const s=Object(i.createElement)(o.SVG,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"},Object(i.createElement)(o.Path,{d:"M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"}));t.a=s},204:function(e,t,r){"use strict";var i=r(0),o=r(6);const s=Object(i.createElement)(o.SVG,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"},Object(i.createElement)(o.Path,{d:"M18.3 11.7c-.6-.6-1.4-.9-2.3-.9H6.7l2.9-3.3-1.1-1-4.5 5L8.5 16l1-1-2.7-2.7H16c.5 0 .9.2 1.3.5 1 1 1 3.4 1 4.5v.3h1.5v-.2c0-1.5 0-4.3-1.5-5.7z"}));t.a=s},205:function(e,t,r){"use strict";var i=r(0),o=r(6);const s=Object(i.createElement)(o.SVG,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"},Object(i.createElement)(o.Path,{d:"M15.6 6.5l-1.1 1 2.9 3.3H8c-.9 0-1.7.3-2.3.9-1.4 1.5-1.4 4.2-1.4 5.6v.2h1.5v-.3c0-1.1 0-3.5 1-4.5.3-.3.7-.5 1.3-.5h9.2L14.5 15l1.1 1.1 4.6-4.6-4.6-5z"}));t.a=s},22:function(e,t){e.exports=window.wp.dom},24:function(e,t){e.exports=window.wp.keyboardShortcuts},3:function(e,t){e.exports=window.wp.components},31:function(e,t){e.exports=window.wp.a11y},4:function(e,t){e.exports=window.wp.data},421:function(e,t,r){"use strict";r.r(t),r.d(t,"initialize",(function(){return Ce}));var i={};r.r(i),r.d(i,"__unstableIsFeatureActive",(function(){return L}));var o={};r.r(o),r.d(o,"__unstableToggleFeature",(function(){return k}));var s=r(0),n=r(56),c=r(47),a=r(3),u=r(2),l=r(13),A=r(4),d=r(5),b=r(58),m=r(7),h=r(1),g=function({inspector:e,closeMenu:t,...r}){const i=Object(A.useSelect)(e=>e(d.store).getSelectedBlockClientId(),[]),o=Object(s.useMemo)(()=>document.getElementById("block-"+i),[i]);return Object(s.createElement)(a.MenuItem,Object(m.a)({onClick:()=>{e.open({returnFocusWhenClose:o}),t()}},r),Object(h.__)("Show more settings"))},p=r(178),O=r.n(p),j=r(12),w=r(204),C=r(205),y=r(132),q=r(9),v=r(100),E=function e({setIsOpened:t}){const r=Object(q.useInstanceId)(e,"customize-widget-layout__inserter-panel-title");return Object(s.createElement)("div",{className:"customize-widgets-layout__inserter-panel","aria-labelledby":r},Object(s.createElement)("div",{className:"customize-widgets-layout__inserter-panel-header"},Object(s.createElement)("h2",{id:r,className:"customize-widgets-layout__inserter-panel-header-title"},Object(h.__)("Add a block")),Object(s.createElement)(a.Button,{className:"customize-widgets-layout__inserter-panel-header-close-button",icon:v.a,onClick:()=>t(!1),"aria-label":Object(h.__)("Close inserter")})),Object(s.createElement)("div",{className:"customize-widgets-layout__inserter-panel-content"},Object(s.createElement)(d.__experimentalLibrary,{showInserterHelpPanel:!0,onSelect:()=>t(!1)})))},I=r(156),K=r(203),f=r(24),B=r(101),S=r(31);const z=Object(u.flow)([A.combineReducers,(M={features:{fixedToolbar:!1,welcomeGuide:!0}},e=>(t=M,r)=>e(t,r))])({features:(e,t)=>"TOGGLE_FEATURE"===t.type?{...e,[t.feature]:!e[t.feature]}:e});var M;function L(e,t){return Object(u.get)(e.preferences.features,[t],!1)}function k(e){return{type:"TOGGLE_FEATURE",feature:e}}const G={reducer:Object(A.combineReducers)({preferences:z}),selectors:i,actions:o,persist:["preferences"]},x=Object(A.createReduxStore)("core/customize-widgets",G);function W({label:e,info:t,messageActivated:r,messageDeactivated:i,shortcut:o,feature:n}){const c=Object(A.useSelect)(e=>e(x).__unstableIsFeatureActive(n),[n]),{__unstableToggleFeature:u}=Object(A.useDispatch)(x);return Object(s.createElement)(a.MenuItem,{icon:c&&B.a,isSelected:c,onClick:()=>{u(n),c?Object(S.speak)(i||Object(h.__)("Feature deactivated")):Object(S.speak)(r||Object(h.__)("Feature activated"))},role:"menuitemcheckbox",info:t,shortcut:o},e)}Object(A.registerStore)("core/customize-widgets",G);const Y=[{keyCombination:{modifier:"primary",character:"b"},description:Object(h.__)("Make the selected text bold.")},{keyCombination:{modifier:"primary",character:"i"},description:Object(h.__)("Make the selected text italic.")},{keyCombination:{modifier:"primary",character:"k"},description:Object(h.__)("Convert the selected text into a link.")},{keyCombination:{modifier:"primaryShift",character:"k"},description:Object(h.__)("Remove a link.")},{keyCombination:{modifier:"primary",character:"u"},description:Object(h.__)("Underline the selected text.")}];function D({keyCombination:e,forceAriaLabel:t}){const r=e.modifier?j.displayShortcutList[e.modifier](e.character):e.character,i=e.modifier?j.shortcutAriaLabel[e.modifier](e.character):e.character;return Object(s.createElement)("kbd",{className:"customize-widgets-keyboard-shortcut-help-modal__shortcut-key-combination","aria-label":t||i},Object(u.castArray)(r).map((e,t)=>"+"===e?Object(s.createElement)(s.Fragment,{key:t},e):Object(s.createElement)("kbd",{key:t,className:"customize-widgets-keyboard-shortcut-help-modal__shortcut-key"},e)))}var Q=function({description:e,keyCombination:t,aliases:r=[],ariaLabel:i}){return Object(s.createElement)(s.Fragment,null,Object(s.createElement)("div",{className:"customize-widgets-keyboard-shortcut-help-modal__shortcut-description"},e),Object(s.createElement)("div",{className:"customize-widgets-keyboard-shortcut-help-modal__shortcut-term"},Object(s.createElement)(D,{keyCombination:t,forceAriaLabel:i}),r.map((e,t)=>Object(s.createElement)(D,{keyCombination:e,forceAriaLabel:i,key:t}))))},N=function({name:e}){const{keyCombination:t,description:r,aliases:i}=Object(A.useSelect)(t=>{const{getShortcutKeyCombination:r,getShortcutDescription:i,getShortcutAliases:o}=t(f.store);return{keyCombination:r(e),aliases:o(e),description:i(e)}});return t?Object(s.createElement)(Q,{keyCombination:t,description:r,aliases:i}):null};const H=({shortcuts:e})=>Object(s.createElement)("ul",{className:"customize-widgets-keyboard-shortcut-help-modal__shortcut-list",role:"list"},e.map((e,t)=>Object(s.createElement)("li",{className:"customize-widgets-keyboard-shortcut-help-modal__shortcut",key:t},Object(u.isString)(e)?Object(s.createElement)(N,{name:e}):Object(s.createElement)(Q,e)))),T=({title:e,shortcuts:t,className:r})=>Object(s.createElement)("section",{className:O()("customize-widgets-keyboard-shortcut-help-modal__section",r)},!!e&&Object(s.createElement)("h2",{className:"customize-widgets-keyboard-shortcut-help-modal__section-title"},e),Object(s.createElement)(H,{shortcuts:t})),P=({title:e,categoryName:t,additionalShortcuts:r=[]})=>{const i=Object(A.useSelect)(e=>e(f.store).getCategoryShortcuts(t),[t]);return Object(s.createElement)(T,{title:e,shortcuts:i.concat(r)})};function Z({isModalActive:e,toggleModal:t}){const{registerShortcut:r}=Object(A.useDispatch)(f.store);return r({name:"core/customize-widgets/keyboard-shortcuts",category:"main",description:Object(h.__)("Display these keyboard shortcuts."),keyCombination:{modifier:"access",character:"h"}}),Object(f.useShortcut)("core/customize-widgets/keyboard-shortcuts",t,{bindGlobal:!0}),e?Object(s.createElement)(a.Modal,{className:"customize-widgets-keyboard-shortcut-help-modal",title:Object(h.__)("Keyboard shortcuts"),closeLabel:Object(h.__)("Close"),onRequestClose:t},Object(s.createElement)(T,{className:"customize-widgets-keyboard-shortcut-help-modal__main-shortcuts",shortcuts:["core/customize-widgets/keyboard-shortcuts"]}),Object(s.createElement)(P,{title:Object(h.__)("Global shortcuts"),categoryName:"global"}),Object(s.createElement)(P,{title:Object(h.__)("Selection shortcuts"),categoryName:"selection"}),Object(s.createElement)(P,{title:Object(h.__)("Block shortcuts"),categoryName:"block",additionalShortcuts:[{keyCombination:{character:"/"},description:Object(h.__)("Change the block type after adding a new paragraph."),
-/* translators: The forward-slash character. e.g. '/'. */
-ariaLabel:Object(h.__)("Forward-slash")}]}),Object(s.createElement)(T,{title:Object(h.__)("Text formatting"),shortcuts:Y})):null}const U={className:"customize-widgets-more-menu__content",position:"bottom left"},J={tooltipPosition:"bottom"};function X(){const[e,t]=Object(s.useState)(!1),r=()=>t(!e);return Object(f.useShortcut)("core/customize-widgets/keyboard-shortcuts",r,{bindGlobal:!0}),Object(s.createElement)(s.Fragment,null,Object(s.createElement)(a.ToolbarDropdownMenu,{className:"customize-widgets-more-menu",icon:I.a
-/* translators: button label text should, if possible, be under 16 characters. */,label:Object(h.__)("Options"),popoverProps:U,toggleProps:J},()=>Object(s.createElement)(s.Fragment,null,Object(s.createElement)(a.MenuGroup,{label:Object(h._x)("View","noun")},Object(s.createElement)(W,{feature:"fixedToolbar",label:Object(h.__)("Top toolbar"),info:Object(h.__)("Access all block and document tools in a single place"),messageActivated:Object(h.__)("Top toolbar activated"),messageDeactivated:Object(h.__)("Top toolbar deactivated")})),Object(s.createElement)(a.MenuGroup,{label:Object(h.__)("Tools")},Object(s.createElement)(a.MenuItem,{onClick:()=>{t(!0)},shortcut:j.displayShortcut.access("h")},Object(h.__)("Keyboard shortcuts")),Object(s.createElement)(W,{feature:"welcomeGuide",label:Object(h.__)("Welcome Guide")}),Object(s.createElement)(a.MenuItem,{role:"menuitem",icon:K.a,href:Object(h.__)("https://wordpress.org/support/article/wordpress-editor/"),target:"_blank",rel:"noopener noreferrer"},Object(h.__)("Help"),Object(s.createElement)(a.VisuallyHidden,{as:"span"},
-/* translators: accessibility text */
-Object(h.__)("(opens in a new tab)")))),Object(s.createElement)(a.MenuGroup,null,Object(s.createElement)(W,{feature:"keepCaretInsideBlock",label:Object(h.__)("Contain text cursor inside block"),info:Object(h.__)("Aids screen readers by stopping text caret from leaving blocks."),messageActivated:Object(h.__)("Contain text cursor inside block activated"),messageDeactivated:Object(h.__)("Contain text cursor inside block deactivated")})))),Object(s.createElement)(Z,{isModalActive:e,toggleModal:r}))}var F=function({sidebar:e,inserter:t,isInserterOpened:r,setIsInserterOpened:i,isFixedToolbarActive:o}){const[[n,c],u]=Object(s.useState)([e.hasUndo(),e.hasRedo()]);return Object(s.useEffect)(()=>e.subscribeHistory(()=>{u([e.hasUndo(),e.hasRedo()])}),[e]),Object(s.createElement)(s.Fragment,null,Object(s.createElement)("div",{className:O()("customize-widgets-header",{"is-fixed-toolbar-active":o})},Object(s.createElement)(d.NavigableToolbar,{className:"customize-widgets-header-toolbar","aria-label":Object(h.__)("Document tools")},Object(s.createElement)(a.ToolbarButton,{icon:Object(h.isRTL)()?C.a
-/* translators: button label text should, if possible, be under 16 characters. */:w.a,label:Object(h.__)("Undo"),shortcut:j.displayShortcut.primary("z"),"aria-disabled":!n,onClick:e.undo,className:"customize-widgets-editor-history-button undo-button"}),Object(s.createElement)(a.ToolbarButton,{icon:Object(h.isRTL)()?w.a
-/* translators: button label text should, if possible, be under 16 characters. */:C.a,label:Object(h.__)("Redo"),shortcut:j.displayShortcut.primaryShift("z"),"aria-disabled":!c,onClick:e.redo,className:"customize-widgets-editor-history-button redo-button"}),Object(s.createElement)(a.ToolbarButton,{className:"customize-widgets-header-toolbar__inserter-toggle",isPressed:r,isPrimary:!0,icon:y.a,label:Object(h._x)("Add block","Generic label for block inserter button"),onClick:()=>{i(e=>!e)}}),Object(s.createElement)(X,null))),Object(s.createPortal)(Object(s.createElement)(E,{setIsOpened:i}),t.contentContainer[0]))},R=r(8),V=r(51),_=r.n(V);function $(e,t=null){let r;if("core/legacy-widget"===e.name&&(e.attributes.id||e.attributes.instance))if(e.attributes.id)r={id:e.attributes.id};else{const{encoded:i,hash:o,raw:s,...n}=e.attributes.instance;r={idBase:e.attributes.idBase,instance:{...null==t?void 0:t.instance,encoded_serialized_instance:i,instance_hash_key:o,raw_instance:s,...n}}}else r={idBase:"block",widgetClass:"WP_Widget_Block",instance:{raw_instance:{content:Object(R.serialize)(e)}}};return{...Object(u.omit)(t,["form","rendered"]),...r}}function ee({id:e,idBase:t,number:r,instance:i}){let o;const{encoded_serialized_instance:s,instance_hash_key:n,raw_instance:a,...u}=i;if("block"===t){const e=Object(R.parse)(a.content);o=e.length?e[0]:Object(R.createBlock)("core/paragraph",{})}else o=r?Object(R.createBlock)("core/legacy-widget",{idBase:t,instance:{encoded:s,hash:n,raw:a,...u}}):Object(R.createBlock)("core/legacy-widget",{id:e});return Object(c.addWidgetIdToBlock)(o,e)}function te(e){const t=e.match(/^widget_(.+)(?:\[(\d+)\])$/);return t?`${t[1]}-${parseInt(t[2],10)}`:e}const re=Object(s.createContext)();function ie({api:e,sidebarControls:t,children:r}){const[i,o]=Object(s.useState)({current:null}),n=Object(s.useCallback)(e=>{for(const r of t)if(r.setting.get().includes(e)){r.sectionInstance.expand({completeCallback(){o({current:e})}});break}},[t]);Object(s.useEffect)(()=>{function t(e){const t=te(e);n(t)}function r(){e.previewer.preview.bind("focus-control-for-setting",t)}return e.previewer.bind("ready",r),()=>{e.previewer.unbind("ready",r),e.previewer.preview.unbind("focus-control-for-setting",t)}},[e,n]);const c=Object(s.useMemo)(()=>[i,n],[i,n]);return Object(s.createElement)(re.Provider,{value:c},r)}function oe({sidebar:e,settings:t,children:r}){const[i,o,n]=function(e){const[t,r]=Object(s.useState)(()=>e.getWidgets().map(e=>ee(e)));Object(s.useEffect)(()=>e.subscribe((e,t)=>{r(r=>{const i=new Map(e.map(e=>[e.id,e])),o=new Map(r.map(e=>[Object(c.getWidgetIdFromBlock)(e),e])),s=t.map(e=>{const t=i.get(e.id);return t&&t===e?o.get(e.id):ee(e)});return _()(r,s)?r:s})}),[e]);const i=Object(s.useCallback)(t=>{r(r=>{if(_()(r,t))return r;const i=new Map(r.map(e=>[Object(c.getWidgetIdFromBlock)(e),e])),o=t.map(t=>{const r=Object(c.getWidgetIdFromBlock)(t);if(r&&i.has(r)){const o=i.get(r),s=e.getWidget(r);return Object(u.isEqual)(t,o)&&s?s:$(t,s)}return $(t)});if(_()(e.getWidgets(),o))return r;const s=e.setWidgets(o);return t.reduce((e,r,i)=>{const o=s[i];return null!==o&&(e===t&&(e=t.slice()),e[i]=Object(c.addWidgetIdToBlock)(r,o)),e},t)})},[e]);return[t,i,i]}(e);return function(e){const{selectBlock:t}=Object(A.useDispatch)(d.store),[r]=Object(s.useContext)(re),i=Object(s.useRef)(e);Object(s.useEffect)(()=>{i.current=e},[e]),Object(s.useEffect)(()=>{if(r.current){const e=i.current.find(e=>Object(c.getWidgetIdFromBlock)(e)===r.current);if(e){t(e.clientId);const r=document.querySelector(`[data-block="${e.clientId}"]`);null==r||r.focus()}}},[r,t])}(i),Object(s.createElement)(d.BlockEditorProvider,{value:i,onInput:o,onChange:n,settings:t,useSubRegistry:!1},r)}const se=e=>Object(s.createElement)(s.Fragment,null,Object(s.createElement)("img",Object(m.a)({className:"customize-widgets-welcome-guide__image customize-widgets-welcome-guide__image__prm-np",alt:"",src:"data:image/gif;base64,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Y8ueTbu27du4c+vezbu379/AgwsfTry48ePIkytfzry58+fQo0ufTr269evYs2vfzr279+/gw4sfT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnk/5JMNunkk1BGKeWUVFZp5ZVYZqnlllx26eWXYIYp5phklmnmmWimqeaabLbp5ptwxinnnHTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUVmrppZhmqummnHbq6aeghirqqKSWauqpqKaq6qqsturqq7DGKuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8Y3FGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589+3334AHLvjghBceXyAAIfkEBQQAAAAsMAEIARAAEAAAB0aAAIIACAiDhIaHg4WHjIqPkJGSjgyPlYiOhBObE4mIihMVohUTkgChFBSkpqiqpZITEqISr5GFm5mWuqa8vYK5toWekwiBACH5BAUEAAEALDABCAEQABAAAAdWgACCg4SFhoeIiYqLhgsLixI1Hx81EgiHCAhqbpxuahOXhQgTVlBeXlBWoIUXo1ZLp0uqoYMHozV0c3N0n7SECBIuNWouloiOghcHAI+JyIzMzdDTi4EAIfkEBQQAAQAsMAELAQ8ACwAAB2GAAIIACIWGhYODCBOMjRITCIoIflaVlpV+kYsTVkowMElJn0pWkIsSayt8HCMFfHwra5CEnCt9fH23fbGQDIudoKGipLOEFSxIyUgYSCwVkYMMF9PU0wyJggza29rY3t+BACH5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uRXq3s0rubPnz6BDix5NurRpwJQtY9aM97Tr17Bjy55NW3Lqy3Tttq7Nu7fv38CDF769Wjdn4ciTK1/OvDHx3JubS59OvTrw55mNW9/Ovbv3yS0q484e/bv58+jRY2d9PL379/CRr9euGKZf+3vx4ye9X0B/wfpphVp79QlYWn9XIfbfYAs61uBkBP5GwBXhATFDceUltiCCnD3oGYeGBZjVgA4ayF97CR7m4V8rFihai7PBVOGF0O0W34045ujafBnq6OOPQDpX4XjsBWnkkUiiNiT/hjYm6eSTOvLYJJRUVnmelBFaqeWW0mHJ5ZdgLudlmGSWyduYZqappmlorunmm7YtWWOWcNZp53BykjflnXz2eV+eRfop6KD+AUofoYja2WaijKq5aKOQhvlopJRqOWmlmD55aaacGrlpp6BGaWiPoZbq46empqreqHuq6uqq4jFJ56u0codqrbg2d2uuvMrH6qy9BivcrsIWSxuxxib7GrLKNsvfr85GWxuz0lYLXqxzWqvtadRu662C0H4r7ofhjmvuY92eq25+5a7rbojtvitvYOnOK2699nqLb77a7stvtf7+G23AAjdLcMHJHoxwsQovHGzDDvMKccS4Tkwx/60WX+xqxhqnynHHpX4MMqgij8xpySZjinLKlK7MMqQuv8xozDIjSnOlBWzgwM489+yzAxsAO3C83xKgwgMaDKD00kw3PYAD594MKQpJO2310gZAba7UjFpggNURpLCXAwNogMK7XCNaQARXhz122We7mzahG1TttNt6kW022kRrS3bbYucNN9/Y6il0pmig4ZcNLBX2wNUD4C2A3nGvO3eViS/eOGGPA/723nL3bW3nYAc++eChFx6ouH+X/nnl6l4uaAZfuy446JaLXm0AbNt+Ou6x614t1b5TTrhq2Z6bgd1LS2586sgbrm4AG/TevOnP5676oeZ2kQIKD0Dwtf/zqGsf/erujsA2+cBHLfy36keOffnBb0+quvGzD7v79rdqbv7za9/W3oc4xfWFcYJhnAI3pxcAvu54ROJeqjJ3QAZqboF9ceDt9jfA/h1uWxr8HQfHJbtG5Y8UIoSgrOYVwuzV73wSxF8EDPAA0wnBABAY4b0IWDNhlbCHb/ohENckxCGmqYhGLBMSkygpHjIRY0584saiKEWPUbGKIbsiFkmmxS2erIteVBkYw9iyMZIRZmY848zSqEabsbGNg1oiHI8kxzkGqY52/BEe8ygqD/JRVXv8440CKUj4ELKQ7jkkImEFw/stsox+fOQXIylJMVKykpBspP8w6cZLcrL/UYr8pHVCKUrqkLKUXXojKrl0ylWKSZWutFIrY+krT9KST7O85XVgqUsn5bKXvfklMKfFy2F6qpjGBJIwkxmbZTJzWch8Zo6cKU02RbOa8aEmNkdDHAZIb5tHvCY406PNcX6mnObsDDrTeS1NfpCdSFonPB0kznnaqp72HCU+82nKffIzlbb8Z5LkKVAV+bOgyiEoQgmj0IUCaEneZM0VHOrLUcGIotm06Dsxmsg8sYAqCeDoQOHCggp48wNciAJLyJKAlibALTBFS0th4lKXfmWmLH0pAXCaFp7GVCs6XUtQbzpUmhaVLT4laliSOpalxIALH5jLFyqwhiVQwQZX/8iqVrfK1axy4Ksc6KpYx0rWrbrErC0oq1rXeoWvehWsblVrXNmq1bjOlUIyoetb9UrWs1KorGHlK1796lW93tUlcSWsYLv6VcUqdqt3zepj28oBx6ZVrQSwARWWsIYKfGEQE1ADE4oQgygkIQlRSK1qV8va1qYWta6NrWthK1vTnva2uH2tbVVL29qalrWnfW1vfWvb4BL3uMJFrnBzC1zYGne1qH2ub287294aV7rBjS5upatc2V53u9wF7m55O1zeKhe7zo1BEZighlEMQgI1YIEJFIABDCjgvvjNb37ZwF823DcEIdCvgAdM4ALjt74ITrB9FQDg+t7XwQYuMP+EIRzhCls4vwC+rwlCQOEL0xfBBu7wfwOs3wwPOMEC7vCEMWBiFYPYwxdesYIXTGAUH5jGMNavix8cghnU4LOkAMABLkDkBhS5AUhOspKXzOQmO/nJTD4ykolM5SpTWclEBgEIpAzlJh+Zy1i+wJTF3OUyQxnMZq7ymKNMZjM/Wc1L5vKX22xkOsPZzW6es5WvnGQ925nOeK7zmvtM5iozIMiCOAADFs3oRjv60ZCOtKQnTelKM5rIls60pA+gaAZwWtOgDnWlPy3qUpv61KhOtapFzWlEu/rVsI61rGdN61rDutW2zrWr3eteXfv616/uNbCHTexiG/vYyC72AhZykOxmO/vZQV72sl09bWhbe9cIuLa2X11tW3e71t+mdbhjLW1m/3rc2063uklRbmqbe93PFja8oY1ucr8b3PcWd77tXe95+/vfAA+4wAdO8IIb/OAIT7jCF87whjv84b7mdbYhTvGKW/ziDpc4xjdu7UAAACH5BAUEAAAALHEApwCPAcoAAAf/gACCggcMhoeIiYqLjI2Oj5CRkpOUlZaXmJmOB5ydnIaCoACapJOhpaiVB4OsgwwXsLGys7S1tre4ubq7vL2+v8DBwsPDhrDGxMm8yMrNvwytgggVFR8s19jZ2tvc3d7f4OHi4+Tl5ufo6erfM+3u7evx8vP05h8VEgut1VZcRP8AAwocSLCgwYMIEypcyLChw4cQI0qcSLGixYsYCT7hYqWGBFYHXFhJo2SFEyooU6pcybKly5cwY8qcSbOmzZs4c+rcybOnz59Ag6p04iRGGisuVo26kONJkiFGokqdSrWq1atYs2rdyrWr169gw4odS7as2bNo06q9OiTJkw8X/w4geGXCixEbAvLq3cu3r9+/gAMLHky4sOHDiBMrXsx4b4IEjSNLnky5sgDINryYiDv3QogYBAjgtUy6tOnTqFOrXs26NePQMUJcAND5MwEBo13r3s27t+/fwHsTaBF7dm3QuIMrX868ufPnqocXp/3KdnLo2LNr3879t3TZ1D0jz929vPnz6NP7/W68+nj18OPLn++dOPjjt8nT38+/v//D7IVnnX7/FWjggfMFiN91CDbo4IPaKehefhBWaOGFwtnXnngUYujhhyBSJiGHDIZo4oko/jXigCm26OKJK7734ow0QhhjhzXmqGN/N5a4449AntcjgUEWaaRzQx6p5P+SyyXJ5JNQuuZklFRWSdqUgIXWl5Z6ccllal8KEGZpYyIW2plnrhYmmgDeZliZjcE5mZzAEXDFbliq6OZea7pJZ2V9grmnYmiyGd2ghhb255aDSrboa402GWl0Ggooo5WYZrpYnpp26qmKlS5I5KekdhpaqBP6WOqqmnLK6qtU9gjrrJi6SuutRdqK66466srrry/6CuywJp46najEJjujsMo2WyGzzkaLILTSVusftdZmmyCqJI6q7bf7YQvuuOWJS+652ZmL7rrNqcvuu3VyyyK89HLnbr34snZvvvyetm+/AAMq76UBF4znwDgarLC+CKu68MNkNuwtxBRH9m//xRhvKXHGHDu6cccgE/pxyCQrOnLJKGd5csos87lyyy1fDHPBMs8McM0284tzzvjuzDO9Pv/8btBCr0t00ecejfS4Si/9bdNOZwt11NVOTXW0Vl/dbNZaJ8t118N+DfavYo+9a9lm34p22rOuTeykM7v9NMpy80pAASlYoPfefPet9whwG1w3rgGg4IAGAySu+OKMJ/4Ax4PTGkAGiDduOeOPZxw5rF0IcbkGD4T+QAQGDAC66BtA3jDHG5Ru+QMF6IUC4g+kkFfgCsuK8QgQXD4A7LLTbvvtqh+b6sQAZ+D667HnNfvvw4O8OasP+P578wI8XzvJ068agfXAOy88//cvK/y97+FnP37I3Zd6/uXpax99x+0jiAYafdmAPGXvMx889OQzXrdgdb/87W8yDgAf9uQXwPscD2PPg98C1ye98gkugRL83/bYZ0GapaB/i4sfBenXQYOpAISOmyAAOSjAeWUsBUJYXgo1OL/iOXCAHQtACjIQgcqJcIUVbCHB6LcB2qlwg0G8oQshl5ciXo+GDdzQEkHmxB8iEXL1o1UVj1hDzZWQXNEIoxi3CEUWKnGI7xKjGllBRvEBkYRCTFipCuicNqrvjTaUIho/Rcfm2JGBZtSjHDv2xxHm0VKDZJ0Ry5hEQTosYxuAgAEcsEBJOqCLGMsi26ykyU3G6v+LnhwaKENptFGSMmmmPCXTUqnKp7GylVJ7JSyrJstZYq2WttwaLnPptV3yEljGOmMifwmuThKzV7485tmSqUy1MbOZbXsmNF9lzGm6qJrWTBE2swkjaXLzU9v8JojCKU4MBdORBywnrsipTguxs5028iY8q/TOeTaonvY8ED7zWaB98vNa8vynks6JyEcKFFb+PCh9EqpQ+TC0ofB5KETTI9GJCimgFt1RRTPanY1ydDse/Wi6MCrSZZG0pNc8KUq1qdKVdjOOBnVplEIq0ya1tKYfoilO4wXTdO40SDr9aYZ6KlRO3rSo8SQqUmd61KXes6lO1SdUo9rPqVIVoEr/veqRgqpV1HC1q2T6KlivZNWxOrSsZo0oWtNK0bWy9aJCbAHu3srS4kDDPXKlq0Y1dFfx5FWvOWJPXz/zV8DSSLBLIexcDTtOviY2BoVlbErt+tjISrauspkNXhd72Qt9BwR9VQBkHyVZ/SXGtOiBjWxCO1rOMha1h4GteVR7gcHGIAGktads/7Pb3iSgOJq9wAy0MAQbFOq4yE0uAR6j3OY697nQja50p0vd6lr3utjNrnJvp93uehe53P2udW0wBC3MALSh+AAXojCE4bTgvfCNr3znG18OcGC+PKCvfvfL3/76978ADrCA9XuFKwz4wP0tMIIXzGD/Khi+D24w/4Aj/F8KU1jC8Q3NEKLAhQ+IggEuoAMQZJAEGJj4xChOsYpXzOIWu/jFMI6xjGdM4xrb+MY0XgEMSoxjFvO4x0Cm8Y+D7GMTJ2HIRSayipMgAyDQwQWzGcQEXDCGI5zgylvYwpW3zOUue/nLJ9CylsFM5jKTecxY/nKWzczmNnt5zFles5rD7GY4oxnNbu4ynM0sZjxzWc53zvOW/cxnQe+5zYQWNJgJnWhEA5rOYT40pL98hDC4YALRQMAEKuCCTnv606AOtahHTepSm/rUqE61qlfN6la7+tWwjrWsZ03rWtt61BWYAALEqOkJSODXwA72rydA7GIb+9jHFjawkUtNbGUP29fLZjayny1taTtbAtOOdrWTje1iX3vb1u42uJlNbXJre9zVLne5wx1sY68b3fD+Nrfh3WxxQ7ve7263udVtb3ofe9esCAQAIfkEBQQAAAAsZwCgAKIB3gAAB/+AAIKDhIWGhAiJiomHjY6PkJGSk5SVlpeYmZqTCwuCnYiKm6OkpaanpYuLqKytrq+wsYegALSCq7K5uruGDLy/wLEHB4LDsZ3IyMHLy7bMo4m+jl8TEhXX2Nna29zd3t/g4eLj5OXmFRLW6Orn7e7v8PHy8/T15hITX40TFS4f/wADChxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgt1nBRYYIhBBXUWKHApaTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPnhSsqKmAgFDII0ViJFnBtKnTp0xhSJ0qFarVq02pat3KtWtVrGDDrvDKVaxTslvNql3Ltq3brDD/zsZ9S5ct2rt479YVmyRGkSNDCbmw4iOJDQItEitezLix48eQI0ueTLmy5cuYM2vezLmz58+gQ4v+TMBGEh9WXBADwKAGEy9UCAggQLu27du4c+vezbu379/AgwsfTry48ePIkytfzry5cgECqHhhUgMEMQYfzkQZAr279+/gw4sfT768+fPo06tfz769+/fw48ufT7++fQFDopz5cOF69u33BSjggAQWaOCBCCao4H02NJjfftJgpx13C1Zo4YUYZqjhhhyC16AND34Q4X8UdmjiiSimqOKKC4Y44oQsxijjjDTWuKKLABxwAYmzyWbjj0AGKeSQ6IGon4g57ggj/21ENunkk1CiaCSEgkgIYJRYZqnllgHiyBqPXIYp5phkfuellSWWqeaabAZ5JphtxinnnCa+CSOdeOapp4F2Xrnnn4AGyl6faQpq6KGIEorooowCqmijkEba5qOSVmrplpReqummQ2bK6aegxmjEkS/6eSCT3aGKaoGr9siqj+7pdiqsPbZqnq3l4QqfrvPxqqGvBXr6qneq0jpgq8DKl2yuuc1KbG3qLfusfdK2V+2CBFxxobChduuthtx+K+64B4ZL7rno0mduuuy2q9667sYrL3jwzmtvvPXeqy+6+e7r77f9/ivwpwEPbLClBR+scKMJL+ywoQ0/LPGeEU9s8f+cFV+s8ZoZb+yxmB1/LHKWIY9sspMln6yym6RWCefKMJOZcsw0szhzzTifeHPOPIPb8pd39ix0pz+jOfTRLFMJtKlINx3jzk5HfR/UUlctH9VWZ90e1lp3jR7XXoc9Hthil+0d2WabjXbaYq/Nttduv6113HJbTXfdUt+Nt9N67410334PDXjgPQ9OeM6GH15z4orHzHjjKz8O+cmSTz5y5ZZ/jHnmG2/O+cWefz5x6KI/THrpC5+O+sGqrz5w667/C3vs+85O+7223z5v7rrjW/TLchsrOu/zEtDF8cgnr3zywrf9e9ByB2CBAxoMYP312GdvPQQoyE08uwSMIIT/AdqXrz333j/PtNkpPGC+ARrEH//18McfQfdvf4/uCA6YP8ADAeiOBSAwAPT5TX/k6sIGyOeIAEJngAXE394QqCY0oMFDNrBP+wbwCAcKAIIGnKD6CvUwC2LQPiioXgd9BEIJ4o2C4toABzsoQAKG8IUjTJtsZAgJD7YwcDD8Fg9p+EAburBuQfTWEBtYwwgCMYdsW2IjfGjEJyrNaGxDAQR62MQbIhGKaROBEGY4xS4eMX1XBJ7YCKCCCBDxg1U8IBjTFoANaICJRXSiHNMIvbQVYANbPAQV9ShCPq7PbAFQgfsMMUgvohFJSyOhDgUhhEI08oz5m6PfxieIS1oR/5JYJBwnAeDJPYJSjXgbZSkLeco+7k2VZvxkqSTpnWfY8pa4BAAs8+jITO5nNaEUTy6HSUxd7BKOhMThL13mylQaoJOxrFuD8KPJVz6TlNGU2zSTyK5j/tCUs1ScN+PIynAebnz/W6UyW3nIuqkgA0JAQRe6I4INCGEDKZAlM9vZu7CNypC0nFzzfMnOgPaza9w8aKgSqlCCVbOhCH0oRLPG0IleqqIWrRRGMxqpjXKUYRL9aNM8KtJEhbSkgjspSgun0pUirqUuXRxMY+q4mdI0cja9KeVyqtPL8bSnmvspUDsn1KGCrqhGHR1Sk2q6pTI1dU59KuuiKtXXUbWqsv+7KlZrp9Wt4q6rXt0dWMPqO4CSdadmPatP06rWoLK1rUR9K1yPKte5KrWudm0qXvMK1b3ydap+/atVAyvYrBK2sFw9LGK/qtjFirWxji1rQSOrMJJS9keWvWyNMqvZGXG2s08bK2gl9dnRqqi0pkURalNbJ9GydlGrfe2GYivbDNG2tttyLW4Dddvdtki3vqUYcIObp94St1zDPS7GkqvcOBm3uQN6LnS7xNzpqkm61q0PdrM7n+1yNz7e/e57wiverVW3vJg6L3pJpt71Rom87v1ae+OLsvnSl0h2isEQBorVa+mLAEOIgdIA4II1LCE2xklAApzD4AY7uMHiEQ7/dB7MGwXTxsIUzrBtJuwj3HBYNwrGsIZlVSvetIAKS1iDCwaxgAqQgQteYIoTZkzjGtv4xjjOsY53fGMq8PjHQA6ykIdMZB1fZcgyLrKSi0wFHzvByUGG8pKVnOQcV3nKUt5xlqeM47F4gQJkqIAnBMEPMpwgDUtIs5rXzOY2u/nNcI6znOdM5zrb+c54zrOe98znPvv5z4AOtKADnYYThNkjhZDABzBghjI4+tGQjrSkJ03pSlv60pjOtKY3zelOe/rToA61qEdN6lKb+tSkNgMSaiCBRnzhGi6ItaxnTeta2/rWuM61rnfN6177+tfADrawh03sYhv72MjmdQ2WjM3sZDvb1ujQRzGnLQtaOIPa2M42LFRRFFckYxTSeAQDwq3tXRjDFYwotyTSre52u3sS527EuN+di3izgt30/ki3881vftu73wCXxLUDTvBgDNwQBy+4wgOe8IU73NtjfkTDH07xilv84hjPuMY3zvGOe/zjHsc3yC2RbpGP/OQob4XJUw6Jku974YEAACH5BAUEAAoALGMAoACrAeAAAAf/gACCBwcMhoeIiYqLjI2Oj5CRkpOUlQyChpiWm5ydnp+gkJqjAKGmp4yEgqsACBUuNR+ys7S1tre4ubq7vL2+v8DBwsPExcbHyMM5ObLLyc/QuzUuFQisABVka0xn3d7f4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb340xrZBWrCBNktqRREqWgwYMIEypcyLChw4cQI0qcSLGixYsYM2rcyLGjx48LlaTZEmaCNQku7kBZQWWIy5cwY8qcSbOmzZs4c+rcybOnz59AgwodSrSo0aNIaVJZAeWOCwnYZvhIIqCq1atYs2rdyrWr169gw4q1mqBsgrFo06pdy7at27dw/+PKnYs1iY8Z/Sq8SbPiLN2/gAMLHky4sOHDiBMLSLAizZt+LsykceJXseXLmDNr3sy5M1fGacy4ABCZb2XPqFOrXs26tWXQoklL7uu6tu3buHPbhj26NG3dwIMLH068LW/ZposrX868Oe7jvk87n069uvXA0GdLv869u/fvWbMnB0++vPnm4n+fX8++fev0293Ln0+/MPz6+PPrj3t/v///AH7WWGzRBWjggf71h+CCDLKnYIMQRsjdgxJWaKFyFF6o4Ya3ZcjhhyByRsAVoLXRm3YhpqhiZgQQUOKJ48XVYlYzWlVjjYPhKICOf/GIVotAAlmYjkGO5WNXR7KV5P9bS7J4xXuNmYicenD5SCQBVTUpI5Y2chmYll4FWSRhV4J5lZldzoVmWmsi1mZiL04Z34p01gmYh3bmqadxA8JI5Z6ABjoWnoIWaihZfcp56KKMVkVoo5DS+WiklII4aaWYXnhpppxCuGmnoB74aaikJphogaWm2uCoqrbqHquuxmoerLLW6h2ttuZaHa669socr74GOxywwhabG7HGJusasso2m1qcqDorbXHQojjttcJVGyO23HYYpZ9zdisuatr+Oe65npUbLrrsvvatou3Gq5m68tZ7Gb325nsYvvr2Kxi//gY8F8ACF+wWwQYnnBbCCjcMFsMOR7wVxBJXjGj/aOBarLFWzG4sb8cetwtyyOiOTPK4Jp/cbcoqY8tyy9O+DLOzMs+sbM02G4tzzsLuzLOvPv+sa9BC20p00bIejbSrSi+tatNOlwp11KFOTXWnVl+dadZaV8p115F+DXajYo+9aNlmG4o2qCNsIIQDcMct99xwC4FCwWtn2sUGD2gwwN+ABy444AY4gPep1gosghAQDO644wYIcTjG8AbchRB+Ox6BEJxz7rcBD3SegQqTE5g4pmigkZUNNhi2QeaOO9CFVSNEMIABGzicd32pr946YbU//rfstNuOu+6Ib6tvBrDHPntVwR/f8O6QPiD88M8LEH3u0ydvrr22X088//TGc68w9Y2GL/z42pePPOXR9qv+4+xv/77pyuc7v/PF325+wuhjlPXElz37dQ9+p1te8wZXP/cdEH/fq5cI9ie4BvrvfhkT2OvWV0AHns9764pXAIRgAPp18IIPzKDARlhCBp5Qeh9EYP4i1TussA4xAVABBS0IQwCCsFM1vMoNExMABTggApnj4f8MFsBIeUkADsBe/3rIxHfFr2FRHIAS3yelKyosi1tMYeUcBsYXLrF0KswX69b4O6uUcYpnFBhvEOBFebFxiG6UIvlQGEPR0DGBX9Rj+/joQxlGsGBv3CMV0ThGLArSgH1MoyO1aEYMNjKQlISjJetosAxEIP8CGcheAY4YgbuJkZNpc9kPU1myVbISZa6U2BM31sRXqqiWtgwRLnP5oV3yckO+/KWmYilMmhGzmDc7JjJ1psxl9qyZzgQaNKM5tGlS02jWvGbSsqlNpnGzm0/7JjilJs5xVq2c5sQaOtO5tXWy02vufGfY4ilPstGznme7Jz7Vps99CiqY/pwPQAP6qn4SVE8DPeh6EqrQWRm0oZJ6KERvKdGJ6rKiFu0lRjMKzI1ydJiGDOFH/+nRkUqIoSbdVUlTuqqVsnRBKH0pelwqUwPFtKYYoilO/3PTnQ5Lpz7VT0+DCpyhEvVYQD0qfYyq1N0ktakFDSlU88TUqbKmqlb/VQ1Ws0qup3K1PFv9KmfCKtZ5ebWstzorWiek1rVah6xuVQx8ZhnXCMG1rvuyIiDx2tI0dHGvfIWpXmcYWARRrLABOixieTrYQy6WsX6V5GNt2liRThY/ir0sZiurWcO2tbO6mStoE8vZ0QIos6ZtD2pTu9DSslaoVmwDYV8bVSlVIARTqdib1FKWrYxJTXQdDB4fZlnC9BYrYCIADHwQgrzUgAJeaIkRpkvd6lr3utjNrna3y93ueve74A2veMdL3vKa97zoTa9618ve9mZ3CFTwAgU+0I8vSCAMXNBCFGCwghXA4L8ADrCA+dtf/xK4vwcusIIXjOABA7jBEDaw/4IDzOAIU1jCGHYwgS/c4P9WuMAa7vCGE8xhDH/Ywxke8YkT/GEQR3jCLE4xil+8YBQP2MAjnnGFQ7xjFeNYwC3+sYhvDGIgF5nGNjbyhUsMYws/2L9RWAIXwlCBL6zCBWO4gxjEkIc8bLnLYA6zl7ks5jKLmctoNvOYvwzmL5O5y2zeMpvVTOc6n1nObjYzmfFc5zi7Wc5w3jOe91zmN9vZz3ZONJwDrWg9E1rNaI60oPks6EYHes5zZvSaB51oPw/a0JruM6gVjelMg5rPbRb0HcYwGlZMoAKxYIGslyHrWtv61rjOta53zete+/rXuKZ1rYXNa2KzYAYzALayl/7NbF0be9nPbraylxFtaVubBdTOway1vetsA7va1w63sMfN7Vp/oAbVuAYADnABVLj73Z24QLvhTe962/ve+M63vt2tCnX7+98AD7jAB07wghe83/9GuMEXzvCGO/zhEI+4xCdO8Ypb/OIYz7jGHa7wjf8bAdbw+MZBLvKSm/zkKD/5AhaQ8pa7fOIrf7nMZy7xmDPc5gNfOc4JvvOA27zfPV9F0P899JyznOZIT/o1iq70pied6QCHOit0fvSCS13oRwd61Ze+dZ933elgD7vYx072spv97GhPu9rXzva2u/3tcE85yeOu8bnPne54z7veS373vU/c7iH3+8ADAQAh+QQFBAALACxYAJ4AwAHiAAAH/4AAgoOCCAiEiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6fn4aToggVLjWoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcKzLi4Vh6KQyQguGGVw0NHS09TV1tfY2drb3N3e3+Dh4uPk5ebn6Onq3GUYLocAyY2iEh9WPlD5+vv8/f7/AAMKHEiwoMGDCBMqXMiwocOHECNKnHjQh5UPEuLBe8TAhRsoSZyIHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3MmzJRUqTpJAcVODwSQGOZqsMEJAgNOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaLESWGtkRRMWRv8VHTiAiMEFE0pspN3Lt6/fv4ADCx5MuLBVI0pMXIiLaG7dCyFitGhquLLly5gza97MmWsCDjEULI5kN/JkATb0dl7NurXr17A1E2gRA8NoSKUlN00du7fv38CDB59d+zbHCxh0C1/OvLnz52nXFmfsyG7y09Cza9/Ovbl029Qb2VWgvLv58+jTGyYewnj1C+Sxq59Pv779rezdi4df/r7//wCml194jIzXX4AIJqggcAOSxp98C0Yo4YSYNYjbg5RRqOGGHO5l4XGmZdjhiCSWmBVxohG4SG4QmujiiyWiqF+BkB0I4404SiijioqwKGKOQAbp344OhijkkUjOR+T/hUYm6eST2S0Joo1QVmllbFK+1+SVXHa5Wpb7benlmGSuR1t7PCbiY5lstgnYh1r2t8CcdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDa651Nwhimno5RWaumlmGaq6aacdurpApCeOeOKNbbo5qmohhUpjWKm6uqrJ4qa5mOtwmrrraHGgGaRVOLqq6urklrrr8S6GWyPpf5Y7LJlHqtmssxGy6aztPYq7bVPUkvImth2W6W2g3Dr7bhIgiuIuOSmm6O5AKCr7rsususuvPR2KC+09eZrr6y8mqrvvwreOyzABP8nsLUFJ0zfwf4q7LCA/DKJ8MMUb8ew/7IVZ6zdxRp3zB3HHof8HMgilywcySan3BvKKrfcGssux7wZzDLXbBnNNuc8GM469+wXzz4HjRbQQhc9FtFGJ+0V0ko3HauuoyI7sNNUP72rxA1XrXVVTG/tdddeb50A1LNui2/YaFM19tVTZp321xG3jfHbYYNNd9J231103noHzXffPf8NeM6CD15z4YbHjHjiLS/OeMqOP15y5JKHTHnlHV+Oecaab05x5547DHroCY9OOsGmn/5v6qrny3rr9L4O+7uyz55u7baPi3vu3e7+rwUPQCD88MQXT7wDSvtebwAPaGDAANBHL/300j/g1NyHxx2n2zmnEMHz1Icfvv/1eGsvKfc1BxCB+AM8oML770MAvRDwq5BC8uazOumn/PfvP6IPGMCeMhSAOQ0gA1oj2f8WyMAG5skCGuATAQ2IwKopT10BlOBTCriAAyYwf8KaWM0g0KcJdrCCVLtguiLIJ6hw0IMWBKHURCgzFg5wgxT8INn6hT2b2VBPJoRhCmX4rKn5sIQ4PKEO2ba9Ho4QiU55IQqdpkJyCcEAGoxiDmO4Q6w5UWYF+CGegjjFplVRdxnAIhCTKEQqErFa6JNZFzKYJzIuMWpFpGHNuuAAAY6RjWXEXxfl9hQHGvKQDOwCCkh4JztykYnnyxAiJ0nJThGgC3Ni5JxcuMUhDrL/iYWspChHySlHehKS+pMPKVfJSkqZ0o2fjGQoW0nLWhLqlWZ8o9mMaLQH0AmXgkRlCFVpy2IaM4sCkOIdyxausx3zmdD8JSCXycNZRvOatQRm+WKZSkli85ut1KbRFAjOco5SnHvTZTO3ZM52UpKTSnwkHuH4RaH5ck7oFNoZ8+UA5wmBgA8wgAY2QE0v8s5m+zyorxKq0FuR050QjahEJ/qnXAlzhnFsaMUYqtFXcbSjqfooSE8l0pG2qaQmbZY6z3W2lHoMpS71EkxjyqWZ0tRKNr0plHKqUyfxtKflWmm7WgpUhf20qEE6KlLXJdR5LXV1TSXqU6HKzWHWc6rk/1IqVuMVVV5uNatd1eNXexfWjI71Wlo9676qitGrqjVaaX2rhuIq1wnRta4RuiteA1ZWt+51oX396+0CK1jdEbawZGVrHs2KWFjptbH3eSxk6yPZySrpsJZdVmUzi57NctY8nv3sxzArWlyFtrRRIi1qHava1QKrta5F1Wljy5zZ0vZksL3ttHKrWzLZtre++S1wscTb4da0uMbFKXKTu9PlMtenzn1uUBVLT+mqlLq7FKt1hSTc7c4sut5lKnbXqd3w4qi75r0MetNbmfWytzDufe/OwCvfGNG3viOKL37/ot/99qW//vXQfQNMIQAT+CwGPnBZEqzgow24wXwdL/9LvQrhuT64wgFiMIaXduEND2mldgEBhT0MoLWgRgDsAcE8WSri8pLYPibWS4pXfIALXAAE8fHri0t8JhVfgC6MqPGN8aKaHZPIBomx8Y8RIY922YUFRXCCERIAlbVYWcdGtpgRnFCEGSyGOoZoMgPsUgM3eCEJP3HCT9bM5ja7+c1wjrOc50znOtv5znjOs573zOc++/nPgA60oAdNaDsnwQtEGTOYN9KYeqwhDV5QgqQnTelKW/rSmM60pjfN6U57+tOgDrWoR03qUpv61KhOtapXzWpPeyENa/hABShhFGZgAA5xkIOud73rOPj618AOtrCHTexiG/vYyE62speUzexmO/vZ0I62tKdN7Wpb+9rS5rW24wCHN7hgAoyWxAEmYIphmPvc6E63utfN7na7+93wZoUxJBBucR9gzIKYi2MAsG9Q+PvfAA+4wAdO8IIb/OACxzfCF87whjv84RCPuMQnTvGKW/ziGM+4xjfO8Y57/OMgD7nIR07ykpv85ChPucpXzvKWu/zlMI+5zGdOc5cHAgAh+QQFBAAAACxdAJ0AtgHjAAAH/4AAgoIHhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6fmYOiAIUXpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AuoWjCBMVNSwmIcvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uPk5dkmLDUVEwiDB8ZjVU009PX29/j5+vv8/f7/AAMKHEiwoMGDCBMqXMiwoUOCTaqMWXeAkIQwXKDAGGKko8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bK4fAgMIljISKBy7UOEFjhREbSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKxWpkBY0TNS6U+iAmihECAv8EJEgwahCBunjv3sUrai/fv4ADCx5MuLDhw4gTK16c2C/jx3kL643M2LFiy4fn2hBAwEgUMR/UBs0hBYYRupBTq17NurXr17Bjy55NO7aAslJyiL7AQorRBAJqCx9OvLjx48iTK8cb14gTKTN2kzYaF0D15diza9/Ovbv3wHOtJ3AOXbpvI9Wvf1/Pvr379/D5hpdLPnqpGVKcoA8ev7///wAGKFtzz9kXFH76qSfgggw26OCCBJZ3X377PWjhhRhmuFyEBl6AYIUahijiiCQuxuFuHypY4oostijiiRMmyJ+LNNZoI4AwHkihijf26OOPG95WIIo7zgjkkUgmaZv/kBLqKKOSUEYppWI5eljklFhmqaUoVaZo5JZghvljl1eKaeaZNJL5JJpsthmimiC6KeecEDLZoZd05qlnfHDyuOefgAZZH5FrBmroocb1+SWijDbqmqKORiqpapBOaumlhlWK6aac1qVpp6Bu+mmopEo6aqmoInpqqqz+uWqrsM75aqy0ojlrrbiCeWuuvE65a6/AJvlrsMT6OGyxyKZpJ6FxJuvsmMvG2Oyz1NZ4bLXYXnhtttwyuG234P73bbjkvjduueh+d2667Gq3brvwJvduvPQSN2+9+M52b778Phqtk9P2KzBy+w5ssImdDSmtnwc3POC/Vhbq8MQPD7rw/6IUZ7xawRp3zCXEeHosMmQcj6xxySZTjHLKDq/M8sEuvzxwzDILDHKZNefM180S6+yzdTwH/HPNNA8Nb9FGs4t00uguzTS5Tj8NbtRSc0t11dhejTW1Wm/tbNdeIwt22MSOTTawZp/Na9pq48p227S+DTescs/Nat12o4p33qTuzTeofv/NaeCCY0p4q5glfXjhky6eqgoRGDDA5JRXbjnlEXjseKkRTJ5Y5tZlvHmoki8G+slBM9ywAX85EEABsBcAegaxFxCA5qlj3PDpOw+iu8ijb6rCAIHN+DvuFgOs+sC89y7I8R0HP+lerBfve87SX0p8YdCjnnzEQh+8Pf9gxmOfe8fj/1U+0edrnL7zobP/fcgO76WBYOvLnL2lDrzv6fXyU5jyusevAPhvFPl72f4aB4ADAjB++mufxhLHpQcqUIITJJ8FWbbASwXnfv97nvnmhzPNUXCDKesgqB5AmQiSsGcmY6EIBXFC5AkQfMvTmAxHUcPoYfBnPfTeDenHsh3OKIii+2EMW3jBF4bPYzvsywiHWMKUGdEuU2wSDgk4sShiMYBaJKLI9rJDvyBRZUrU2RknpsJOPWByDuhL5waQAQ6mkXH0aiMe86THPcrqjn5UGiAD2bRBEhJqhjzk1BKpSKsxspFZeyQkuSbJSX6tkpYUGyYzWbZNchL/bZ785NpCKUq3kbKUcTslKummylXerZWu1BssY9m3WdIScLa85eByqUvD8bKXluojMKHlxBwOM5XF5OIxX5nMZRZLmM601i+jqappUtNQ0Lwmi7KpzRJxppndNCU4w4lMKsKQnKniJjo1pM51Yqid7rQQPOPpoHnS01vWvCeb7KnPAPGzn+LKJ0DF9M+B8kmgBt1SQRPqnoUylD0Ofai6ECpRKUW0oty5KEbdRdGNCqujHj2SRkOqnJGSlGAgPWmPTKrS4rC0pcN5KUxrI9OZ6iulNm1RTXMKm53y1F/j/CmdfCrUjeG0qC86KlLZqdSlvrOpTpUnVKNaz6lSFZ9B/70qQa2qVX9ytasBzSpYtUTUsXLvq2aFT1nTij+0srU9a32r+twq14laTBC9MQpc6qqk9ACtPqLI61uUyVdvBuewdhLFdJ5Y2B4hJbGDII1pCNtYFj0WNzMQBVvcAhfO7CUuoKVsZRsUl858JgeiGIoWjPJYAYzltbCNrWxnS9va2va2uM0tU8qyBLSIogIYkcFGcELc4hr3uMhNrnKXy9zmOnckOuFJGCogCnhUAQwPya52t8vd7nr3u+ANr3jHyw8wSGQdoijGMVgwg2SggwXwja9850vf+tr3vvjNr373y9/++ve/AA6wgAdM4AIb+MAITrCC42uCBr8XvliAr1g6ENAOURyAARgOhoY3zOEOe/jDIA6xiEdMYlZkAQAYxjBgUsziFrv4xTCOsYxnTOMa2/jGOM6xjnfM4x77+MdADrKQh0zkHY/2yEhOspIdNYwlb6nJAAgEACH5BAUEAAEALFgAmADAAegAAAf/gAGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydgwcHnqKjpKWmp6ipqquslKCtsLGys7S1tre4ubq7vL2+v8CJCAjBxcbHyMnKAQzNDAAAztLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6erhktGCDQ1ZWYjw9fb3+Pn6+/z9/v8AAwocSLCgwYMIEypcyLChw3yCmj2aUMEFixAKFAQJgqGjx44ZQ4ocSbKkyZMoU6pcybKly5cwY8qcSbOmzZs4c+ocySYjCxcSHlXI4aZIlCRIkypdyrSp06dQo0qdSrWq1atYs2rdyrWr169gw4rFGqWImw8VGBB6VYhBDTde/5wkaMGhrt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHg1skcOLFjQu1n0IRUjujCBUjAggkGE26tOnTqFOrXs26tevXsGPLnk27tu3buHPr3s27d2wCAow4KcKCmSK1CqIAFyBIAPNDzxcxj56I+rLr2CFZv7W9eoDu3bVjCu/I+fTQURQYJwRtEIMGCpJcSUA+u/37+PP3SnAlSZD1g7QXEXxJcECffggmqOCCqyTAgX8ACjKMewReQQCDGGao4YbSPRdafwo0gNkgEw4Yn4Ucpqjiivo51xwBIIp4XAAYFJgAizjmqCMyDiaBQYSGqFWjgTsWaeSRtfT44/+IhwhpI5JQRinlKEoC2RaNT06p5ZZcPlIlk0FiSWSXZJZZ5pczDnmjmWy2CSWaiTg5ppt01rkinIjIuaadfPa5IJ5NEjinn4QWil2PIYLZlqB7Guroo8EgKmOcjEJq6aW7SKroZpVi6umnsWh6XKeglmpqKaJSGt+gp7bq6iWp5knqq7TW6uWDiY66aqO29uprIbEGuuuvxBYbbJCzFqvsq8cuOuyy0LraLKfPRmstqNNSWO213FqarYlZdiuuo98yk+y46NpZ7nvbpuuum+ue++68XcbbLr34amlvuPn2K+W+rPorcJEA8zrwwTgWjPDCOSrM8MMpOgzxxBhKTPH/xQhajPHG9mnM8cfKeAzyyMWITPLJ++E6qaz3ouyyLia/LDMtMc9scys136wzKjnv7DOVKm+qLb8/F21Kz0YnDWvQuhKt9NOaIA311I0IIDXVWCdyddZcE7J1111/DXbWYo9NddlmQ4122kqvzbbRbr/9c9xy70x33TffjffMeu/9ct9+owx44CQPTjjIhh/OceKKY8x44xQ/DjnEkk/OcOWWI4x55gNvzrm/nn+eb+ii00t66e+ejnq6qq8+buuudwt77NfOTnu0tt++bO66G8u0qk73LvjvLAcvfOHEC2v88Ygnj2zLzDefRK7ABzz1AIfzni4EkGsfPa3e92ue/4uDLEf+0+Ffy73l6X9/avvulwr/sthnPn/8nt6P/6X67w9p//4jl/OctbwAXm6A1CqgATWHwKFZz2dd4BwAF+inCVKQTxb0VX3wlsEL0qmDv9og20BoreiIsG0NBNcDzXbCpJEwWiZM2wuhFUOzzfBaLYRbCs0FPa7VcGw3VNYPwRZEGMpwh+xSINWGGDYkyutp22Ei14pILCmSzYk9zJoVsUZFD+oLi0r0Ir66KMYokbGMSDojGo2kxjXuqI1ubBgYVxjH1M3RYHU03R3zKDA48jFie/zj6AIpSD1Ob2XKo2MhueXHRVaMkI5kHSQj+bpJUlJ2lrxk7TKpSdxxsv+Tu/skKH13SKGpEI+jVFYjU9kxUbKyV6t85XViKcuQubKWzLolLltFy10ao5e+jJQug4mtYRIzf8Y8pqWslkxl/q+ZzhRgKZumyGhiCpjWzAU2s3mLbXIzSdD8JgbDKc46ebOcoSInOtt0znWyop3uVAU848kzddKzXva855bmqU9S8LOfovgnQDsh0IFuoqAGzQRCE7q0aVYPlQxlZz4jSrCJUlRHC72oJDKqUUhwtKOO+ChIGSHSkSqipCZFBEpTaoiVstRrFn1phlwq0wDQVKY3fWlOWbrTlPbUpD8daVBBOtSOFlWjR71oUim61Ig2laFPTWhUDTrVgR5rAQv/oBAbbJTDmm6IABcSRI/YsDKsYlWrXPUqlMA6iLGWNaubERNE1ZojF60LS/Oha5RcBCOHDuKsEblAcszTnK7qdUHOIUAUQnCBEZkVrsy4AAuK4ATQiMY3mM2sZjfL2c569rOgDa1nwXoa0gLHCFQowgwa+9cFDKNEDHABXORyBcjY9ra4za1ud8vb3vr2t729Qm3xIlwOWIgybqgBZl7LXGIE4ABDKcpRxkLd6lr3utjNrna3y93uevcpZXFDDiqgGeYegiIuyAFGFACSnbj3vfCNr3znS9/62ve++B1JCH5SgQlA4gIAhsc7HkLgAhv4wAhOsIIXzOAGO/geAA4AIwAicQCJFEJAh02RNDgB2Ax7+MMgDjGfOixiN2EVGihGcSAAACH5BAUEAAEALFgAmADAAeAAAAf/gAGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydgwAAnqKjpKWmp6ipqquslKCtsLGys7S1tre4ubq7vL2+v8CJr8HExcbHyMgHhAwMyc/Q0dLTi8uQBxeEFxcN3d7d1OHi4+Sp29rWkDmDGBgK7/Dv5fP09faN7QoBIesVE/cAAwocqGldugDDCCpcyDBgjUIJG0qcSPHZDEchKmrcyHFWRkMHDnYcSbLkKAUNQIo0ybKly0coDUW8gOGlzZs2MWSDGGoQTZxAg3bUyaiBPqFIky6Mucio0qdQ7TFV5DSq1avTpiaqirWrV2JaEXH9SrYsrrCHxppdy5YVWkNq/9vKnSvqbaG4dPPqrWR3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmDNr3sy5s+fPoEOLHk26tOnTqFOrXs26tevXsGPLnk27tu3buHPr3s27t+/fwIMLH068uPHjyJMrX868ufPn0KNLn069uvXr2LNr3869u/fv4MOLH0++vPnz6NOrX8++vfv38OPLn0+/vv37+PPr38+/v///AAYo4IAEFmjggQgmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLMMYo44w01mjjjTjmqOOOPPbo449ABinkkEQWaeSRSCap5K2STDbp5JNQRinllFRWaeWVWGap5ZZcdunll2CGKeaYZJZp5plopqnmmmy26eabcMYp55x01mnnnXjmqeeefPbp55+ABirooIQWauihiCaq6KKMNuroo5BGKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqageM1MQpAaxkyCgrNrqqwj1RAheqQ5y1Ki0CoIAArka8uuvhVyU6q+x9nTAQ6Rak2yysJraU7KBAAAh+QQFCAAAACxeAHAABAAFAQAHUoAHBwAAgoSGhYOJh4qIjo2QjJKLlI+TlpWRmZeamJiECISio6SbAAihp6mlrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7IBIEAIfkEBQQAAAAsXgBqALQBEAEAB/+AAAAICIKGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en58IEhKFoKanqKmqq6ytrq+wlBN6LhOxt7i5uru8vb6eEjo1Er/FxsfIycrLhxU6HxXM0tPU1dbXiM7Q2Nzd3t/gnQzBw+Hm5+jp3OPCxOrv8PHysOzl8/f4+fqS9e77/wADxusnsKDBg9gIIlzIsGEvhQ4jSpx4CiLFixgzRrKosaNHjRw/ihzJMCTJkyj3mUzJsqW6lS5jylxHzt/MmzirwczJsyevnT6DCm0FdKjRo56KIl3KlJLSplCjKnoqtWpUqlazIsWqtWtQrl7D4gQrtqxLsmbTnkSrtq1Htm7/416EK7euQ7p28x7Eq7cvQL5+A+MDLLhwvJqGE09ErLgxQ8aOIxeUQIuU5MsAJ1SoYAuz53wIJkwo9bm06dOoU6tezbq169ewY8ueTbu27du4YTVokLu3pt2TFCjwTdyS8OLIkytfzry58+fQo0ufTl2xAt7Vsx+6rr279+/gw4sfT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkw5JMNunkk1BGKeWUVFZp5ZVYZqnlllx26eWXYIYp5phklmnmmWimqeaabLbp5ptwxinnnHTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUVmrppZhmqummnHbq6aeghirqqKSWauqpqKaq6qqsturqq7DGKuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+AqelytwLUaCAAh+QQFBAABACwAAAYAXALSAQAH/4AICAEBgoSHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6flQuiC6ClpqeoqZWGhYOqr7CxsrO0tba3jKOkuLy9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uPk5ebn6Onq6+zt7u/w8fLz9PX29/j5+vv8/f7/AAMKHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEkymSBWJVOqBHnS1cqXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjt3QhXcp0mdKmUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cP/jyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7dvhS1/C38UfLjx48iTK1/OvLnz59CjS//3dHru6taza9/Ovbv37+DDix9Pvrz58+jTq1/Pvr379/Djy59Pv779VAwYfCx+X9+ECi64UMEEHvHXHz4VYIDHDW+4cKBlDNQwhwce3FDDg5ORcgELO5Swgxs16IchZKQ0oEAJBtBgxwcijvgYAyaWoIESK7boYmMwnjhjjTe+GOOOLI6GnXg5okhjkKINGV7/kUDa2KNiTB7p5JOIRckjlYtZiSSWiWk5JZeEeQlmlz9KOWaVZV55ZmFFGmDmmmymuSWcgrX5Jp11xuimmngCZiefffolZqB+yvkloXkNimhfii66V6OOJmpopHxBSqldll5KV6aaysVpp3B9Cqpboo7KVqmmqoVqqmityqpZrr5KVqyyikVrrWDdiqtXbao4566qXjBDhzsACmxaEU5Y4QcHoHRsWgni8YKFzbr0LFr/uVCDCwRe2xYADFxwwaHennXAAeWmq+667LbrbmwAvJtKvEGBS4i48nKCbwAM0BsUCwFggEG+mwgcAMBAxYswwaYA7C9QVzC8ScRUSFxW/8UWOwrAwxcMnHEpGFxw08aIdPwxyCLzZGIAHCRwsiYJcADUyi2/nEnMNues88489+zzz0AHLfTQRBdt9NFIJ6300rgZyPRPTj8t9dRUyySAAIpcjYjWAXCtitddY50K2JZcbbbZsIB9NiVkP9K2Jm93Encvc4PWttpi1+0J3l+LjcnZa7+Ct96JEL6133IjDorhtTBe9eOQRy755JRXbvnlmGeu+eacd+7556CHLvropJdu+umop6766qy37vrrsMcu++y012777bjnrvvuvPfu++/ABy/88MQXb/zxyCev/PLMN+/889BHL/301Fdv/fXYZ6/99tx3b5ji3ocv/v/45KNOACN+n1++JHeDv7417b8vf1nuz2///fjnn7HYBujv//8AnE79AjiNB0xHSYOJ340QKBgFEvAfA3ygBCdIwdMALoIVJMYFM8jBDnrwgyAMoQhHSMISvgOD3ImaCX2hwhW68IUwjKEMZ0jDGtrwhjjMoQ53yMMe+vCHQAyiEIdIxCIa8YhITKISl8jEJjrxiVCMohSnSMUqWvGKWMyiFrfIxS568YtgDKMYx0jGMprxjGhMoxrXyMY2uvGNcIyjHOdIxzra8Y54zKMe98jHPlpEFIRYWdLapoAG5ASQARAk0ghpSJs4y2RcdFbApuayQI7sYZcjGUw0mQiM+SzVAZVEBCghwUmakEtnHJBZIlJJiAR48pROGcX/ZnANBqYDYAZL2oXqlZ8AgAAEYCTZvgjRSy2S4lyIKKUfl8nM+CjTi89spjSnSc1qWvOaqGthFrWJzW5685vgDGfybIlFcorznOhMpzrXyc52uvOd8IynPOdJz3ra8574zKc+98nPfvrznwANqEAHStCCGvSgCE2oQhfK0IY69KEQjahEJ0rRilr0ohjNqEY3ytGOevSjIA2pSEdKD25esSUbS6lKV8rSlrr0pTCNqUxnStOa2vSmKg0EACH5BAUEAAEALF8AZwCxARUBAAf/gAGCDISFgoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+gmQwXDaUNFwyhqqusra6vsLGys7SPNSwKuSYfFbW+v8DBwsPExZcKczslyyU7MwjG0dLT1NXW1Bok2gYlOhPQ1+Hi4+Tl5jMBGhEWIh0dMXcVE+b09fb3+KokFjYCBC0w4s3LR7CgwYP3SIgQ4K9FkjsuBiKcSLGixVokRjD89zAiuIsgQ4ocOUnhRoAQJZJcybKlRZMNA0Z0SbOmzXow/8lUebOnz5/BcqKcCbSo0aOsMp7cibSp06eVhDKFSrWqVakprWrdehQrUa5gw7r0ylOs2bMUyaJdy9ag2rZw/+OWeyu3rl1pdO/q3esrL9+/gJNqjJk1sOHDnvwiXsw4kuLGkCMfeiy58mLKljMDxqy5813OnkPDBS269FnSplNzRa26NVWlhL+6ng2WNe3bQG3j3m1TN+/fLH0DHx5SOPHjaRfGLou8OUnjzqMnXJggAQemBw5I337RZPXrWbNzHz9x31KB5NMjVGchQQvwstXLv5dNG4kSLzwKEj+//7hkzJTgwQvyHMKffwhW84EJuSiAwQwuSHBgghROg4B2plxwwQEXalfhh9MUYgiIJJZo4okopqjiiiy2KAwCH7koYysTzmgjKBreqKMrNezooyfo/CjkkEQWaeSRSCap5P+STDbp5JNQRinllFRWaeWVWGap5ZZcdunll2CGKeaYZJZp5plopqnmmmy26eabcMYp55x01mnnnXjmqeeefPbp55+ABirooIQWauihiCaq6KKMNuroo5BGKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrLbq6quwxirrrLTWauutuOaq66689urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPFUxRhnrPHGHHfs8ccghyzyyCSXbPLJKKes8sost+zyyzDHLPPMNNds880456zzzjz37PPPQAct9NBEF2300UgnrfTSTDft9NNQR53yBSSnMjIAIQcCACH5BAUEAAEALGAAZwAYADIAAAf/gAGCg4IMhoeGhIqDFxcBDZCRkBcMi4oYGAqam5ssFRMIl4slpKWkHj+flQEHB4sksLGxJS81EoOtiiK7I7u+Ij1AMxWWAQI2NgLKy8swPiHExcbM1M4KFQy5C4rUzATWxNrc3QIELSs+16yu24Tk5efp4ezj3ebo6uLu5Pfy6wHtRAh61y8fvX324hkEKGjEQH4K5zFESK2gxHaDCEb8h/FhQnwX61XcqC8jRJAcRXojedDkR3/6BE57ubCdw5kjUZb0mNOfNI0of570WQwoUUtG1QmlGa3oUKVOmVqSmbQpoZtVpeFcGTRqT6hIn1pdlHXp17Eql1k0a88ZBrQBSRy+a+bjbTECW6vBdKWIAIEEgAMH1snXkixZJXaADaBglKlSHnZ8qBCKUA0WgzhpZuFCQuV1AFYJkkS6keh/lhAhOgCgtWsAgQAAIfkEBQQAAAAsYgBnAB8AOQAAB/+ADIKDhIWGhwCJiouMAA0NII+Skw0XFwyNmYkKCkidnKCgIR8VmpklqKmqqjsspo0ksbKzsgYlPwsIjSK8vb6/vh0dSkcVE6+KAsrLyzY2AgQtScXHyADM2MvRMNTW2d/b1CPf5OXR08bI5djn3a/rzO3p7/DK8tWm9fbS7vn69yL0wbs3TqA5fvP81bun7h9CfJoEMqS38GHDeOQsUmQWIIXHFAGgaVTITEWGkxlUiEQ3IaBEAio2oFRBgKBBAgJMzqw5MmI2nSdVTiS5rOPHkEN9QluXNJPEnk4dsrw4EGqjp1M3Mn3o0iC4hwW9Zmt6VWo/pdpqsrPKCBzOeGxpF2E9G3Xs2qxaa77VFrdtvL378Gr9yi3hqwSIE/NIjLgFh8IQTdGaLKvEDcOmVmlO5UEHZk2hQmPAwAlDjgoIdFmrZOnCJEuPQFyyxuhAokODaC9KnVq379/AgwsfTpy2peKZRodezikQACH5BAUEAAEALGQAZwCoARUBAAf/gAGCg4SFhoUMiYqLjI2Kh5CRkpOUlZaXmJmam5ydnp+goaKjpIINkg0NIKmsra6vDRcXDKW1tre4ubq7vL2+lAoBwYcKxcbHyMnGIR8VCL/Q0dLT1NXW1wEl2tvc3d7bHiYTz9jl5ufo6eq1JO3u7/Dx7gYlLxUT6/n6+/z90iIAAwocCBCCARQjAnboEOOECwn+IkqcSLEiIQECAmDcyLHjRoMqOBJoAYPCQ4soU6pcOc2jS44gRZI0CZGlzZs4c2p6yTPmxpElT+ocSrToTZ4vfWIEStOo06dQ+SF1qVQAU6FRs2rdGm2qx6pXa3IdS7asKK8dwc7Earat27eR/9DCNBDy51qxcPPqNSv3I12ZQfHuHUz4qUcCSNUGLsy48dC+GBU3dUy5MkrIAiSztcy5cz7MmgV7Hk3aGui/dheXXs0a14YMsGPD3gA5dOvbuEGliMC7t+8UfW3nHk7ckgXfyCNYEJkY9dK7xaNLN3Q8ee/lcoVP3168unXlwZ1bhc69fG7v1rGj1W6+fWn0ydV7Ze++Pmf4yOVPpW+/P2MBu30XAXDZiReWfwhS9ppssdEWXl3PqZbghJydBuF4ElKoYWMWAjbZhiAS1mFqH4ZoIlwjRljiiSyWlSKGK7Yoo1YvHjjjjTTWZiB5OPZ4FEaF1Mijj0SqBORFOl5oY/+RTP74oIebNSmlPxkh+SSJUU6pZURCZrjll/10GSOYZKojZpZlpllOAmyy2UILbcbZJkhxtsDBCmOqqec18vTpZz1o7imoNN8UaqgHL7iAz6CMQlOMIMpEKikGLLiAADmNZrpLKqbA4umns2gqajSOlGrqqKimquqqrLbq6quwxirrrLTWyhmntuZay6O69urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPH/xRhnrPHGHHfs8ccghyzyyCSXbPLJKKes8sost+zyyzDHLPPMNNds880456zzzjz37PPPQAct9NBEF2300UgnrfTSTDft9NNQRy311FRXbfXVWGet9dZcd+3112CHLfbYZJdt9tlop6322my37fbbcMct99x012333XjnrffefPft99+ABy744IQXbvjhiCeu+OKMN+7445BHLvnklFdu+eWYZ6755px37vnnoIcu+uikl2766ainrvrqrLfu+uuwxy777LTXbvvtuOeu++689+7778AHL/zwxBdv/PHIJ6/88sw37zyRsnSeSOcAVG/99dhnr/323Hfv/ffghy/+E/jkl2/++einr/767Lfv/vvlBwIAIfkEBQQAAAAsYgBnAG4AMwAAB/+ADIKDhIWGh4iJiouMjYsHBwCSk5SVlpeYmZoADZ2en6ChoqOkoRenkZuqq6yUCq+wsbKztLW2CiGxJjk1Eq2/wJglw8TFxsfIycrHHjcuDMHRwCTU1dbX2Nna29gGJTsf0NLjmyIdHSIjIusj5+nq6/Hy8/T19SPqOD1ELBcMqeQCTrIhgAABAQgFEDSYsKHDhxAjRrQxpEi/fwIzShKQIMHDjhJDihRJscgMfxo1cvToEOTIlzAVVjwpLmXAmDhzNix50aZAnUBj8kTpk1zQoyQr9iw6DqlTiENrMg32tGrCqMEITAVg1SrWrVS7Pv0K9pfYsUqJlm111inZtav/2iJ9u2rDgLt4897NoDWa3KN0VUHQS3gAhKZ/gQbeNLhw3sPSEitOK3VVY8d3IfuVnHOxpsuYNYflLJQyMNCORQMjjZOsiJeoC6s2yxom2RGwMeOdzbb2S8+ZYhPmzcr3b9O/hOslHtd4UotqWSl/jNi5ROCYMui+u6G6dajI4Tb/Dh565YB9vZPfGV78pvXll7p/D9+ha5jpi9a3H37EfEz7sWfef/QFKNOABGZiIELYEbjggfJlpd+CDf7XkEEYflcSTQkqeGGG1m0YXYeUPCgiNJCQSElHLCbAQ4sttiDjjDDWaKONL7LYgg1GmIRSiipSws2QRBZpjQEaeGDCRI8ABQnAMlBGKeUx4DDppCS1hKBlLrd06WUsWprQS5NOnnJKKCCkCUIpbLYJSpqnnBckJJA4Yuedh1xZCQJ8IqAnJoEAACH5BAUEAAEALGIAYACrADoAAAf/gAGCg4SFhoeIiYqLjI2Oj4gIkgiQlZaXmJmam4uTlJygoaKjpKWmp6ipqqusra6vsLGys7S1tre4tQy7vL2+v8DBwsPDB7nHgw3Ky8zNzs/Q0dLRF9UMyLUKhArc3d7f4OHi4+TjGBg5FZ/YtyXu7/Dx8vP09fb2OyYT6+yzJP8AAwocSLCgwYMHDZTQUWGCrRGCRIjo0CEARIkjKIoYAbEUR4kBJIocSbKkyZMoN6pMSZJijBMuJNwSEMCGAAIEBNG0idOVgJ9AgwodSrSo0aNGCbSAQaGGTFw/EyQgFHVqK6RYs2rVqpRpzFxVqQqQ6nOr2bNbu1KIKaIfLbRw/+MSVfvV7Sy5eOXSfWo3Vt6/Z/f2lQW4cFbBjXIODmW4cdKla/kyormYk+PLQhFXvoq58962nBRvVtTZM+S6iUdrKo1ZsyIVEAzInk1bNgQVqhGxvuw6UYQBjAZEyH1ot+PeiCAAXzQAAnFDxhsjP6Q8uPPnYqMDnm6oOvPr2HVq335aciLvipqHHzSevFfzyZenBx++/V/uhdAnUr8+gP28nzGiHyL8rfcfXvgRMuAhBdZ3YFwJDrKgIQ1i9yCE5TUyYSEVPnchXBEK8ltww/X3IVp7dfRabLW1eFt//p1oVoiNUAZjjDJyVZ6KmohmYo46vnfjKEAGGdkjNg6pW8ORWAXIiI9KFsckUjRGOdmUR1VpJWlYPibklqt1WZSW7IHJnphzZYgMTUnCgmaaX67Z5itvDkWmmYXUmZma2CTAwyFkicKDVYO0MKhUUrVgKKKJLsqooociCimjCShK6aWYUtoCByscieclCIUq6qikklDCC059msk9rLbqqqsevOCCQ3ZxEws4IYSAq67f5Lrrr+UEiwELDfEzizKIIAuLMyCAwKyzzTT77LTTVNvABdfgsgs7xHTr7bffHgMAAKq2EggAIfkEBQQAAAAsYgBnAKgBCwEAB/+AAIKDhIWGh4iJiouMjY6PkJGODJSVlpeYmZUHkp2en6ChoqOkpaanqKmqjw2trq+wsa0XF7K0nAAICKu8vb6/wMHCw8SKCsfIycrLxxgYzDMfLhO5u8XX2Nna29zdjiXg4eLj5OXhO20u3uvs7e7v8Isk8/T19vf49BoeNzXx/wADChw4SoTBgwgTKjTYAYUBCAl7KDnzgQHBixgzaoQnoKPHjyBDdiSg4iHIIUkoWtzIsqXLl6lEypRJ0uTHIVFUwtzJs6fPQzODfqwJ4WTOij+TKl16UahTASUhELh5dCXTq1izansqNKpRnVrDih2rimtQr1TBkl3Ltu0jszP/0XrEqdatXVMj7maEK1NuR7pI9QoWlXfwQL4i/QoAbNWw48c+EYdUzBiy5csuJYOkXBWzZ08qhIgeTZq0is+lNH/kXBe160QWBsieTbv2AAuvQ6n2yDpw7t+FMgxwNCADcE+7O/ZufPy3cOLGm0dKDtXm3M7SgT9vVDw7JOrLvTsfzj26eEbgrf/Ffh71dkbd2y9KXzStb/mY3y+Kjx8R/a/39QeZforwJ2Ah/92UUoAHGkZgIgY2KEiCcy3InISCPYhIhBJS+JeFGD6m4SEcNujhYiCGKFZhiYxoSIkHnohSayra5WIhMAooY4o16hWbbUDKhluNO9LYY1uhlaak/2in9Vgkg0cmJcIoAkQJwJMXWqklZFhu6eVlXX7JVpViGhJmmWjadWaabJK1ZptwZvVmnHQqNWedePJUZA559vnTnn4GupOM7AlqaEYJJKrooow2qmhUjBrB46GUXpTPpZjSY0AJO+SQZaWgwmPOqKSK48ELNXwa6qreMOPqq8yYkEMNErBqKzyy5KprLLQwkMWtwLajybDEWhLsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8f/FGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSU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qqy26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCar7LLMNuvss9BGK+201FZr7bXYZqvtttx26+234IYr7rjklmvuueimq+667Lbr7rvwxivvvPTWa++9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEcs8cQUV2zxUcUYZ6zxxhx37PHHIIcs8sgkl2zyySinrPLKLLfs8sswxyzzzDTXbPPNOOes88489+zzz0AHLfTQRBdt9NFIJ6300kw37fTTnzhRMgsiu1BBIAAh+QQFBAAAACxYAGcA9wAZAQAH/4AAgoOEhYaHiImKi4yNjo+QkZKTlJWKDJaZmpucnZ6foIoNDQCYoaeoqaqrrIQKCiw1FROttba3uLglO3MYFbnAwcLDkCQkGh5zNabEzc7PtiIAERo7MxfMiQIC0N3e34vbFiQlCg3Z4Onq64XbPOTm6Ozz9M/bCfDn9fv8w/f58voJHHjqXzl9BBMq9GQw3sKHECk1RBixokVtAvAdDHixY8SJHD2KTAhypEmIJU+qJJhypct9LV/KXBdzpk1vNW/qbJZzp09gPX8KhUSgCwFBXboIKqpUUdChUBdtEIICgAghQqShELIhXEaAUcM+mlr1alYAW7s6/bpRrNtFI/9SjADQJUUKpXHnrtXo8K1fR0cbPf1LONLgwogZHU7M+NDixpAFPY7ceDLlxJYvF86s+e82AmA7iwbwOfRozaXbnkYtALTq1ZQ5w4Yqe7bQ2rZ94s6tU5xp3mJbtDhEzRo24JCRKQuJ3K8cX80hx5oVvbr169iza9/Ovbv37+AVXbgQPiwGDOVtIUAgaH16n+4BxH8v9AD9+/jz69/Pv7///wAGKOCABBZo4IEIJqjgggw26OCDEEYo4YQUVmjhhRhmqOGGHHbo4YcghijiiCSWaOKJKKao4oostujiizDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSokkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCarLJXzMcsek4EAACH5BAUEAAAALC4BcAAcACAAAAdngACCg4SFhoY8h4qLjI2Oj5CRkpOUlZaXmJmam5ydhygZGRYCACqhKgACFqEoBI0OEREbpBmxGQAEG7EOjrCytLapuhG8jRtCQiqkKMgoqSrIG5ikrp7W19jZ2tuWCZ3e3OGN1ZsEgQAh+QQFBAAAACwtAXAAHQAgAAAHY4AAgoOEhYaHCYeKi4yNjo+QkZKTlJWWl5iZmpucnZYPEREOAoKgEQ+CAg6hqIwQAwMQpACvsQACArUQjbqzuqm/jA8QEA+zw8WpyK2Ys57P0NHS04MEntad2Jza1N2QiZ0JgQAh+QQFBAABACxkAGgA5gASAQAH/4ANDQGEhYaHiImKi4yNjo+QkZKTlJWWlAoKl5ucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uPk5ebn6Onq3Bka7huFEO4QhRvuGhnr+ocZA4T5hAwELARwAMB9+/r9KyQwQMMABQ8iXJfBgEV4hCBYpEdog0UDEieKHEmypMmTKFOqXMmypctWCV6SjCmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqDSBoaTYGDJxiAwBAqtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOvjyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDix9Pvrz58+jTq1/Pvr379/Djy59Pv779+/jz69/Pv7///wAGKOCABBZo4IEIJqjgggw26OCDEEYo4YQUVmjhhRhmqOGGHHbo4YcghiiiLZmcJsiJKKao4oostujiizDGKOOMNNZo44045hgIACH5BAUEAAAALHQAfQDOAB0AAAesgACCg4SFhoeIiYqLjI2Oj5CRkpONBJSXmJmam5ybEQOgFoMGoAaDFqADEZ2sra6vsIkQqaKCqQOnqRCxvL2+v4uzoYO3uaC7wMnKy52fw4KkA6aCqKCrzNjZ2q6W297f4OHi4+Tl5ufo6erp3evu7/Dx8vP09fb3+Pn6+/z9/v8AAwocSLCgwYMIEypcyLChw4cQI0qcSLEiNgwYLlywaFHjgQMcOSJAENJiIAAh+QQFBAAAACwiAX0AHgAQAAAHRIACgoOEhYaHiIQGA4wFg4yMgwGQBokCkAOOgpiSnImYAY+QnaOJi4yhm6UCk4yVlrCxsrO0tba3uLm6u7y9vrkEv4KBACH5BAUEAAEALHAAfgDYACIAAAeqgAGCg4SFhoeIiYqLjI2Oj5CRkpEDlQMCigKWA5Odnp+goaKjnZiJpqSpqqusraKoh7Cus7S1tp6bsoWalre+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+TGuuXo6err7O3u7/Dx8vP09fb33wn6+/r4/v8AAwq01qBgg4EIEzFgkLDhIQAAFixwSLGixYsYM2rc+K8gR4EKFHz8FwgAOw=="},e)),Object(s.createElement)("img",Object(m.a)({className:"customize-widgets-welcome-guide__image customize-widgets-welcome-guide__image__prm-r",alt:"",src:"data:image/svg+xml,%3Csvg fill='none' height='240' viewBox='0 0 312 240' width='312' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m0 0h312v240h-312z' fill='%2300a0d2'/%3E%3Crect fill='%23fff' height='108' rx='2' width='216' x='48' y='80'/%3E%3Cg stroke='%23000' stroke-width='1.5'%3E%3Cpath d='m158.917 142v-15.111'/%3E%3Cpath d='m154.472 142v-15.111'/%3E%3Cpath d='m162.333 126.75h-8.889'/%3E%3Cpath d='m153.139 130.889v4.071c-1.928-.353-3.389-2.041-3.389-4.071s1.461-3.718 3.389-4.071z' fill='%23000'/%3E%3C/g%3E%3Crect fill='%23fff' height='21' rx='1.5' stroke='%231e1e1e' width='117' x='48.5' y='53.5'/%3E%3Cpath d='m70.592 53v22' stroke='%231e1e1e'/%3E%3Cpath d='m144.432 53v22' stroke='%231e1e1e'/%3E%3Crect fill='%23333' height='8' rx='1' width='9' x='55' y='60'/%3E%3Cpath d='m150 63h2v2h-2z' fill='%23333'/%3E%3Cpath d='m154 63h2v2h-2z' fill='%23333'/%3E%3Cpath d='m158 63h2v2h-2z' fill='%23333'/%3E%3C/svg%3E"},e)));function ne({sidebar:e}){const{__unstableToggleFeature:t}=Object(A.useDispatch)(x),r=e.getWidgets().every(e=>e.id.startsWith("block-"));return Object(s.createElement)("div",{className:"customize-widgets-welcome-guide"},Object(s.createElement)(se,null),Object(s.createElement)("h1",{className:"customize-widgets-welcome-guide__heading"},Object(h.__)("Welcome to block Widgets")),Object(s.createElement)("p",{className:"customize-widgets-welcome-guide__text"},r?Object(h.__)("Your theme provides different “block” areas for you to add and edit content. Try adding a search bar, social icons, or other types of blocks here and see how they’ll look on your site."):Object(h.__)("You can now add any block to your site’s widget areas. Don’t worry, all of your favorite widgets still work flawlessly.")),Object(s.createElement)(a.Button,{className:"customize-widgets-welcome-guide__button",isPrimary:!0,onClick:()=>t("welcomeGuide")},Object(h.__)("Got it")),Object(s.createElement)("hr",{className:"customize-widgets-welcome-guide__separator"}),!r&&Object(s.createElement)("p",{className:"customize-widgets-welcome-guide__more-info"},Object(h.__)("Want to stick with the old widgets?"),Object(s.createElement)("br",null),Object(s.createElement)(a.ExternalLink,{href:Object(h.__)("https://wordpress.org/plugins/classic-widgets/")},Object(h.__)("Get the Classic Widgets plugin."))),Object(s.createElement)("p",{className:"customize-widgets-welcome-guide__more-info"},Object(h.__)("New to the block editor?"),Object(s.createElement)("br",null),Object(s.createElement)(a.ExternalLink,{href:Object(h.__)("https://wordpress.org/support/article/wordpress-editor/")},Object(h.__)("Here's a detailed guide."))))}function ce({undo:e,redo:t,save:r}){return Object(f.useShortcut)("core/customize-widgets/undo",t=>{e(),t.preventDefault()},{bindGlobal:!0}),Object(f.useShortcut)("core/customize-widgets/redo",e=>{t(),e.preventDefault()},{bindGlobal:!0}),Object(f.useShortcut)("core/customize-widgets/save",e=>{e.preventDefault(),r()},{bindGlobal:!0}),null}ce.Register=function(){const{registerShortcut:e,unregisterShortcut:t}=Object(A.useDispatch)(f.store);return Object(s.useEffect)(()=>(e({name:"core/customize-widgets/undo",category:"global",description:Object(h.__)("Undo your last changes."),keyCombination:{modifier:"primary",character:"z"}}),e({name:"core/customize-widgets/redo",category:"global",description:Object(h.__)("Redo your last undo."),keyCombination:{modifier:"primaryShift",character:"z"}}),e({name:"core/customize-widgets/save",category:"global",description:Object(h.__)("Save your changes."),keyCombination:{modifier:"primary",character:"s"}}),()=>{t("core/customize-widgets/undo"),t("core/customize-widgets/redo"),t("core/customize-widgets/save")}),[e]),null};var ae=ce;function ue({blockEditorSettings:e,sidebar:t,inserter:r,inspector:i}){const[o,n]=function(e){const[t,r]=Object(s.useState)(()=>e.isOpen);return Object(s.useEffect)(()=>e.subscribe(r),[e]),[t,Object(s.useCallback)(t=>{let r=t;"function"==typeof t&&(r=t(e.isOpen)),r?e.open():e.close()},[e])]}(r),{hasUploadPermissions:c,isFixedToolbarActive:a,keepCaretInsideBlock:m,isWelcomeGuideActive:h}=Object(A.useSelect)(e=>({hasUploadPermissions:Object(u.defaultTo)(e(l.store).canUser("create","media"),!0),isFixedToolbarActive:e(x).__unstableIsFeatureActive("fixedToolbar"),keepCaretInsideBlock:e(x).__unstableIsFeatureActive("keepCaretInsideBlock"),isWelcomeGuideActive:e(x).__unstableIsFeatureActive("welcomeGuide")}),[]),p=Object(s.useMemo)(()=>{let t;return c&&(t=({onError:t,...r})=>{Object(b.uploadMedia)({wpAllowedMimeTypes:e.allowedMimeTypes,onError:({message:e})=>t(e),...r})}),{...e,__experimentalSetIsInserterOpened:n,mediaUpload:t,hasFixedToolbar:a,keepCaretInsideBlock:m}},[c,e,a,m]);return h?Object(s.createElement)(ne,{sidebar:t}):Object(s.createElement)(s.Fragment,null,Object(s.createElement)(d.BlockEditorKeyboardShortcuts.Register,null),Object(s.createElement)(ae.Register,null),Object(s.createElement)(oe,{sidebar:t,settings:p},Object(s.createElement)(d.BlockEditorKeyboardShortcuts,null),Object(s.createElement)(ae,{undo:t.undo,redo:t.redo,save:t.save}),Object(s.createElement)(F,{sidebar:t,inserter:r,isInserterOpened:o,setIsInserterOpened:n,isFixedToolbarActive:a}),Object(s.createElement)(d.BlockTools,null,Object(s.createElement)(d.BlockSelectionClearer,null,Object(s.createElement)(d.WritingFlow,null,Object(s.createElement)(d.ObserveTyping,null,Object(s.createElement)(d.BlockList,null))))),Object(s.createPortal)(Object(s.createElement)("form",{onSubmit:e=>e.preventDefault()},Object(s.createElement)(d.BlockInspector,null)),i.contentContainer[0])),Object(s.createElement)(d.__unstableBlockSettingsMenuFirstItem,null,({onClose:e})=>Object(s.createElement)(g,{inspector:i,closeMenu:e})))}const le=Object(s.createContext)();function Ae({sidebarControls:e,activeSidebarControl:t,children:r}){const i=Object(s.useMemo)(()=>({sidebarControls:e,activeSidebarControl:t}),[e,t]);return Object(s.createElement)(le.Provider,{value:i},r)}function de({api:e,sidebarControls:t,blockEditorSettings:r}){const[i,o]=Object(s.useState)(null),n=document.getElementById("customize-theme-controls"),c=Object(s.useRef)();!function(e,t){const{hasSelectedBlock:r,hasMultiSelection:i}=Object(A.useSelect)(d.store),{clearSelectedBlock:o}=Object(A.useDispatch)(d.store);Object(s.useEffect)(()=>{if(t.current&&e){const a=e.inspector.contentContainer[0],u=e.container[0],l=u.ownerDocument,A=l.defaultView;function s(e){!r()&&!i()||!e||!l.contains(e)||u.contains(e)||t.current.contains(e)||a.contains(e)||o()}function n(e){s(e.target)}function c(){s(l.activeElement)}return l.addEventListener("focusin",n),A.addEventListener("blur",c),()=>{l.removeEventListener("focusin",n),A.removeEventListener("blur",c)}}},[t,e,r,i,o])}(i,c),Object(s.useEffect)(()=>{const e=t.map(e=>e.subscribe(t=>{t&&o(e)}));return()=>{e.forEach(e=>e())}},[t]);const u=i&&Object(s.createPortal)(Object(s.createElement)(ue,{key:i.id,blockEditorSettings:r,sidebar:i.sidebarAdapter,inserter:i.inserter,inspector:i.inspector}),i.container[0]),l=n&&Object(s.createPortal)(Object(s.createElement)("div",{ref:c},Object(s.createElement)(a.Popover.Slot,null)),n);return Object(s.createElement)(a.SlotFillProvider,null,Object(s.createElement)(Ae,{sidebarControls:t,activeSidebarControl:i},Object(s.createElement)(ie,{api:e,sidebarControls:t},u,l)))}const{wp:be}=window;function me(e){const t=e.match(/^(.+)-(\d+)$/);return t?{idBase:t[1],number:parseInt(t[2],10)}:{idBase:e}}function he(e){const{idBase:t,number:r}=me(e);return r?`widget_${t}[${r}]`:"widget_"+t}class ge{constructor(e,t){this.setting=e,this.api=t,this.locked=!1,this.widgetsCache=new WeakMap,this.subscribers=new Set,this.history=[this._getWidgetIds().map(e=>this.getWidget(e))],this.historyIndex=0,this.historySubscribers=new Set,this._debounceSetHistory=function(e,t,r){let i,o=!1;function s(...r){const s=(o?t:e).apply(this,r);return o=!0,clearTimeout(i),i=setTimeout(()=>{o=!1},1e3),s}return s.cancel=()=>{o=!1,clearTimeout(i)},s}(this._pushHistory,this._replaceHistory),this.setting.bind(this._handleSettingChange.bind(this)),this.api.bind("change",this._handleAllSettingsChange.bind(this)),this.undo=this.undo.bind(this),this.redo=this.redo.bind(this),this.save=this.save.bind(this)}subscribe(e){return this.subscribers.add(e),()=>{this.subscribers.delete(e)}}getWidgets(){return this.history[this.historyIndex]}_emit(...e){for(const t of this.subscribers)t(...e)}_getWidgetIds(){return this.setting.get()}_pushHistory(){this.history=[...this.history.slice(0,this.historyIndex+1),this._getWidgetIds().map(e=>this.getWidget(e))],this.historyIndex+=1,this.historySubscribers.forEach(e=>e())}_replaceHistory(){this.history[this.historyIndex]=this._getWidgetIds().map(e=>this.getWidget(e))}_handleSettingChange(){if(this.locked)return;const e=this.getWidgets();this._pushHistory(),this._emit(e,this.getWidgets())}_handleAllSettingsChange(e){if(this.locked)return;if(!e.id.startsWith("widget_"))return;const t=te(e.id);if(!this.setting.get().includes(t))return;const r=this.getWidgets();this._pushHistory(),this._emit(r,this.getWidgets())}_createWidget(e){const t=be.customize.Widgets.availableWidgets.findWhere({id_base:e.idBase});let r=e.number;t.get("is_multi")&&!r&&(t.set("multi_number",t.get("multi_number")+1),r=t.get("multi_number"));const i=r?`widget_${e.idBase}[${r}]`:"widget_"+e.idBase,o={transport:be.customize.Widgets.data.selectiveRefreshableWidgets[t.get("id_base")]?"postMessage":"refresh",previewer:this.setting.previewer};return this.api.create(i,i,"",o).set(e.instance),te(i)}_removeWidget(e){const t=he(e.id);this.api.remove(t)}_updateWidget(e){const t=this.getWidget(e.id);if(t===e)return e.id;if(t.idBase&&e.idBase&&t.idBase===e.idBase){const t=he(e.id);return this.api(t).set(e.instance),e.id}return this._removeWidget(e),this._createWidget(e)}getWidget(e){if(!e)return null;const{idBase:t,number:r}=me(e),i=he(e),o=this.api(i);if(!o)return null;const s=o.get();if(this.widgetsCache.has(s))return this.widgetsCache.get(s);const n={id:e,idBase:t,number:r,instance:s};return this.widgetsCache.set(s,n),n}_updateWidgets(e){this.locked=!0;const t=[],r=e.map(e=>{if(e.id&&this.getWidget(e.id))return t.push(null),this._updateWidget(e);const r=this._createWidget(e);return t.push(r),r});return this.setting.set(r),this.locked=!1,t}setWidgets(e){const t=this._updateWidgets(e);return this._debounceSetHistory(),t}hasUndo(){return this.historyIndex>0}hasRedo(){return this.historyIndex<this.history.length-1}_seek(e){const t=this.getWidgets();this.historyIndex=e;const r=this.history[this.historyIndex];this._updateWidgets(r),this._emit(t,this.getWidgets()),this.historySubscribers.forEach(e=>e()),this._debounceSetHistory.cancel()}undo(){this.hasUndo()&&this._seek(this.historyIndex-1)}redo(){this.hasRedo()&&this._seek(this.historyIndex+1)}subscribeHistory(e){return this.historySubscribers.add(e),()=>{this.historySubscribers.delete(e)}}save(){this.api.previewer.save()}}var pe=r(22);var Oe=r(18);const je=Object(q.createHigherOrderComponent)(e=>t=>{const r=Object(c.getWidgetIdFromBlock)(t),i=function(){const{sidebarControls:e}=Object(s.useContext)(le);return e}(),o=function(){const{activeSidebarControl:e}=Object(s.useContext)(le);return e}(),n=(null==i?void 0:i.length)>1,a=t.name,l=Object(A.useSelect)(e=>e(d.store).canInsertBlockType(a,""),[a]);return Object(s.createElement)(s.Fragment,null,Object(s.createElement)(e,t),n&&l&&Object(s.createElement)(d.BlockControls,null,Object(s.createElement)(c.MoveToWidgetArea,{widgetAreas:i.map(e=>({id:e.id,name:e.params.label,description:e.params.description})),currentWidgetAreaId:null==o?void 0:o.id,onSelect:function(e){const t=i.find(t=>t.id===e),s=o.setting,n=t.setting;s(Object(u.without)(s(),r)),n([...n(),r]),t.expand()}})))},"withMoveToSidebarToolbarItem");Object(Oe.addFilter)("editor.BlockEdit","core/customize-widgets/block-edit",je),Object(Oe.addFilter)("editor.MediaUpload","core/edit-widgets/replace-media-upload",()=>b.MediaUpload);const{wp:we}=window;function Ce(e,t){const r=Object(n.__experimentalGetCoreBlocks)().filter(e=>!["core/more"].includes(e.name));Object(n.registerCoreBlocks)(r),Object(n.__experimentalRegisterExperimentalCoreBlocks)(),Object(c.registerLegacyWidgetVariations)(t);const i=function(){const{wp:{customize:e}}=window;return class extends e.Control{constructor(...e){super(...e),this.subscribers=new Set}ready(){const t=function(){const{wp:{customize:e}}=window,t=e.OuterSection;return e.OuterSection=class extends t{onChangeExpanded(t,r){return t&&e.section.each(e=>{"outer"===e.params.type&&e.id!==this.id&&e.expanded()&&e.collapse()}),super.onChangeExpanded(t,r)}},e.sectionConstructor.outer=e.OuterSection,class extends e.OuterSection{constructor(...e){super(...e),this.params.type="outer",this.activeElementBeforeExpanded=null,this.contentContainer[0].ownerDocument.defaultView.addEventListener("keydown",e=>{!this.isOpen||e.keyCode!==j.ESCAPE&&"Escape"!==e.code||(e.stopPropagation(),this.close())},!0),this.contentContainer.addClass("widgets-inserter")}get isOpen(){return this.expanded()}subscribe(e){return this.expanded.bind(e),()=>this.expanded.unbind(e)}open(){if(!this.isOpen){const e=this.contentContainer[0];this.activeElementBeforeExpanded=e.ownerDocument.activeElement,this.expand({completeCallback(){const t=pe.focus.tabbable.find(e)[1];t&&t.focus()}})}}close(){if(this.isOpen){const e=this.contentContainer[0],t=e.ownerDocument.activeElement;this.collapse({completeCallback(){e.contains(t)&&this.activeElementBeforeExpanded&&this.activeElementBeforeExpanded.focus()}})}}}}();this.inserter=new t("widgets-inserter-"+this.id,{}),e.section.add(this.inserter),this.sectionInstance=e.section(this.section()),this.inspector=this.sectionInstance.inspector,this.sidebarAdapter=new ge(this.setting,e)}subscribe(e){return this.subscribers.add(e),()=>{this.subscribers.delete(e)}}onChangeSectionExpanded(e,t){t.unchanged||(e||this.inserter.close(),this.subscribers.forEach(r=>r(e,t)))}}}();we.customize.sectionConstructor.sidebar=function(){const{wp:{customize:e}}=window;return class extends e.Section{ready(){const t=function(){const{wp:{customize:e}}=window;return class extends e.Section{constructor(e,t){super(e,t),this.parentSection=t.parentSection,this.returnFocusWhenClose=null}ready(){this.contentContainer[0].classList.add("customize-widgets-layout__inspector")}onChangeExpanded(e,t){super.onChangeExpanded(e,t),this.parentSection&&!t.unchanged&&(e?this.parentSection.collapse({manualTransition:!0}):this.parentSection.expand({manualTransition:!0,completeCallback:()=>{this.returnFocusWhenClose&&!this.contentContainer[0].contains(this.returnFocusWhenClose)&&this.returnFocusWhenClose.focus()}}))}open({returnFocusWhenClose:e}={}){this.returnFocusWhenClose=e,this.expand({allowMultiple:!0})}close(){this.collapse({allowMultiple:!0})}}}();this.inspector=new t("widgets-inspector-"+this.id,{title:Object(h.__)("Block Settings"),parentSection:this,customizeAction:[Object(h.__)("Customizing"),Object(h.__)("Widgets"),this.params.title].join(" ▸ ")}),e.section.add(this.inspector),this.contentContainer[0].classList.add("customize-widgets__sidebar-section")}hasSubSectionOpened(){return this.inspector.expanded()}onChangeExpanded(e,t){const r=this.controls(),i={...t,completeCallback(){var o;r.forEach(t=>{t.onChangeSectionExpanded(e,i)}),null===(o=t.completeCallback)||void 0===o||o.call(t)}};i.manualTransition?e?(this.contentContainer.addClass(["busy","open"]),this.contentContainer.removeClass("is-sub-section-open"),this.contentContainer.closest(".wp-full-overlay").addClass("section-open"),this.contentContainer.one("transitionend",()=>{this.contentContainer.removeClass("busy"),i.completeCallback()})):(this.contentContainer.addClass(["busy","is-sub-section-open"]),this.contentContainer.closest(".wp-full-overlay").addClass("section-open"),this.contentContainer.removeClass("open"),this.contentContainer.one("transitionend",()=>{this.contentContainer.removeClass("busy"),i.completeCallback()})):super.onChangeExpanded(e,i)}}}(),we.customize.controlConstructor.sidebar_block_editor=i;const o=document.createElement("div");document.body.appendChild(o),we.customize.bind("ready",()=>{const e=[];we.customize.control.each(t=>{t instanceof i&&e.push(t)}),Object(s.render)(Object(s.createElement)(de,{api:we.customize,sidebarControls:e,blockEditorSettings:t}),o)})}},47:function(e,t){e.exports=window.wp.widgets},5:function(e,t){e.exports=window.wp.blockEditor},51:function(e,t){e.exports=window.wp.isShallowEqual},56:function(e,t){e.exports=window.wp.blockLibrary},58:function(e,t){e.exports=window.wp.mediaUtils},6:function(e,t){e.exports=window.wp.primitives},7:function(e,t,r){"use strict";function i(){return(i=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var i in r)Object.prototype.hasOwnProperty.call(r,i)&&(e[i]=r[i])}return e}).apply(this,arguments)}r.d(t,"a",(function(){return i}))},8:function(e,t){e.exports=window.wp.blocks},9:function(e,t){e.exports=window.wp.compose}});
+/******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 4184:
+/***/ (function(module, exports) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2018 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString === Object.prototype.toString) {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				} else {
+					classes.push(arg.toString());
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+!function() {
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "initialize": function() { return /* binding */ initialize; }
+});
+
+// NAMESPACE OBJECT: ./packages/interface/build-module/store/actions.js
+var actions_namespaceObject = {};
+__webpack_require__.r(actions_namespaceObject);
+__webpack_require__.d(actions_namespaceObject, {
+  "disableComplementaryArea": function() { return disableComplementaryArea; },
+  "enableComplementaryArea": function() { return enableComplementaryArea; },
+  "pinItem": function() { return pinItem; },
+  "setFeatureDefaults": function() { return setFeatureDefaults; },
+  "setFeatureValue": function() { return setFeatureValue; },
+  "toggleFeature": function() { return toggleFeature; },
+  "unpinItem": function() { return unpinItem; }
+});
+
+// NAMESPACE OBJECT: ./packages/interface/build-module/store/selectors.js
+var selectors_namespaceObject = {};
+__webpack_require__.r(selectors_namespaceObject);
+__webpack_require__.d(selectors_namespaceObject, {
+  "getActiveComplementaryArea": function() { return getActiveComplementaryArea; },
+  "isFeatureActive": function() { return isFeatureActive; },
+  "isItemPinned": function() { return isItemPinned; }
+});
+
+// NAMESPACE OBJECT: ./packages/customize-widgets/build-module/store/selectors.js
+var store_selectors_namespaceObject = {};
+__webpack_require__.r(store_selectors_namespaceObject);
+__webpack_require__.d(store_selectors_namespaceObject, {
+  "__experimentalGetInsertionPoint": function() { return __experimentalGetInsertionPoint; },
+  "isInserterOpened": function() { return isInserterOpened; }
+});
+
+// NAMESPACE OBJECT: ./packages/customize-widgets/build-module/store/actions.js
+var store_actions_namespaceObject = {};
+__webpack_require__.r(store_actions_namespaceObject);
+__webpack_require__.d(store_actions_namespaceObject, {
+  "setIsInserterOpened": function() { return setIsInserterOpened; }
+});
+
+;// CONCATENATED MODULE: external ["wp","element"]
+var external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","blockLibrary"]
+var external_wp_blockLibrary_namespaceObject = window["wp"]["blockLibrary"];
+;// CONCATENATED MODULE: external ["wp","widgets"]
+var external_wp_widgets_namespaceObject = window["wp"]["widgets"];
+;// CONCATENATED MODULE: external ["wp","blocks"]
+var external_wp_blocks_namespaceObject = window["wp"]["blocks"];
+;// CONCATENATED MODULE: external ["wp","data"]
+var external_wp_data_namespaceObject = window["wp"]["data"];
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__(4184);
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+;// CONCATENATED MODULE: external ["wp","components"]
+var external_wp_components_namespaceObject = window["wp"]["components"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+var external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: external ["wp","primitives"]
+var external_wp_primitives_namespaceObject = window["wp"]["primitives"];
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/more-vertical.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const moreVertical = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M13 19h-2v-2h2v2zm0-6h-2v-2h2v2zm0-6h-2V5h2v2z"
+}));
+/* harmony default export */ var more_vertical = (moreVertical);
+//# sourceMappingURL=more-vertical.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/components/more-menu-dropdown/index.js
+
+
+/**
+ * External dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+function MoreMenuDropdown({
+  as: DropdownComponent = external_wp_components_namespaceObject.DropdownMenu,
+  className,
+
+  /* translators: button label text should, if possible, be under 16 characters. */
+  label = (0,external_wp_i18n_namespaceObject.__)('Options'),
+  popoverProps,
+  toggleProps,
+  children
+}) {
+  return (0,external_wp_element_namespaceObject.createElement)(DropdownComponent, {
+    className: classnames_default()('interface-more-menu-dropdown', className),
+    icon: more_vertical,
+    label: label,
+    popoverProps: {
+      position: 'bottom left',
+      ...popoverProps,
+      className: classnames_default()('interface-more-menu-dropdown__content', popoverProps === null || popoverProps === void 0 ? void 0 : popoverProps.className)
+    },
+    toggleProps: {
+      tooltipPosition: 'bottom',
+      ...toggleProps
+    }
+  }, onClose => children(onClose));
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/check.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const check = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M16.7 7.1l-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z"
+}));
+/* harmony default export */ var library_check = (check);
+//# sourceMappingURL=check.js.map
+;// CONCATENATED MODULE: external ["wp","a11y"]
+var external_wp_a11y_namespaceObject = window["wp"]["a11y"];
+;// CONCATENATED MODULE: external "lodash"
+var external_lodash_namespaceObject = window["lodash"];
+;// CONCATENATED MODULE: ./packages/interface/build-module/store/reducer.js
+/**
+ * External dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Reducer to keep tract of the active area per scope.
+ *
+ * @param {boolean} state           Previous state.
+ * @param {Object}  action          Action object.
+ * @param {string}  action.type     Action type.
+ * @param {string}  action.itemType Type of item.
+ * @param {string}  action.scope    Item scope.
+ * @param {string}  action.item     Item name.
+ *
+ * @return {Object} Updated state.
+ */
+
+function singleEnableItems(state = {}, {
+  type,
+  itemType,
+  scope,
+  item
+}) {
+  if (type !== 'SET_SINGLE_ENABLE_ITEM' || !itemType || !scope) {
+    return state;
+  }
+
+  return { ...state,
+    [itemType]: { ...state[itemType],
+      [scope]: item || null
+    }
+  };
+}
+/**
+ * Reducer keeping track of the "pinned" items per scope.
+ *
+ * @param {boolean} state           Previous state.
+ * @param {Object}  action          Action object.
+ * @param {string}  action.type     Action type.
+ * @param {string}  action.itemType Type of item.
+ * @param {string}  action.scope    Item scope.
+ * @param {string}  action.item     Item name.
+ * @param {boolean} action.isEnable Whether the item is pinned.
+ *
+ * @return {Object} Updated state.
+ */
+
+function multipleEnableItems(state = {}, {
+  type,
+  itemType,
+  scope,
+  item,
+  isEnable
+}) {
+  if (type !== 'SET_MULTIPLE_ENABLE_ITEM' || !itemType || !scope || !item || (0,external_lodash_namespaceObject.get)(state, [itemType, scope, item]) === isEnable) {
+    return state;
+  }
+
+  const currentTypeState = state[itemType] || {};
+  const currentScopeState = currentTypeState[scope] || {};
+  return { ...state,
+    [itemType]: { ...currentTypeState,
+      [scope]: { ...currentScopeState,
+        [item]: isEnable || false
+      }
+    }
+  };
+}
+/**
+ * Reducer returning the defaults for user preferences.
+ *
+ * This is kept intentionally separate from the preferences
+ * themselves so that defaults are not persisted.
+ *
+ * @param {Object} state  Current state.
+ * @param {Object} action Dispatched action.
+ *
+ * @return {Object} Updated state.
+ */
+
+const preferenceDefaults = (0,external_wp_data_namespaceObject.combineReducers)({
+  features(state = {}, action) {
+    if (action.type === 'SET_FEATURE_DEFAULTS') {
+      const {
+        scope,
+        defaults
+      } = action;
+      return { ...state,
+        [scope]: { ...state[scope],
+          ...defaults
+        }
+      };
+    }
+
+    return state;
+  }
+
+});
+/**
+ * Reducer returning the user preferences.
+ *
+ * @param {Object} state  Current state.
+ * @param {Object} action Dispatched action.
+ *
+ * @return {Object} Updated state.
+ */
+
+const preferences = (0,external_wp_data_namespaceObject.combineReducers)({
+  features(state = {}, action) {
+    if (action.type === 'SET_FEATURE_VALUE') {
+      const {
+        scope,
+        featureName,
+        value
+      } = action;
+      return { ...state,
+        [scope]: { ...state[scope],
+          [featureName]: value
+        }
+      };
+    }
+
+    return state;
+  }
+
+});
+const enableItems = (0,external_wp_data_namespaceObject.combineReducers)({
+  singleEnableItems,
+  multipleEnableItems
+});
+/* harmony default export */ var reducer = ((0,external_wp_data_namespaceObject.combineReducers)({
+  enableItems,
+  preferenceDefaults,
+  preferences
+}));
+//# sourceMappingURL=reducer.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/store/actions.js
+/**
+ * Returns an action object used in signalling that an active area should be changed.
+ *
+ * @param {string} itemType Type of item.
+ * @param {string} scope    Item scope.
+ * @param {string} item     Item identifier.
+ *
+ * @return {Object} Action object.
+ */
+function setSingleEnableItem(itemType, scope, item) {
+  return {
+    type: 'SET_SINGLE_ENABLE_ITEM',
+    itemType,
+    scope,
+    item
+  };
+}
+/**
+ * Returns an action object used in signalling that a complementary item should be enabled.
+ *
+ * @param {string} scope Complementary area scope.
+ * @param {string} area  Area identifier.
+ *
+ * @return {Object} Action object.
+ */
+
+
+function enableComplementaryArea(scope, area) {
+  return setSingleEnableItem('complementaryArea', scope, area);
+}
+/**
+ * Returns an action object used in signalling that the complementary area of a given scope should be disabled.
+ *
+ * @param {string} scope Complementary area scope.
+ *
+ * @return {Object} Action object.
+ */
+
+function disableComplementaryArea(scope) {
+  return setSingleEnableItem('complementaryArea', scope, undefined);
+}
+/**
+ * Returns an action object to make an area enabled/disabled.
+ *
+ * @param {string}  itemType Type of item.
+ * @param {string}  scope    Item scope.
+ * @param {string}  item     Item identifier.
+ * @param {boolean} isEnable Boolean indicating if an area should be pinned or not.
+ *
+ * @return {Object} Action object.
+ */
+
+function setMultipleEnableItem(itemType, scope, item, isEnable) {
+  return {
+    type: 'SET_MULTIPLE_ENABLE_ITEM',
+    itemType,
+    scope,
+    item,
+    isEnable
+  };
+}
+/**
+ * Returns an action object used in signalling that an item should be pinned.
+ *
+ * @param {string} scope  Item scope.
+ * @param {string} itemId Item identifier.
+ *
+ * @return {Object} Action object.
+ */
+
+
+function pinItem(scope, itemId) {
+  return setMultipleEnableItem('pinnedItems', scope, itemId, true);
+}
+/**
+ * Returns an action object used in signalling that an item should be unpinned.
+ *
+ * @param {string} scope  Item scope.
+ * @param {string} itemId Item identifier.
+ *
+ * @return {Object} Action object.
+ */
+
+function unpinItem(scope, itemId) {
+  return setMultipleEnableItem('pinnedItems', scope, itemId, false);
+}
+/**
+ * Returns an action object used in signalling that a feature should be toggled.
+ *
+ * @param {string} scope       The feature scope (e.g. core/edit-post).
+ * @param {string} featureName The feature name.
+ */
+
+function toggleFeature(scope, featureName) {
+  return function ({
+    select,
+    dispatch
+  }) {
+    const currentValue = select.isFeatureActive(scope, featureName);
+    dispatch.setFeatureValue(scope, featureName, !currentValue);
+  };
+}
+/**
+ * Returns an action object used in signalling that a feature should be set to
+ * a true or false value
+ *
+ * @param {string}  scope       The feature scope (e.g. core/edit-post).
+ * @param {string}  featureName The feature name.
+ * @param {boolean} value       The value to set.
+ *
+ * @return {Object} Action object.
+ */
+
+function setFeatureValue(scope, featureName, value) {
+  return {
+    type: 'SET_FEATURE_VALUE',
+    scope,
+    featureName,
+    value: !!value
+  };
+}
+/**
+ * Returns an action object used in signalling that defaults should be set for features.
+ *
+ * @param {string}                  scope    The feature scope (e.g. core/edit-post).
+ * @param {Object<string, boolean>} defaults A key/value map of feature names to values.
+ *
+ * @return {Object} Action object.
+ */
+
+function setFeatureDefaults(scope, defaults) {
+  return {
+    type: 'SET_FEATURE_DEFAULTS',
+    scope,
+    defaults
+  };
+}
+//# sourceMappingURL=actions.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/store/selectors.js
+/**
+ * External dependencies
+ */
+
+/**
+ * Returns the item that is enabled in a given scope.
+ *
+ * @param {Object} state    Global application state.
+ * @param {string} itemType Type of item.
+ * @param {string} scope    Item scope.
+ *
+ * @return {?string|null} The item that is enabled in the passed scope and type.
+ */
+
+function getSingleEnableItem(state, itemType, scope) {
+  return (0,external_lodash_namespaceObject.get)(state.enableItems.singleEnableItems, [itemType, scope]);
+}
+/**
+ * Returns the complementary area that is active in a given scope.
+ *
+ * @param {Object} state Global application state.
+ * @param {string} scope Item scope.
+ *
+ * @return {string} The complementary area that is active in the given scope.
+ */
+
+
+function getActiveComplementaryArea(state, scope) {
+  return getSingleEnableItem(state, 'complementaryArea', scope);
+}
+/**
+ * Returns a boolean indicating if an item is enabled or not in a given scope.
+ *
+ * @param {Object} state    Global application state.
+ * @param {string} itemType Type of item.
+ * @param {string} scope    Scope.
+ * @param {string} item     Item to check.
+ *
+ * @return {boolean|undefined} True if the item is enabled, false otherwise if the item is explicitly disabled, and undefined if there is no information for that item.
+ */
+
+function isMultipleEnabledItemEnabled(state, itemType, scope, item) {
+  return (0,external_lodash_namespaceObject.get)(state.enableItems.multipleEnableItems, [itemType, scope, item]);
+}
+/**
+ * Returns a boolean indicating if an item is pinned or not.
+ *
+ * @param {Object} state Global application state.
+ * @param {string} scope Scope.
+ * @param {string} item  Item to check.
+ *
+ * @return {boolean} True if the item is pinned and false otherwise.
+ */
+
+
+function isItemPinned(state, scope, item) {
+  return isMultipleEnabledItemEnabled(state, 'pinnedItems', scope, item) !== false;
+}
+/**
+ * Returns a boolean indicating whether a feature is active for a particular
+ * scope.
+ *
+ * @param {Object} state       The store state.
+ * @param {string} scope       The scope of the feature (e.g. core/edit-post).
+ * @param {string} featureName The name of the feature.
+ *
+ * @return {boolean} Is the feature enabled?
+ */
+
+function isFeatureActive(state, scope, featureName) {
+  var _state$preferences$fe, _state$preferenceDefa;
+
+  const featureValue = (_state$preferences$fe = state.preferences.features[scope]) === null || _state$preferences$fe === void 0 ? void 0 : _state$preferences$fe[featureName];
+  const defaultedFeatureValue = featureValue !== undefined ? featureValue : (_state$preferenceDefa = state.preferenceDefaults.features[scope]) === null || _state$preferenceDefa === void 0 ? void 0 : _state$preferenceDefa[featureName];
+  return !!defaultedFeatureValue;
+}
+//# sourceMappingURL=selectors.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/store/constants.js
+/**
+ * The identifier for the data store.
+ *
+ * @type {string}
+ */
+const STORE_NAME = 'core/interface';
+//# sourceMappingURL=constants.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/store/index.js
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+/**
+ * Store definition for the interface namespace.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
+ *
+ * @type {Object}
+ */
+
+const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, {
+  reducer: reducer,
+  actions: actions_namespaceObject,
+  selectors: selectors_namespaceObject,
+  persist: ['enableItems', 'preferences'],
+  __experimentalUseThunks: true
+}); // Once we build a more generic persistence plugin that works across types of stores
+// we'd be able to replace this with a register call.
+
+(0,external_wp_data_namespaceObject.registerStore)(STORE_NAME, {
+  reducer: reducer,
+  actions: actions_namespaceObject,
+  selectors: selectors_namespaceObject,
+  persist: ['enableItems', 'preferences'],
+  __experimentalUseThunks: true
+});
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/components/more-menu-feature-toggle/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+function MoreMenuFeatureToggle({
+  scope,
+  label,
+  info,
+  messageActivated,
+  messageDeactivated,
+  shortcut,
+  feature
+}) {
+  const isActive = (0,external_wp_data_namespaceObject.useSelect)(select => select(store).isFeatureActive(scope, feature), [feature]);
+  const {
+    toggleFeature
+  } = (0,external_wp_data_namespaceObject.useDispatch)(store);
+
+  const speakMessage = () => {
+    if (isActive) {
+      (0,external_wp_a11y_namespaceObject.speak)(messageDeactivated || (0,external_wp_i18n_namespaceObject.__)('Feature deactivated'));
+    } else {
+      (0,external_wp_a11y_namespaceObject.speak)(messageActivated || (0,external_wp_i18n_namespaceObject.__)('Feature activated'));
+    }
+  };
+
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.MenuItem, {
+    icon: isActive && library_check,
+    isSelected: isActive,
+    onClick: () => {
+      toggleFeature(scope, feature);
+      speakMessage();
+    },
+    role: "menuitemcheckbox",
+    info: info,
+    shortcut: shortcut
+  }, label);
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/components/index.js
+
+
+
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/interface/build-module/index.js
+
+
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: external ["wp","keyboardShortcuts"]
+var external_wp_keyboardShortcuts_namespaceObject = window["wp"]["keyboardShortcuts"];
+;// CONCATENATED MODULE: external ["wp","blockEditor"]
+var external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
+;// CONCATENATED MODULE: external ["wp","compose"]
+var external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/error-boundary/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+function CopyButton({
+  text,
+  children
+}) {
+  const ref = (0,external_wp_compose_namespaceObject.useCopyToClipboard)(text);
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+    variant: "secondary",
+    ref: ref
+  }, children);
+}
+
+class ErrorBoundary extends external_wp_element_namespaceObject.Component {
+  constructor() {
+    super(...arguments);
+    this.state = {
+      error: null
+    };
+  }
+
+  componentDidCatch(error) {
+    this.setState({
+      error
+    });
+  }
+
+  render() {
+    const {
+      error
+    } = this.state;
+
+    if (!error) {
+      return this.props.children;
+    }
+
+    return (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.Warning, {
+      className: "customize-widgets-error-boundary",
+      actions: [(0,external_wp_element_namespaceObject.createElement)(CopyButton, {
+        key: "copy-error",
+        text: error.stack
+      }, (0,external_wp_i18n_namespaceObject.__)('Copy Error'))]
+    }, (0,external_wp_i18n_namespaceObject.__)('The editor has encountered an unexpected error.'));
+  }
+
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: external ["wp","coreData"]
+var external_wp_coreData_namespaceObject = window["wp"]["coreData"];
+;// CONCATENATED MODULE: external ["wp","mediaUtils"]
+var external_wp_mediaUtils_namespaceObject = window["wp"]["mediaUtils"];
+;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/block-inspector-button/index.js
+
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+function BlockInspectorButton({
+  inspector,
+  closeMenu,
+  ...props
+}) {
+  const selectedBlockClientId = (0,external_wp_data_namespaceObject.useSelect)(select => select(external_wp_blockEditor_namespaceObject.store).getSelectedBlockClientId(), []);
+  const selectedBlock = (0,external_wp_element_namespaceObject.useMemo)(() => document.getElementById(`block-${selectedBlockClientId}`), [selectedBlockClientId]);
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.MenuItem, _extends({
+    onClick: () => {
+      // Open the inspector.
+      inspector.open({
+        returnFocusWhenClose: selectedBlock
+      }); // Then close the dropdown menu.
+
+      closeMenu();
+    }
+  }, props), (0,external_wp_i18n_namespaceObject.__)('Show more settings'));
+}
+
+/* harmony default export */ var block_inspector_button = (BlockInspectorButton);
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: external ["wp","keycodes"]
+var external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/undo.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const undo = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M18.3 11.7c-.6-.6-1.4-.9-2.3-.9H6.7l2.9-3.3-1.1-1-4.5 5L8.5 16l1-1-2.7-2.7H16c.5 0 .9.2 1.3.5 1 1 1 3.4 1 4.5v.3h1.5v-.2c0-1.5 0-4.3-1.5-5.7z"
+}));
+/* harmony default export */ var library_undo = (undo);
+//# sourceMappingURL=undo.js.map
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/redo.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const redo = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M15.6 6.5l-1.1 1 2.9 3.3H8c-.9 0-1.7.3-2.3.9-1.4 1.5-1.4 4.2-1.4 5.6v.2h1.5v-.3c0-1.1 0-3.5 1-4.5.3-.3.7-.5 1.3-.5h9.2L14.5 15l1.1 1.1 4.6-4.6-4.6-5z"
+}));
+/* harmony default export */ var library_redo = (redo);
+//# sourceMappingURL=redo.js.map
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/plus.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const plus = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M18 11.2h-5.2V6h-1.6v5.2H6v1.6h5.2V18h1.6v-5.2H18z"
+}));
+/* harmony default export */ var library_plus = (plus);
+//# sourceMappingURL=plus.js.map
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/close-small.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const closeSmall = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M12 13.06l3.712 3.713 1.061-1.06L13.061 12l3.712-3.712-1.06-1.06L12 10.938 8.288 7.227l-1.061 1.06L10.939 12l-3.712 3.712 1.06 1.061L12 13.061z"
+}));
+/* harmony default export */ var close_small = (closeSmall);
+//# sourceMappingURL=close-small.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/store/reducer.js
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Reducer tracking whether the inserter is open.
+ *
+ * @param {boolean|Object} state
+ * @param {Object}         action
+ */
+
+function blockInserterPanel(state = false, action) {
+  switch (action.type) {
+    case 'SET_IS_INSERTER_OPENED':
+      return action.value;
+  }
+
+  return state;
+}
+
+/* harmony default export */ var store_reducer = ((0,external_wp_data_namespaceObject.combineReducers)({
+  blockInserterPanel
+}));
+//# sourceMappingURL=reducer.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/store/selectors.js
+/**
+ * Returns true if the inserter is opened.
+ *
+ * @param {Object} state Global application state.
+ *
+ * @return {boolean} Whether the inserter is opened.
+ */
+function isInserterOpened(state) {
+  return !!state.blockInserterPanel;
+}
+/**
+ * Get the insertion point for the inserter.
+ *
+ * @param {Object} state Global application state.
+ *
+ * @return {Object} The root client ID and index to insert at.
+ */
+
+function __experimentalGetInsertionPoint(state) {
+  const {
+    rootClientId,
+    insertionIndex
+  } = state.blockInserterPanel;
+  return {
+    rootClientId,
+    insertionIndex
+  };
+}
+//# sourceMappingURL=selectors.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/store/actions.js
+/**
+ * Returns an action object used to open/close the inserter.
+ *
+ * @param {boolean|Object} value                Whether the inserter should be
+ *                                              opened (true) or closed (false).
+ *                                              To specify an insertion point,
+ *                                              use an object.
+ * @param {string}         value.rootClientId   The root client ID to insert at.
+ * @param {number}         value.insertionIndex The index to insert at.
+ *
+ * @return {Object} Action object.
+ */
+function setIsInserterOpened(value) {
+  return {
+    type: 'SET_IS_INSERTER_OPENED',
+    value
+  };
+}
+//# sourceMappingURL=actions.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/store/constants.js
+/**
+ * Module Constants
+ */
+const constants_STORE_NAME = 'core/customize-widgets';
+//# sourceMappingURL=constants.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/store/index.js
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+/**
+ * Block editor data store configuration.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#registerStore
+ *
+ * @type {Object}
+ */
+
+const storeConfig = {
+  reducer: store_reducer,
+  selectors: store_selectors_namespaceObject,
+  actions: store_actions_namespaceObject
+};
+/**
+ * Store definition for the edit widgets namespace.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
+ *
+ * @type {Object}
+ */
+
+const store_store = (0,external_wp_data_namespaceObject.createReduxStore)(constants_STORE_NAME, storeConfig); // Once we build a more generic persistence plugin that works across types of stores
+// we'd be able to replace this with a register call.
+
+(0,external_wp_data_namespaceObject.registerStore)(constants_STORE_NAME, storeConfig);
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/inserter/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+function Inserter({
+  setIsOpened
+}) {
+  const inserterTitleId = (0,external_wp_compose_namespaceObject.useInstanceId)(Inserter, 'customize-widget-layout__inserter-panel-title');
+  const insertionPoint = (0,external_wp_data_namespaceObject.useSelect)(select => select(store_store).__experimentalGetInsertionPoint(), []);
+  return (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-layout__inserter-panel",
+    "aria-labelledby": inserterTitleId
+  }, (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-layout__inserter-panel-header"
+  }, (0,external_wp_element_namespaceObject.createElement)("h2", {
+    id: inserterTitleId,
+    className: "customize-widgets-layout__inserter-panel-header-title"
+  }, (0,external_wp_i18n_namespaceObject.__)('Add a block')), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+    className: "customize-widgets-layout__inserter-panel-header-close-button",
+    icon: close_small,
+    onClick: () => setIsOpened(false),
+    "aria-label": (0,external_wp_i18n_namespaceObject.__)('Close inserter')
+  })), (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-layout__inserter-panel-content"
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.__experimentalLibrary, {
+    rootClientId: insertionPoint.rootClientId,
+    __experimentalInsertionIndex: insertionPoint.insertionIndex,
+    showInserterHelpPanel: true,
+    onSelect: () => setIsOpened(false)
+  })));
+}
+
+/* harmony default export */ var components_inserter = (Inserter);
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/external.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const external = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+}));
+/* harmony default export */ var library_external = (external);
+//# sourceMappingURL=external.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/keyboard-shortcut-help-modal/config.js
+/**
+ * WordPress dependencies
+ */
+
+const textFormattingShortcuts = [{
+  keyCombination: {
+    modifier: 'primary',
+    character: 'b'
+  },
+  description: (0,external_wp_i18n_namespaceObject.__)('Make the selected text bold.')
+}, {
+  keyCombination: {
+    modifier: 'primary',
+    character: 'i'
+  },
+  description: (0,external_wp_i18n_namespaceObject.__)('Make the selected text italic.')
+}, {
+  keyCombination: {
+    modifier: 'primary',
+    character: 'k'
+  },
+  description: (0,external_wp_i18n_namespaceObject.__)('Convert the selected text into a link.')
+}, {
+  keyCombination: {
+    modifier: 'primaryShift',
+    character: 'k'
+  },
+  description: (0,external_wp_i18n_namespaceObject.__)('Remove a link.')
+}, {
+  keyCombination: {
+    modifier: 'primary',
+    character: 'u'
+  },
+  description: (0,external_wp_i18n_namespaceObject.__)('Underline the selected text.')
+}];
+//# sourceMappingURL=config.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/keyboard-shortcut-help-modal/shortcut.js
+
+
+/**
+ * External dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+function KeyCombination({
+  keyCombination,
+  forceAriaLabel
+}) {
+  const shortcut = keyCombination.modifier ? external_wp_keycodes_namespaceObject.displayShortcutList[keyCombination.modifier](keyCombination.character) : keyCombination.character;
+  const ariaLabel = keyCombination.modifier ? external_wp_keycodes_namespaceObject.shortcutAriaLabel[keyCombination.modifier](keyCombination.character) : keyCombination.character;
+  return (0,external_wp_element_namespaceObject.createElement)("kbd", {
+    className: "customize-widgets-keyboard-shortcut-help-modal__shortcut-key-combination",
+    "aria-label": forceAriaLabel || ariaLabel
+  }, (0,external_lodash_namespaceObject.castArray)(shortcut).map((character, index) => {
+    if (character === '+') {
+      return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, {
+        key: index
+      }, character);
+    }
+
+    return (0,external_wp_element_namespaceObject.createElement)("kbd", {
+      key: index,
+      className: "customize-widgets-keyboard-shortcut-help-modal__shortcut-key"
+    }, character);
+  }));
+}
+
+function Shortcut({
+  description,
+  keyCombination,
+  aliases = [],
+  ariaLabel
+}) {
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-keyboard-shortcut-help-modal__shortcut-description"
+  }, description), (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-keyboard-shortcut-help-modal__shortcut-term"
+  }, (0,external_wp_element_namespaceObject.createElement)(KeyCombination, {
+    keyCombination: keyCombination,
+    forceAriaLabel: ariaLabel
+  }), aliases.map((alias, index) => (0,external_wp_element_namespaceObject.createElement)(KeyCombination, {
+    keyCombination: alias,
+    forceAriaLabel: ariaLabel,
+    key: index
+  }))));
+}
+
+/* harmony default export */ var keyboard_shortcut_help_modal_shortcut = (Shortcut);
+//# sourceMappingURL=shortcut.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/keyboard-shortcut-help-modal/dynamic-shortcut.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+function DynamicShortcut({
+  name
+}) {
+  const {
+    keyCombination,
+    description,
+    aliases
+  } = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    const {
+      getShortcutKeyCombination,
+      getShortcutDescription,
+      getShortcutAliases
+    } = select(external_wp_keyboardShortcuts_namespaceObject.store);
+    return {
+      keyCombination: getShortcutKeyCombination(name),
+      aliases: getShortcutAliases(name),
+      description: getShortcutDescription(name)
+    };
+  }, [name]);
+
+  if (!keyCombination) {
+    return null;
+  }
+
+  return (0,external_wp_element_namespaceObject.createElement)(keyboard_shortcut_help_modal_shortcut, {
+    keyCombination: keyCombination,
+    description: description,
+    aliases: aliases
+  });
+}
+
+/* harmony default export */ var dynamic_shortcut = (DynamicShortcut);
+//# sourceMappingURL=dynamic-shortcut.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/keyboard-shortcut-help-modal/index.js
+
+
+/**
+ * External dependencies
+ */
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+const ShortcutList = ({
+  shortcuts
+}) =>
+/*
+ * Disable reason: The `list` ARIA role is redundant but
+ * Safari+VoiceOver won't announce the list otherwise.
+ */
+
+/* eslint-disable jsx-a11y/no-redundant-roles */
+(0,external_wp_element_namespaceObject.createElement)("ul", {
+  className: "customize-widgets-keyboard-shortcut-help-modal__shortcut-list",
+  role: "list"
+}, shortcuts.map((shortcut, index) => (0,external_wp_element_namespaceObject.createElement)("li", {
+  className: "customize-widgets-keyboard-shortcut-help-modal__shortcut",
+  key: index
+}, (0,external_lodash_namespaceObject.isString)(shortcut) ? (0,external_wp_element_namespaceObject.createElement)(dynamic_shortcut, {
+  name: shortcut
+}) : (0,external_wp_element_namespaceObject.createElement)(keyboard_shortcut_help_modal_shortcut, shortcut))))
+/* eslint-enable jsx-a11y/no-redundant-roles */
+;
+
+const ShortcutSection = ({
+  title,
+  shortcuts,
+  className
+}) => (0,external_wp_element_namespaceObject.createElement)("section", {
+  className: classnames_default()('customize-widgets-keyboard-shortcut-help-modal__section', className)
+}, !!title && (0,external_wp_element_namespaceObject.createElement)("h2", {
+  className: "customize-widgets-keyboard-shortcut-help-modal__section-title"
+}, title), (0,external_wp_element_namespaceObject.createElement)(ShortcutList, {
+  shortcuts: shortcuts
+}));
+
+const ShortcutCategorySection = ({
+  title,
+  categoryName,
+  additionalShortcuts = []
+}) => {
+  const categoryShortcuts = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    return select(external_wp_keyboardShortcuts_namespaceObject.store).getCategoryShortcuts(categoryName);
+  }, [categoryName]);
+  return (0,external_wp_element_namespaceObject.createElement)(ShortcutSection, {
+    title: title,
+    shortcuts: categoryShortcuts.concat(additionalShortcuts)
+  });
+};
+
+function KeyboardShortcutHelpModal({
+  isModalActive,
+  toggleModal
+}) {
+  const {
+    registerShortcut
+  } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_keyboardShortcuts_namespaceObject.store);
+  registerShortcut({
+    name: 'core/customize-widgets/keyboard-shortcuts',
+    category: 'main',
+    description: (0,external_wp_i18n_namespaceObject.__)('Display these keyboard shortcuts.'),
+    keyCombination: {
+      modifier: 'access',
+      character: 'h'
+    }
+  });
+  (0,external_wp_keyboardShortcuts_namespaceObject.useShortcut)('core/customize-widgets/keyboard-shortcuts', toggleModal);
+
+  if (!isModalActive) {
+    return null;
+  }
+
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Modal, {
+    className: "customize-widgets-keyboard-shortcut-help-modal",
+    title: (0,external_wp_i18n_namespaceObject.__)('Keyboard shortcuts'),
+    closeLabel: (0,external_wp_i18n_namespaceObject.__)('Close'),
+    onRequestClose: toggleModal
+  }, (0,external_wp_element_namespaceObject.createElement)(ShortcutSection, {
+    className: "customize-widgets-keyboard-shortcut-help-modal__main-shortcuts",
+    shortcuts: ['core/customize-widgets/keyboard-shortcuts']
+  }), (0,external_wp_element_namespaceObject.createElement)(ShortcutCategorySection, {
+    title: (0,external_wp_i18n_namespaceObject.__)('Global shortcuts'),
+    categoryName: "global"
+  }), (0,external_wp_element_namespaceObject.createElement)(ShortcutCategorySection, {
+    title: (0,external_wp_i18n_namespaceObject.__)('Selection shortcuts'),
+    categoryName: "selection"
+  }), (0,external_wp_element_namespaceObject.createElement)(ShortcutCategorySection, {
+    title: (0,external_wp_i18n_namespaceObject.__)('Block shortcuts'),
+    categoryName: "block",
+    additionalShortcuts: [{
+      keyCombination: {
+        character: '/'
+      },
+      description: (0,external_wp_i18n_namespaceObject.__)('Change the block type after adding a new paragraph.'),
+
+      /* translators: The forward-slash character. e.g. '/'. */
+      ariaLabel: (0,external_wp_i18n_namespaceObject.__)('Forward-slash')
+    }]
+  }), (0,external_wp_element_namespaceObject.createElement)(ShortcutSection, {
+    title: (0,external_wp_i18n_namespaceObject.__)('Text formatting'),
+    shortcuts: textFormattingShortcuts
+  }));
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/more-menu/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+const POPOVER_PROPS = {
+  className: 'customize-widgets-more-menu__content'
+};
+function MoreMenu() {
+  const [isKeyboardShortcutsModalActive, setIsKeyboardShortcutsModalVisible] = (0,external_wp_element_namespaceObject.useState)(false);
+
+  const toggleKeyboardShortcutsModal = () => setIsKeyboardShortcutsModalVisible(!isKeyboardShortcutsModalActive);
+
+  (0,external_wp_keyboardShortcuts_namespaceObject.useShortcut)('core/customize-widgets/keyboard-shortcuts', toggleKeyboardShortcutsModal);
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, (0,external_wp_element_namespaceObject.createElement)(MoreMenuDropdown, {
+    as: external_wp_components_namespaceObject.ToolbarDropdownMenu,
+    className: "customize-widgets-more-menu",
+    popoverProps: POPOVER_PROPS
+  }, () => (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.MenuGroup, {
+    label: (0,external_wp_i18n_namespaceObject._x)('View', 'noun')
+  }, (0,external_wp_element_namespaceObject.createElement)(MoreMenuFeatureToggle, {
+    scope: "core/customize-widgets",
+    feature: "fixedToolbar",
+    label: (0,external_wp_i18n_namespaceObject.__)('Top toolbar'),
+    info: (0,external_wp_i18n_namespaceObject.__)('Access all block and document tools in a single place'),
+    messageActivated: (0,external_wp_i18n_namespaceObject.__)('Top toolbar activated'),
+    messageDeactivated: (0,external_wp_i18n_namespaceObject.__)('Top toolbar deactivated')
+  })), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.MenuGroup, {
+    label: (0,external_wp_i18n_namespaceObject.__)('Tools')
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.MenuItem, {
+    onClick: () => {
+      setIsKeyboardShortcutsModalVisible(true);
+    },
+    shortcut: external_wp_keycodes_namespaceObject.displayShortcut.access('h')
+  }, (0,external_wp_i18n_namespaceObject.__)('Keyboard shortcuts')), (0,external_wp_element_namespaceObject.createElement)(MoreMenuFeatureToggle, {
+    scope: "core/customize-widgets",
+    feature: "welcomeGuide",
+    label: (0,external_wp_i18n_namespaceObject.__)('Welcome Guide')
+  }), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.MenuItem, {
+    role: "menuitem",
+    icon: library_external,
+    href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/support/article/block-based-widgets-editor/'),
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, (0,external_wp_i18n_namespaceObject.__)('Help'), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.VisuallyHidden, {
+    as: "span"
+  },
+  /* translators: accessibility text */
+  (0,external_wp_i18n_namespaceObject.__)('(opens in a new tab)')))), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.MenuGroup, {
+    label: (0,external_wp_i18n_namespaceObject.__)('Preferences')
+  }, (0,external_wp_element_namespaceObject.createElement)(MoreMenuFeatureToggle, {
+    scope: "core/customize-widgets",
+    feature: "keepCaretInsideBlock",
+    label: (0,external_wp_i18n_namespaceObject.__)('Contain text cursor inside block'),
+    info: (0,external_wp_i18n_namespaceObject.__)('Aids screen readers by stopping text caret from leaving blocks.'),
+    messageActivated: (0,external_wp_i18n_namespaceObject.__)('Contain text cursor inside block activated'),
+    messageDeactivated: (0,external_wp_i18n_namespaceObject.__)('Contain text cursor inside block deactivated')
+  })))), (0,external_wp_element_namespaceObject.createElement)(KeyboardShortcutHelpModal, {
+    isModalActive: isKeyboardShortcutsModalActive,
+    toggleModal: toggleKeyboardShortcutsModal
+  }));
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/header/index.js
+
+
+/**
+ * External dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+function Header({
+  sidebar,
+  inserter,
+  isInserterOpened,
+  setIsInserterOpened,
+  isFixedToolbarActive
+}) {
+  const [[hasUndo, hasRedo], setUndoRedo] = (0,external_wp_element_namespaceObject.useState)([sidebar.hasUndo(), sidebar.hasRedo()]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    return sidebar.subscribeHistory(() => {
+      setUndoRedo([sidebar.hasUndo(), sidebar.hasRedo()]);
+    });
+  }, [sidebar]);
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: classnames_default()('customize-widgets-header', {
+      'is-fixed-toolbar-active': isFixedToolbarActive
+    })
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.NavigableToolbar, {
+    className: "customize-widgets-header-toolbar",
+    "aria-label": (0,external_wp_i18n_namespaceObject.__)('Document tools')
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ToolbarButton, {
+    icon: !(0,external_wp_i18n_namespaceObject.isRTL)() ? library_undo : library_redo
+    /* translators: button label text should, if possible, be under 16 characters. */
+    ,
+    label: (0,external_wp_i18n_namespaceObject.__)('Undo'),
+    shortcut: external_wp_keycodes_namespaceObject.displayShortcut.primary('z') // If there are no undo levels we don't want to actually disable this
+    // button, because it will remove focus for keyboard users.
+    // See: https://github.com/WordPress/gutenberg/issues/3486
+    ,
+    "aria-disabled": !hasUndo,
+    onClick: sidebar.undo,
+    className: "customize-widgets-editor-history-button undo-button"
+  }), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ToolbarButton, {
+    icon: !(0,external_wp_i18n_namespaceObject.isRTL)() ? library_redo : library_undo
+    /* translators: button label text should, if possible, be under 16 characters. */
+    ,
+    label: (0,external_wp_i18n_namespaceObject.__)('Redo'),
+    shortcut: external_wp_keycodes_namespaceObject.displayShortcut.primaryShift('z') // If there are no undo levels we don't want to actually disable this
+    // button, because it will remove focus for keyboard users.
+    // See: https://github.com/WordPress/gutenberg/issues/3486
+    ,
+    "aria-disabled": !hasRedo,
+    onClick: sidebar.redo,
+    className: "customize-widgets-editor-history-button redo-button"
+  }), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ToolbarButton, {
+    className: "customize-widgets-header-toolbar__inserter-toggle",
+    isPressed: isInserterOpened,
+    variant: "primary",
+    icon: library_plus,
+    label: (0,external_wp_i18n_namespaceObject._x)('Add block', 'Generic label for block inserter button'),
+    onClick: () => {
+      setIsInserterOpened(isOpen => !isOpen);
+    }
+  }), (0,external_wp_element_namespaceObject.createElement)(MoreMenu, null))), (0,external_wp_element_namespaceObject.createPortal)((0,external_wp_element_namespaceObject.createElement)(components_inserter, {
+    setIsOpened: setIsInserterOpened
+  }), inserter.contentContainer[0]));
+}
+
+/* harmony default export */ var header = (Header);
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/inserter/use-inserter.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+function useInserter(inserter) {
+  const isInserterOpened = (0,external_wp_data_namespaceObject.useSelect)(select => select(store_store).isInserterOpened(), []);
+  const {
+    setIsInserterOpened
+  } = (0,external_wp_data_namespaceObject.useDispatch)(store_store);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    if (isInserterOpened) {
+      inserter.open();
+    } else {
+      inserter.close();
+    }
+  }, [inserter, isInserterOpened]);
+  return [isInserterOpened, (0,external_wp_element_namespaceObject.useCallback)(updater => {
+    let isOpen = updater;
+
+    if (typeof updater === 'function') {
+      isOpen = updater((0,external_wp_data_namespaceObject.select)(store_store).isInserterOpened());
+    }
+
+    setIsInserterOpened(isOpen);
+  }, [setIsInserterOpened])];
+}
+//# sourceMappingURL=use-inserter.js.map
+;// CONCATENATED MODULE: external ["wp","isShallowEqual"]
+var external_wp_isShallowEqual_namespaceObject = window["wp"]["isShallowEqual"];
+var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(external_wp_isShallowEqual_namespaceObject);
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/utils.js
+// @ts-check
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * External dependencies
+ */
+
+
+/**
+ * Convert settingId to widgetId.
+ *
+ * @param {string} settingId The setting id.
+ * @return {string} The widget id.
+ */
+
+function settingIdToWidgetId(settingId) {
+  const matches = settingId.match(/^widget_(.+)(?:\[(\d+)\])$/);
+
+  if (matches) {
+    const idBase = matches[1];
+    const number = parseInt(matches[2], 10);
+    return `${idBase}-${number}`;
+  }
+
+  return settingId;
+}
+/**
+ * Transform a block to a customizable widget.
+ *
+ * @param {WPBlock} block          The block to be transformed from.
+ * @param {Object}  existingWidget The widget to be extended from.
+ * @return {Object} The transformed widget.
+ */
+
+function blockToWidget(block, existingWidget = null) {
+  let widget;
+  const isValidLegacyWidgetBlock = block.name === 'core/legacy-widget' && (block.attributes.id || block.attributes.instance);
+
+  if (isValidLegacyWidgetBlock) {
+    if (block.attributes.id) {
+      // Widget that does not extend WP_Widget.
+      widget = {
+        id: block.attributes.id
+      };
+    } else {
+      const {
+        encoded,
+        hash,
+        raw,
+        ...rest
+      } = block.attributes.instance; // Widget that extends WP_Widget.
+
+      widget = {
+        idBase: block.attributes.idBase,
+        instance: { ...(existingWidget === null || existingWidget === void 0 ? void 0 : existingWidget.instance),
+          // Required only for the customizer.
+          is_widget_customizer_js_value: true,
+          encoded_serialized_instance: encoded,
+          instance_hash_key: hash,
+          raw_instance: raw,
+          ...rest
+        }
+      };
+    }
+  } else {
+    const instance = {
+      content: (0,external_wp_blocks_namespaceObject.serialize)(block)
+    };
+    widget = {
+      idBase: 'block',
+      widgetClass: 'WP_Widget_Block',
+      instance: {
+        raw_instance: instance
+      }
+    };
+  }
+
+  return { ...(0,external_lodash_namespaceObject.omit)(existingWidget, ['form', 'rendered']),
+    ...widget
+  };
+}
+/**
+ * Transform a widget to a block.
+ *
+ * @param {Object} widget          The widget to be transformed from.
+ * @param {string} widget.id       The widget id.
+ * @param {string} widget.idBase   The id base of the widget.
+ * @param {number} widget.number   The number/index of the widget.
+ * @param {Object} widget.instance The instance of the widget.
+ * @return {WPBlock} The transformed block.
+ */
+
+function widgetToBlock({
+  id,
+  idBase,
+  number,
+  instance
+}) {
+  let block;
+  const {
+    encoded_serialized_instance: encoded,
+    instance_hash_key: hash,
+    raw_instance: raw,
+    ...rest
+  } = instance;
+
+  if (idBase === 'block') {
+    const parsedBlocks = (0,external_wp_blocks_namespaceObject.parse)(raw.content);
+    block = parsedBlocks.length ? parsedBlocks[0] : (0,external_wp_blocks_namespaceObject.createBlock)('core/paragraph', {});
+  } else if (number) {
+    // Widget that extends WP_Widget.
+    block = (0,external_wp_blocks_namespaceObject.createBlock)('core/legacy-widget', {
+      idBase,
+      instance: {
+        encoded,
+        hash,
+        raw,
+        ...rest
+      }
+    });
+  } else {
+    // Widget that does not extend WP_Widget.
+    block = (0,external_wp_blocks_namespaceObject.createBlock)('core/legacy-widget', {
+      id
+    });
+  }
+
+  return (0,external_wp_widgets_namespaceObject.addWidgetIdToBlock)(block, id);
+}
+//# sourceMappingURL=utils.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/sidebar-block-editor/use-sidebar-block-editor.js
+/**
+ * External dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+function widgetsToBlocks(widgets) {
+  return widgets.map(widget => widgetToBlock(widget));
+}
+
+function useSidebarBlockEditor(sidebar) {
+  const [blocks, setBlocks] = (0,external_wp_element_namespaceObject.useState)(() => widgetsToBlocks(sidebar.getWidgets()));
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    return sidebar.subscribe((prevWidgets, nextWidgets) => {
+      setBlocks(prevBlocks => {
+        const prevWidgetsMap = new Map(prevWidgets.map(widget => [widget.id, widget]));
+        const prevBlocksMap = new Map(prevBlocks.map(block => [(0,external_wp_widgets_namespaceObject.getWidgetIdFromBlock)(block), block]));
+        const nextBlocks = nextWidgets.map(nextWidget => {
+          const prevWidget = prevWidgetsMap.get(nextWidget.id); // Bail out updates.
+
+          if (prevWidget && prevWidget === nextWidget) {
+            return prevBlocksMap.get(nextWidget.id);
+          }
+
+          return widgetToBlock(nextWidget);
+        }); // Bail out updates.
+
+        if (external_wp_isShallowEqual_default()(prevBlocks, nextBlocks)) {
+          return prevBlocks;
+        }
+
+        return nextBlocks;
+      });
+    });
+  }, [sidebar]);
+  const onChangeBlocks = (0,external_wp_element_namespaceObject.useCallback)(nextBlocks => {
+    setBlocks(prevBlocks => {
+      if (external_wp_isShallowEqual_default()(prevBlocks, nextBlocks)) {
+        return prevBlocks;
+      }
+
+      const prevBlocksMap = new Map(prevBlocks.map(block => [(0,external_wp_widgets_namespaceObject.getWidgetIdFromBlock)(block), block]));
+      const nextWidgets = nextBlocks.map(nextBlock => {
+        const widgetId = (0,external_wp_widgets_namespaceObject.getWidgetIdFromBlock)(nextBlock); // Update existing widgets.
+
+        if (widgetId && prevBlocksMap.has(widgetId)) {
+          const prevBlock = prevBlocksMap.get(widgetId);
+          const prevWidget = sidebar.getWidget(widgetId); // Bail out updates by returning the previous widgets.
+          // Deep equality is necessary until the block editor's internals changes.
+
+          if ((0,external_lodash_namespaceObject.isEqual)(nextBlock, prevBlock) && prevWidget) {
+            return prevWidget;
+          }
+
+          return blockToWidget(nextBlock, prevWidget);
+        } // Add a new widget.
+
+
+        return blockToWidget(nextBlock);
+      }); // Bail out updates if the updated widgets are the same.
+
+      if (external_wp_isShallowEqual_default()(sidebar.getWidgets(), nextWidgets)) {
+        return prevBlocks;
+      }
+
+      const addedWidgetIds = sidebar.setWidgets(nextWidgets);
+      return nextBlocks.reduce((updatedNextBlocks, nextBlock, index) => {
+        const addedWidgetId = addedWidgetIds[index];
+
+        if (addedWidgetId !== null) {
+          // Only create a new instance if necessary to prevent
+          // the whole editor from re-rendering on every edit.
+          if (updatedNextBlocks === nextBlocks) {
+            updatedNextBlocks = nextBlocks.slice();
+          }
+
+          updatedNextBlocks[index] = (0,external_wp_widgets_namespaceObject.addWidgetIdToBlock)(nextBlock, addedWidgetId);
+        }
+
+        return updatedNextBlocks;
+      }, nextBlocks);
+    });
+  }, [sidebar]);
+  return [blocks, onChangeBlocks, onChangeBlocks];
+}
+//# sourceMappingURL=use-sidebar-block-editor.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/focus-control/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+const FocusControlContext = (0,external_wp_element_namespaceObject.createContext)();
+function FocusControl({
+  api,
+  sidebarControls,
+  children
+}) {
+  const [focusedWidgetIdRef, setFocusedWidgetIdRef] = (0,external_wp_element_namespaceObject.useState)({
+    current: null
+  });
+  const focusWidget = (0,external_wp_element_namespaceObject.useCallback)(widgetId => {
+    for (const sidebarControl of sidebarControls) {
+      const widgets = sidebarControl.setting.get();
+
+      if (widgets.includes(widgetId)) {
+        sidebarControl.sectionInstance.expand({
+          // Schedule it after the complete callback so that
+          // it won't be overridden by the "Back" button focus.
+          completeCallback() {
+            // Create a "ref-like" object every time to ensure
+            // the same widget id can also triggers the focus control.
+            setFocusedWidgetIdRef({
+              current: widgetId
+            });
+          }
+
+        });
+        break;
+      }
+    }
+  }, [sidebarControls]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    function handleFocus(settingId) {
+      const widgetId = settingIdToWidgetId(settingId);
+      focusWidget(widgetId);
+    }
+
+    function handleReady() {
+      api.previewer.preview.bind('focus-control-for-setting', handleFocus);
+    }
+
+    api.previewer.bind('ready', handleReady);
+    return () => {
+      api.previewer.unbind('ready', handleReady);
+      api.previewer.preview.unbind('focus-control-for-setting', handleFocus);
+    };
+  }, [api, focusWidget]);
+  const context = (0,external_wp_element_namespaceObject.useMemo)(() => [focusedWidgetIdRef, focusWidget], [focusedWidgetIdRef, focusWidget]);
+  return (0,external_wp_element_namespaceObject.createElement)(FocusControlContext.Provider, {
+    value: context
+  }, children);
+}
+const useFocusControl = () => (0,external_wp_element_namespaceObject.useContext)(FocusControlContext);
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/focus-control/use-blocks-focus-control.js
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+function useBlocksFocusControl(blocks) {
+  const {
+    selectBlock
+  } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_blockEditor_namespaceObject.store);
+  const [focusedWidgetIdRef] = useFocusControl();
+  const blocksRef = (0,external_wp_element_namespaceObject.useRef)(blocks);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    blocksRef.current = blocks;
+  }, [blocks]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    if (focusedWidgetIdRef.current) {
+      const focusedBlock = blocksRef.current.find(block => (0,external_wp_widgets_namespaceObject.getWidgetIdFromBlock)(block) === focusedWidgetIdRef.current);
+
+      if (focusedBlock) {
+        selectBlock(focusedBlock.clientId); // If the block is already being selected, the DOM node won't
+        // get focused again automatically.
+        // We select the DOM and focus it manually here.
+
+        const blockNode = document.querySelector(`[data-block="${focusedBlock.clientId}"]`);
+        blockNode === null || blockNode === void 0 ? void 0 : blockNode.focus();
+      }
+    }
+  }, [focusedWidgetIdRef, selectBlock]);
+}
+//# sourceMappingURL=use-blocks-focus-control.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/sidebar-block-editor/sidebar-editor-provider.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+function SidebarEditorProvider({
+  sidebar,
+  settings,
+  children
+}) {
+  const [blocks, onInput, onChange] = useSidebarBlockEditor(sidebar);
+  useBlocksFocusControl(blocks);
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockEditorProvider, {
+    value: blocks,
+    onInput: onInput,
+    onChange: onChange,
+    settings: settings,
+    useSubRegistry: false
+  }, children);
+}
+//# sourceMappingURL=sidebar-editor-provider.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/welcome-guide/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+function WelcomeGuide({
+  sidebar
+}) {
+  const {
+    toggleFeature
+  } = (0,external_wp_data_namespaceObject.useDispatch)(store);
+  const isEntirelyBlockWidgets = sidebar.getWidgets().every(widget => widget.id.startsWith('block-'));
+  return (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-welcome-guide"
+  }, (0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-welcome-guide__image__wrapper"
+  }, (0,external_wp_element_namespaceObject.createElement)("picture", null, (0,external_wp_element_namespaceObject.createElement)("source", {
+    srcSet: "https://s.w.org/images/block-editor/welcome-editor.svg",
+    media: "(prefers-reduced-motion: reduce)"
+  }), (0,external_wp_element_namespaceObject.createElement)("img", {
+    className: "customize-widgets-welcome-guide__image",
+    src: "https://s.w.org/images/block-editor/welcome-editor.gif",
+    width: "312",
+    height: "240",
+    alt: ""
+  }))), (0,external_wp_element_namespaceObject.createElement)("h1", {
+    className: "customize-widgets-welcome-guide__heading"
+  }, (0,external_wp_i18n_namespaceObject.__)('Welcome to block Widgets')), (0,external_wp_element_namespaceObject.createElement)("p", {
+    className: "customize-widgets-welcome-guide__text"
+  }, isEntirelyBlockWidgets ? (0,external_wp_i18n_namespaceObject.__)('Your theme provides different “block” areas for you to add and edit content. Try adding a search bar, social icons, or other types of blocks here and see how they’ll look on your site.') : (0,external_wp_i18n_namespaceObject.__)('You can now add any block to your site’s widget areas. Don’t worry, all of your favorite widgets still work flawlessly.')), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+    className: "customize-widgets-welcome-guide__button",
+    variant: "primary",
+    onClick: () => toggleFeature('core/customize-widgets', 'welcomeGuide')
+  }, (0,external_wp_i18n_namespaceObject.__)('Got it')), (0,external_wp_element_namespaceObject.createElement)("hr", {
+    className: "customize-widgets-welcome-guide__separator"
+  }), !isEntirelyBlockWidgets && (0,external_wp_element_namespaceObject.createElement)("p", {
+    className: "customize-widgets-welcome-guide__more-info"
+  }, (0,external_wp_i18n_namespaceObject.__)('Want to stick with the old widgets?'), (0,external_wp_element_namespaceObject.createElement)("br", null), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ExternalLink, {
+    href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/plugins/classic-widgets/')
+  }, (0,external_wp_i18n_namespaceObject.__)('Get the Classic Widgets plugin.'))), (0,external_wp_element_namespaceObject.createElement)("p", {
+    className: "customize-widgets-welcome-guide__more-info"
+  }, (0,external_wp_i18n_namespaceObject.__)('New to the block editor?'), (0,external_wp_element_namespaceObject.createElement)("br", null), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ExternalLink, {
+    href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/support/article/wordpress-editor/')
+  }, (0,external_wp_i18n_namespaceObject.__)("Here's a detailed guide."))));
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/keyboard-shortcuts/index.js
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+function KeyboardShortcuts({
+  undo,
+  redo,
+  save
+}) {
+  (0,external_wp_keyboardShortcuts_namespaceObject.useShortcut)('core/customize-widgets/undo', event => {
+    undo();
+    event.preventDefault();
+  });
+  (0,external_wp_keyboardShortcuts_namespaceObject.useShortcut)('core/customize-widgets/redo', event => {
+    redo();
+    event.preventDefault();
+  });
+  (0,external_wp_keyboardShortcuts_namespaceObject.useShortcut)('core/customize-widgets/save', event => {
+    event.preventDefault();
+    save();
+  });
+  return null;
+}
+
+function KeyboardShortcutsRegister() {
+  const {
+    registerShortcut,
+    unregisterShortcut
+  } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_keyboardShortcuts_namespaceObject.store);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    registerShortcut({
+      name: 'core/customize-widgets/undo',
+      category: 'global',
+      description: (0,external_wp_i18n_namespaceObject.__)('Undo your last changes.'),
+      keyCombination: {
+        modifier: 'primary',
+        character: 'z'
+      }
+    });
+    registerShortcut({
+      name: 'core/customize-widgets/redo',
+      category: 'global',
+      description: (0,external_wp_i18n_namespaceObject.__)('Redo your last undo.'),
+      keyCombination: {
+        modifier: 'primaryShift',
+        character: 'z'
+      }
+    });
+    registerShortcut({
+      name: 'core/customize-widgets/save',
+      category: 'global',
+      description: (0,external_wp_i18n_namespaceObject.__)('Save your changes.'),
+      keyCombination: {
+        modifier: 'primary',
+        character: 's'
+      }
+    });
+    return () => {
+      unregisterShortcut('core/customize-widgets/undo');
+      unregisterShortcut('core/customize-widgets/redo');
+      unregisterShortcut('core/customize-widgets/save');
+    };
+  }, [registerShortcut]);
+  return null;
+}
+
+KeyboardShortcuts.Register = KeyboardShortcutsRegister;
+/* harmony default export */ var keyboard_shortcuts = (KeyboardShortcuts);
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/block-appender/index.js
+
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+function BlockAppender(props) {
+  const ref = (0,external_wp_element_namespaceObject.useRef)();
+  const isBlocksListEmpty = (0,external_wp_data_namespaceObject.useSelect)(select => select(external_wp_blockEditor_namespaceObject.store).getBlockCount() === 0); // Move the focus to the block appender to prevent focus from
+  // being lost when emptying the widget area.
+
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    if (isBlocksListEmpty && ref.current) {
+      const {
+        ownerDocument
+      } = ref.current;
+
+      if (!ownerDocument.activeElement || ownerDocument.activeElement === ownerDocument.body) {
+        ref.current.focus();
+      }
+    }
+  }, [isBlocksListEmpty]);
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.ButtonBlockAppender, _extends({}, props, {
+    ref: ref
+  }));
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/sidebar-block-editor/index.js
+
+
+/**
+ * External dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+
+
+
+function SidebarBlockEditor({
+  blockEditorSettings,
+  sidebar,
+  inserter,
+  inspector
+}) {
+  const [isInserterOpened, setIsInserterOpened] = useInserter(inserter);
+  const {
+    hasUploadPermissions,
+    isFixedToolbarActive,
+    keepCaretInsideBlock,
+    isWelcomeGuideActive
+  } = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    const {
+      isFeatureActive
+    } = select(store);
+    return {
+      hasUploadPermissions: (0,external_lodash_namespaceObject.defaultTo)(select(external_wp_coreData_namespaceObject.store).canUser('create', 'media'), true),
+      isFixedToolbarActive: isFeatureActive('core/customize-widgets', 'fixedToolbar'),
+      keepCaretInsideBlock: isFeatureActive('core/customize-widgets', 'keepCaretInsideBlock'),
+      isWelcomeGuideActive: isFeatureActive('core/customize-widgets', 'welcomeGuide')
+    };
+  }, []);
+  const settings = (0,external_wp_element_namespaceObject.useMemo)(() => {
+    let mediaUploadBlockEditor;
+
+    if (hasUploadPermissions) {
+      mediaUploadBlockEditor = ({
+        onError,
+        ...argumentsObject
+      }) => {
+        (0,external_wp_mediaUtils_namespaceObject.uploadMedia)({
+          wpAllowedMimeTypes: blockEditorSettings.allowedMimeTypes,
+          onError: ({
+            message
+          }) => onError(message),
+          ...argumentsObject
+        });
+      };
+    }
+
+    return { ...blockEditorSettings,
+      __experimentalSetIsInserterOpened: setIsInserterOpened,
+      mediaUpload: mediaUploadBlockEditor,
+      hasFixedToolbar: isFixedToolbarActive,
+      keepCaretInsideBlock,
+      __unstableHasCustomAppender: true
+    };
+  }, [hasUploadPermissions, blockEditorSettings, isFixedToolbarActive, keepCaretInsideBlock, setIsInserterOpened]);
+
+  if (isWelcomeGuideActive) {
+    return (0,external_wp_element_namespaceObject.createElement)(WelcomeGuide, {
+      sidebar: sidebar
+    });
+  }
+
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockEditorKeyboardShortcuts.Register, null), (0,external_wp_element_namespaceObject.createElement)(keyboard_shortcuts.Register, null), (0,external_wp_element_namespaceObject.createElement)(SidebarEditorProvider, {
+    sidebar: sidebar,
+    settings: settings
+  }, (0,external_wp_element_namespaceObject.createElement)(keyboard_shortcuts, {
+    undo: sidebar.undo,
+    redo: sidebar.redo,
+    save: sidebar.save
+  }), (0,external_wp_element_namespaceObject.createElement)(header, {
+    sidebar: sidebar,
+    inserter: inserter,
+    isInserterOpened: isInserterOpened,
+    setIsInserterOpened: setIsInserterOpened,
+    isFixedToolbarActive: isFixedToolbarActive
+  }), (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.CopyHandler, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockTools, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.__unstableEditorStyles, {
+    styles: settings.defaultEditorStyles
+  }), (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockSelectionClearer, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.WritingFlow, {
+    className: "editor-styles-wrapper"
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.ObserveTyping, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockList, {
+    renderAppender: BlockAppender
+  })))))), (0,external_wp_element_namespaceObject.createPortal)( // This is a temporary hack to prevent button component inside <BlockInspector>
+  // from submitting form when type="button" is not specified.
+  (0,external_wp_element_namespaceObject.createElement)("form", {
+    onSubmit: event => event.preventDefault()
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockInspector, null)), inspector.contentContainer[0])), (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.__unstableBlockSettingsMenuFirstItem, null, ({
+    onClose
+  }) => (0,external_wp_element_namespaceObject.createElement)(block_inspector_button, {
+    inspector: inspector,
+    closeMenu: onClose
+  })));
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/sidebar-controls/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const SidebarControlsContext = (0,external_wp_element_namespaceObject.createContext)();
+function SidebarControls({
+  sidebarControls,
+  activeSidebarControl,
+  children
+}) {
+  const context = (0,external_wp_element_namespaceObject.useMemo)(() => ({
+    sidebarControls,
+    activeSidebarControl
+  }), [sidebarControls, activeSidebarControl]);
+  return (0,external_wp_element_namespaceObject.createElement)(SidebarControlsContext.Provider, {
+    value: context
+  }, children);
+}
+function useSidebarControls() {
+  const {
+    sidebarControls
+  } = (0,external_wp_element_namespaceObject.useContext)(SidebarControlsContext);
+  return sidebarControls;
+}
+function useActiveSidebarControl() {
+  const {
+    activeSidebarControl
+  } = (0,external_wp_element_namespaceObject.useContext)(SidebarControlsContext);
+  return activeSidebarControl;
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/customize-widgets/use-clear-selected-block.js
+/**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * We can't just use <BlockSelectionClearer> because the customizer has
+ * many root nodes rather than just one in the post editor.
+ * We need to listen to the focus events in all those roots, and also in
+ * the preview iframe.
+ * This hook will clear the selected block when focusing outside the editor,
+ * with a few exceptions:
+ * 1. Focusing on popovers.
+ * 2. Focusing on the inspector.
+ * 3. Focusing on any modals/dialogs.
+ * These cases are normally triggered by user interactions from the editor,
+ * not by explicitly focusing outside the editor, hence no need for clearing.
+ *
+ * @param {Object} sidebarControl The sidebar control instance.
+ * @param {Object} popoverRef     The ref object of the popover node container.
+ */
+
+function useClearSelectedBlock(sidebarControl, popoverRef) {
+  const {
+    hasSelectedBlock,
+    hasMultiSelection
+  } = (0,external_wp_data_namespaceObject.useSelect)(external_wp_blockEditor_namespaceObject.store);
+  const {
+    clearSelectedBlock
+  } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_blockEditor_namespaceObject.store);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    if (popoverRef.current && sidebarControl) {
+      const inspector = sidebarControl.inspector;
+      const container = sidebarControl.container[0];
+      const ownerDocument = container.ownerDocument;
+      const ownerWindow = ownerDocument.defaultView;
+
+      function handleClearSelectedBlock(element) {
+        if ( // 1. Make sure there are blocks being selected.
+        (hasSelectedBlock() || hasMultiSelection()) && // 2. The element should exist in the DOM (not deleted).
+        element && ownerDocument.contains(element) && // 3. It should also not exist in the container, the popover, nor the dialog.
+        !container.contains(element) && !popoverRef.current.contains(element) && !element.closest('[role="dialog"]') && // 4. The inspector should not be opened.
+        !inspector.expanded()) {
+          clearSelectedBlock();
+        }
+      } // Handle mouse down in the same document.
+
+
+      function handleMouseDown(event) {
+        handleClearSelectedBlock(event.target);
+      } // Handle focusing outside the current document, like to iframes.
+
+
+      function handleBlur() {
+        handleClearSelectedBlock(ownerDocument.activeElement);
+      }
+
+      ownerDocument.addEventListener('mousedown', handleMouseDown);
+      ownerWindow.addEventListener('blur', handleBlur);
+      return () => {
+        ownerDocument.removeEventListener('mousedown', handleMouseDown);
+        ownerWindow.removeEventListener('blur', handleBlur);
+      };
+    }
+  }, [popoverRef, sidebarControl, hasSelectedBlock, hasMultiSelection, clearSelectedBlock]);
+}
+//# sourceMappingURL=use-clear-selected-block.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/customize-widgets/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+
+function CustomizeWidgets({
+  api,
+  sidebarControls,
+  blockEditorSettings
+}) {
+  const [activeSidebarControl, setActiveSidebarControl] = (0,external_wp_element_namespaceObject.useState)(null);
+  const parentContainer = document.getElementById('customize-theme-controls');
+  const popoverRef = (0,external_wp_element_namespaceObject.useRef)();
+  useClearSelectedBlock(activeSidebarControl, popoverRef);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    const unsubscribers = sidebarControls.map(sidebarControl => sidebarControl.subscribe(expanded => {
+      if (expanded) {
+        setActiveSidebarControl(sidebarControl);
+      }
+    }));
+    return () => {
+      unsubscribers.forEach(unsubscriber => unsubscriber());
+    };
+  }, [sidebarControls]);
+  const activeSidebar = activeSidebarControl && (0,external_wp_element_namespaceObject.createPortal)((0,external_wp_element_namespaceObject.createElement)(ErrorBoundary, null, (0,external_wp_element_namespaceObject.createElement)(SidebarBlockEditor, {
+    key: activeSidebarControl.id,
+    blockEditorSettings: blockEditorSettings,
+    sidebar: activeSidebarControl.sidebarAdapter,
+    inserter: activeSidebarControl.inserter,
+    inspector: activeSidebarControl.inspector
+  })), activeSidebarControl.container[0]); // We have to portal this to the parent of both the editor and the inspector,
+  // so that the popovers will appear above both of them.
+
+  const popover = parentContainer && (0,external_wp_element_namespaceObject.createPortal)((0,external_wp_element_namespaceObject.createElement)("div", {
+    className: "customize-widgets-popover",
+    ref: popoverRef
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Popover.Slot, null)), parentContainer);
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_keyboardShortcuts_namespaceObject.ShortcutProvider, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.SlotFillProvider, null, (0,external_wp_element_namespaceObject.createElement)(SidebarControls, {
+    sidebarControls: sidebarControls,
+    activeSidebarControl: activeSidebarControl
+  }, (0,external_wp_element_namespaceObject.createElement)(FocusControl, {
+    api: api,
+    sidebarControls: sidebarControls
+  }, activeSidebar, popover))));
+}
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/controls/inspector-section.js
+function getInspectorSection() {
+  const {
+    wp: {
+      customize
+    }
+  } = window;
+  return class InspectorSection extends customize.Section {
+    constructor(id, options) {
+      super(id, options);
+      this.parentSection = options.parentSection;
+      this.returnFocusWhenClose = null;
+      this._isOpen = false;
+    }
+
+    get isOpen() {
+      return this._isOpen;
+    }
+
+    set isOpen(value) {
+      this._isOpen = value;
+      this.triggerActiveCallbacks();
+    }
+
+    ready() {
+      this.contentContainer[0].classList.add('customize-widgets-layout__inspector');
+    }
+
+    isContextuallyActive() {
+      return this.isOpen;
+    }
+
+    onChangeExpanded(expanded, args) {
+      super.onChangeExpanded(expanded, args);
+
+      if (this.parentSection && !args.unchanged) {
+        if (expanded) {
+          this.parentSection.collapse({
+            manualTransition: true
+          });
+        } else {
+          this.parentSection.expand({
+            manualTransition: true,
+            completeCallback: () => {
+              // Return focus after finishing the transition.
+              if (this.returnFocusWhenClose && !this.contentContainer[0].contains(this.returnFocusWhenClose)) {
+                this.returnFocusWhenClose.focus();
+              }
+            }
+          });
+        }
+      }
+    }
+
+    open({
+      returnFocusWhenClose
+    } = {}) {
+      this.isOpen = true;
+      this.returnFocusWhenClose = returnFocusWhenClose;
+      this.expand({
+        allowMultiple: true
+      });
+    }
+
+    close() {
+      this.collapse({
+        allowMultiple: true
+      });
+    }
+
+    collapse(options) {
+      // Overridden collapse() function. Mostly call the parent collapse(), but also
+      // move our .isOpen to false.
+      // Initially, I tried tracking this with onChangeExpanded(), but it doesn't work
+      // because the block settings sidebar is a layer "on top of" the G editor sidebar.
+      //
+      // For example, when closing the block settings sidebar, the G
+      // editor sidebar would display, and onChangeExpanded in
+      // inspector-section would run with expanded=true, but I want
+      // isOpen to be false when the block settings is closed.
+      this.isOpen = false;
+      super.collapse(options);
+    }
+
+    triggerActiveCallbacks() {
+      // Manually fire the callbacks associated with moving this.active
+      // from false to true.  "active" is always true for this section,
+      // and "isContextuallyActive" reflects if the block settings
+      // sidebar is currently visible, that is, it has replaced the main
+      // Gutenberg view.
+      // The WP customizer only checks ".isContextuallyActive()" when
+      // ".active" changes values. But our ".active" never changes value.
+      // The WP customizer never foresaw a section being used a way we
+      // fit the block settings sidebar into a section. By manually
+      // triggering the "this.active" callbacks, we force the WP
+      // customizer to query our .isContextuallyActive() function and
+      // update its view of our status.
+      this.active.callbacks.fireWith(this.active, [false, true]);
+    }
+
+  };
+}
+//# sourceMappingURL=inspector-section.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/controls/sidebar-section.js
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+const getInspectorSectionId = sidebarId => `widgets-inspector-${sidebarId}`;
+
+function getSidebarSection() {
+  const {
+    wp: {
+      customize
+    }
+  } = window;
+  return class SidebarSection extends customize.Section {
+    ready() {
+      const InspectorSection = getInspectorSection();
+      this.inspector = new InspectorSection(getInspectorSectionId(this.id), {
+        title: (0,external_wp_i18n_namespaceObject.__)('Block Settings'),
+        parentSection: this,
+        customizeAction: [(0,external_wp_i18n_namespaceObject.__)('Customizing'), (0,external_wp_i18n_namespaceObject.__)('Widgets'), this.params.title].join(' ▸ ')
+      });
+      customize.section.add(this.inspector);
+      this.contentContainer[0].classList.add('customize-widgets__sidebar-section');
+    }
+
+    hasSubSectionOpened() {
+      return this.inspector.expanded();
+    }
+
+    onChangeExpanded(expanded, _args) {
+      const controls = this.controls();
+      const args = { ..._args,
+
+        completeCallback() {
+          var _args$completeCallbac;
+
+          controls.forEach(control => {
+            var _control$onChangeSect;
+
+            (_control$onChangeSect = control.onChangeSectionExpanded) === null || _control$onChangeSect === void 0 ? void 0 : _control$onChangeSect.call(control, expanded, args);
+          });
+          (_args$completeCallbac = _args.completeCallback) === null || _args$completeCallbac === void 0 ? void 0 : _args$completeCallbac.call(_args);
+        }
+
+      };
+
+      if (args.manualTransition) {
+        if (expanded) {
+          this.contentContainer.addClass(['busy', 'open']);
+          this.contentContainer.removeClass('is-sub-section-open');
+          this.contentContainer.closest('.wp-full-overlay').addClass('section-open');
+          this.contentContainer.one('transitionend', () => {
+            this.contentContainer.removeClass('busy');
+            args.completeCallback();
+          });
+        } else {
+          this.contentContainer.addClass(['busy', 'is-sub-section-open']);
+          this.contentContainer.closest('.wp-full-overlay').addClass('section-open');
+          this.contentContainer.removeClass('open');
+          this.contentContainer.one('transitionend', () => {
+            this.contentContainer.removeClass('busy');
+            args.completeCallback();
+          });
+        }
+      } else {
+        super.onChangeExpanded(expanded, args);
+      }
+    }
+
+  };
+}
+//# sourceMappingURL=sidebar-section.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/sidebar-block-editor/sidebar-adapter.js
+/**
+ * Internal dependencies
+ */
+
+const {
+  wp
+} = window;
+
+function parseWidgetId(widgetId) {
+  const matches = widgetId.match(/^(.+)-(\d+)$/);
+
+  if (matches) {
+    return {
+      idBase: matches[1],
+      number: parseInt(matches[2], 10)
+    };
+  } // Likely an old single widget.
+
+
+  return {
+    idBase: widgetId
+  };
+}
+
+function widgetIdToSettingId(widgetId) {
+  const {
+    idBase,
+    number
+  } = parseWidgetId(widgetId);
+
+  if (number) {
+    return `widget_${idBase}[${number}]`;
+  }
+
+  return `widget_${idBase}`;
+}
+/**
+ * This is a custom debounce function to call different callbacks depending on
+ * whether it's the _leading_ call or not.
+ *
+ * @param {Function} leading  The callback that gets called first.
+ * @param {Function} callback The callback that gets called after the first time.
+ * @param {number}   timeout  The debounced time in milliseconds.
+ * @return {Function} The debounced function.
+ */
+
+
+function debounce(leading, callback, timeout) {
+  let isLeading = false;
+  let timerID;
+
+  function debounced(...args) {
+    const result = (isLeading ? callback : leading).apply(this, args);
+    isLeading = true;
+    clearTimeout(timerID);
+    timerID = setTimeout(() => {
+      isLeading = false;
+    }, timeout);
+    return result;
+  }
+
+  debounced.cancel = () => {
+    isLeading = false;
+    clearTimeout(timerID);
+  };
+
+  return debounced;
+}
+
+class SidebarAdapter {
+  constructor(setting, api) {
+    this.setting = setting;
+    this.api = api;
+    this.locked = false;
+    this.widgetsCache = new WeakMap();
+    this.subscribers = new Set();
+    this.history = [this._getWidgetIds().map(widgetId => this.getWidget(widgetId))];
+    this.historyIndex = 0;
+    this.historySubscribers = new Set(); // Debounce the input for 1 second.
+
+    this._debounceSetHistory = debounce(this._pushHistory, this._replaceHistory, 1000);
+    this.setting.bind(this._handleSettingChange.bind(this));
+    this.api.bind('change', this._handleAllSettingsChange.bind(this));
+    this.undo = this.undo.bind(this);
+    this.redo = this.redo.bind(this);
+    this.save = this.save.bind(this);
+  }
+
+  subscribe(callback) {
+    this.subscribers.add(callback);
+    return () => {
+      this.subscribers.delete(callback);
+    };
+  }
+
+  getWidgets() {
+    return this.history[this.historyIndex];
+  }
+
+  _emit(...args) {
+    for (const callback of this.subscribers) {
+      callback(...args);
+    }
+  }
+
+  _getWidgetIds() {
+    return this.setting.get();
+  }
+
+  _pushHistory() {
+    this.history = [...this.history.slice(0, this.historyIndex + 1), this._getWidgetIds().map(widgetId => this.getWidget(widgetId))];
+    this.historyIndex += 1;
+    this.historySubscribers.forEach(listener => listener());
+  }
+
+  _replaceHistory() {
+    this.history[this.historyIndex] = this._getWidgetIds().map(widgetId => this.getWidget(widgetId));
+  }
+
+  _handleSettingChange() {
+    if (this.locked) {
+      return;
+    }
+
+    const prevWidgets = this.getWidgets();
+
+    this._pushHistory();
+
+    this._emit(prevWidgets, this.getWidgets());
+  }
+
+  _handleAllSettingsChange(setting) {
+    if (this.locked) {
+      return;
+    }
+
+    if (!setting.id.startsWith('widget_')) {
+      return;
+    }
+
+    const widgetId = settingIdToWidgetId(setting.id);
+
+    if (!this.setting.get().includes(widgetId)) {
+      return;
+    }
+
+    const prevWidgets = this.getWidgets();
+
+    this._pushHistory();
+
+    this._emit(prevWidgets, this.getWidgets());
+  }
+
+  _createWidget(widget) {
+    const widgetModel = wp.customize.Widgets.availableWidgets.findWhere({
+      id_base: widget.idBase
+    });
+    let number = widget.number;
+
+    if (widgetModel.get('is_multi') && !number) {
+      widgetModel.set('multi_number', widgetModel.get('multi_number') + 1);
+      number = widgetModel.get('multi_number');
+    }
+
+    const settingId = number ? `widget_${widget.idBase}[${number}]` : `widget_${widget.idBase}`;
+    const settingArgs = {
+      transport: wp.customize.Widgets.data.selectiveRefreshableWidgets[widgetModel.get('id_base')] ? 'postMessage' : 'refresh',
+      previewer: this.setting.previewer
+    };
+    const setting = this.api.create(settingId, settingId, '', settingArgs);
+    setting.set(widget.instance);
+    const widgetId = settingIdToWidgetId(settingId);
+    return widgetId;
+  }
+
+  _removeWidget(widget) {
+    const settingId = widgetIdToSettingId(widget.id);
+    const setting = this.api(settingId);
+
+    if (setting) {
+      const instance = setting.get();
+      this.widgetsCache.delete(instance);
+    }
+
+    this.api.remove(settingId);
+  }
+
+  _updateWidget(widget) {
+    const prevWidget = this.getWidget(widget.id); // Bail out update if nothing changed.
+
+    if (prevWidget === widget) {
+      return widget.id;
+    } // Update existing setting if only the widget's instance changed.
+
+
+    if (prevWidget.idBase && widget.idBase && prevWidget.idBase === widget.idBase) {
+      const settingId = widgetIdToSettingId(widget.id);
+      this.api(settingId).set(widget.instance);
+      return widget.id;
+    } // Otherwise delete and re-create.
+
+
+    this._removeWidget(widget);
+
+    return this._createWidget(widget);
+  }
+
+  getWidget(widgetId) {
+    if (!widgetId) {
+      return null;
+    }
+
+    const {
+      idBase,
+      number
+    } = parseWidgetId(widgetId);
+    const settingId = widgetIdToSettingId(widgetId);
+    const setting = this.api(settingId);
+
+    if (!setting) {
+      return null;
+    }
+
+    const instance = setting.get();
+
+    if (this.widgetsCache.has(instance)) {
+      return this.widgetsCache.get(instance);
+    }
+
+    const widget = {
+      id: widgetId,
+      idBase,
+      number,
+      instance
+    };
+    this.widgetsCache.set(instance, widget);
+    return widget;
+  }
+
+  _updateWidgets(nextWidgets) {
+    this.locked = true;
+    const addedWidgetIds = [];
+    const nextWidgetIds = nextWidgets.map(nextWidget => {
+      if (nextWidget.id && this.getWidget(nextWidget.id)) {
+        addedWidgetIds.push(null);
+        return this._updateWidget(nextWidget);
+      }
+
+      const widgetId = this._createWidget(nextWidget);
+
+      addedWidgetIds.push(widgetId);
+      return widgetId;
+    });
+    const deletedWidgets = this.getWidgets().filter(widget => !nextWidgetIds.includes(widget.id));
+    deletedWidgets.forEach(widget => this._removeWidget(widget));
+    this.setting.set(nextWidgetIds);
+    this.locked = false;
+    return addedWidgetIds;
+  }
+
+  setWidgets(nextWidgets) {
+    const addedWidgetIds = this._updateWidgets(nextWidgets);
+
+    this._debounceSetHistory();
+
+    return addedWidgetIds;
+  }
+  /**
+   * Undo/Redo related features
+   */
+
+
+  hasUndo() {
+    return this.historyIndex > 0;
+  }
+
+  hasRedo() {
+    return this.historyIndex < this.history.length - 1;
+  }
+
+  _seek(historyIndex) {
+    const currentWidgets = this.getWidgets();
+    this.historyIndex = historyIndex;
+    const widgets = this.history[this.historyIndex];
+
+    this._updateWidgets(widgets);
+
+    this._emit(currentWidgets, this.getWidgets());
+
+    this.historySubscribers.forEach(listener => listener());
+
+    this._debounceSetHistory.cancel();
+  }
+
+  undo() {
+    if (!this.hasUndo()) {
+      return;
+    }
+
+    this._seek(this.historyIndex - 1);
+  }
+
+  redo() {
+    if (!this.hasRedo()) {
+      return;
+    }
+
+    this._seek(this.historyIndex + 1);
+  }
+
+  subscribeHistory(listener) {
+    this.historySubscribers.add(listener);
+    return () => {
+      this.historySubscribers.delete(listener);
+    };
+  }
+
+  save() {
+    this.api.previewer.save();
+  }
+
+}
+//# sourceMappingURL=sidebar-adapter.js.map
+;// CONCATENATED MODULE: external ["wp","dom"]
+var external_wp_dom_namespaceObject = window["wp"]["dom"];
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/controls/inserter-outer-section.js
+/**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+function getInserterOuterSection() {
+  const {
+    wp: {
+      customize
+    }
+  } = window;
+  const OuterSection = customize.OuterSection; // Override the OuterSection class to handle multiple outer sections.
+  // It closes all the other outer sections whenever one is opened.
+  // The result is that at most one outer section can be opened at the same time.
+
+  customize.OuterSection = class extends OuterSection {
+    onChangeExpanded(expanded, args) {
+      if (expanded) {
+        customize.section.each(section => {
+          if (section.params.type === 'outer' && section.id !== this.id) {
+            if (section.expanded()) {
+              section.collapse();
+            }
+          }
+        });
+      }
+
+      return super.onChangeExpanded(expanded, args);
+    }
+
+  }; // Handle constructor so that "params.type" can be correctly pointed to "outer".
+
+  customize.sectionConstructor.outer = customize.OuterSection;
+  return class InserterOuterSection extends customize.OuterSection {
+    constructor(...args) {
+      super(...args); // This is necessary since we're creating a new class which is not identical to the original OuterSection.
+      // @See https://github.com/WordPress/wordpress-develop/blob/42b05c397c50d9dc244083eff52991413909d4bd/src/js/_enqueues/wp/customize/controls.js#L1427-L1436
+
+      this.params.type = 'outer';
+      this.activeElementBeforeExpanded = null;
+      const ownerWindow = this.contentContainer[0].ownerDocument.defaultView; // Handle closing the inserter when pressing the Escape key.
+
+      ownerWindow.addEventListener('keydown', event => {
+        if (this.expanded() && (event.keyCode === external_wp_keycodes_namespaceObject.ESCAPE || event.code === 'Escape') && !event.defaultPrevented) {
+          event.preventDefault();
+          event.stopPropagation();
+          (0,external_wp_data_namespaceObject.dispatch)(store_store).setIsInserterOpened(false);
+        }
+      }, // Use capture mode to make this run before other event listeners.
+      true);
+      this.contentContainer.addClass('widgets-inserter'); // Set a flag if the state is being changed from open() or close().
+      // Don't propagate the event if it's an internal action to prevent infinite loop.
+
+      this.isFromInternalAction = false;
+      this.expanded.bind(() => {
+        if (!this.isFromInternalAction) {
+          // Propagate the event to React to sync the state.
+          (0,external_wp_data_namespaceObject.dispatch)(store_store).setIsInserterOpened(this.expanded());
+        }
+
+        this.isFromInternalAction = false;
+      });
+    }
+
+    open() {
+      if (!this.expanded()) {
+        const contentContainer = this.contentContainer[0];
+        this.activeElementBeforeExpanded = contentContainer.ownerDocument.activeElement;
+        this.isFromInternalAction = true;
+        this.expand({
+          completeCallback() {
+            // We have to do this in a "completeCallback" or else the elements will not yet be visible/tabbable.
+            // The first one should be the close button,
+            // we want to skip it and choose the second one instead, which is the search box.
+            const searchBox = external_wp_dom_namespaceObject.focus.tabbable.find(contentContainer)[1];
+
+            if (searchBox) {
+              searchBox.focus();
+            }
+          }
+
+        });
+      }
+    }
+
+    close() {
+      if (this.expanded()) {
+        const contentContainer = this.contentContainer[0];
+        const activeElement = contentContainer.ownerDocument.activeElement;
+        this.isFromInternalAction = true;
+        this.collapse({
+          completeCallback() {
+            // Return back the focus when closing the inserter.
+            // Only do this if the active element which triggers the action is inside the inserter,
+            // (the close button for instance). In that case the focus will be lost.
+            // Otherwise, we don't hijack the focus when the user is focusing on other elements
+            // (like the quick inserter).
+            if (contentContainer.contains(activeElement)) {
+              // Return back the focus when closing the inserter.
+              if (this.activeElementBeforeExpanded) {
+                this.activeElementBeforeExpanded.focus();
+              }
+            }
+          }
+
+        });
+      }
+    }
+
+  };
+}
+//# sourceMappingURL=inserter-outer-section.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/controls/sidebar-control.js
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+const getInserterId = controlId => `widgets-inserter-${controlId}`;
+
+function getSidebarControl() {
+  const {
+    wp: {
+      customize
+    }
+  } = window;
+  return class SidebarControl extends customize.Control {
+    constructor(...args) {
+      super(...args);
+      this.subscribers = new Set();
+    }
+
+    ready() {
+      const InserterOuterSection = getInserterOuterSection();
+      this.inserter = new InserterOuterSection(getInserterId(this.id), {});
+      customize.section.add(this.inserter);
+      this.sectionInstance = customize.section(this.section());
+      this.inspector = this.sectionInstance.inspector;
+      this.sidebarAdapter = new SidebarAdapter(this.setting, customize);
+    }
+
+    subscribe(callback) {
+      this.subscribers.add(callback);
+      return () => {
+        this.subscribers.delete(callback);
+      };
+    }
+
+    onChangeSectionExpanded(expanded, args) {
+      if (!args.unchanged) {
+        // Close the inserter when the section collapses.
+        if (!expanded) {
+          (0,external_wp_data_namespaceObject.dispatch)(store_store).setIsInserterOpened(false);
+        }
+
+        this.subscribers.forEach(subscriber => subscriber(expanded, args));
+      }
+    }
+
+  };
+}
+//# sourceMappingURL=sidebar-control.js.map
+;// CONCATENATED MODULE: external ["wp","hooks"]
+var external_wp_hooks_namespaceObject = window["wp"]["hooks"];
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/filters/move-to-sidebar.js
+
+
+/**
+ * External dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+const withMoveToSidebarToolbarItem = (0,external_wp_compose_namespaceObject.createHigherOrderComponent)(BlockEdit => props => {
+  let widgetId = (0,external_wp_widgets_namespaceObject.getWidgetIdFromBlock)(props);
+  const sidebarControls = useSidebarControls();
+  const activeSidebarControl = useActiveSidebarControl();
+  const hasMultipleSidebars = (sidebarControls === null || sidebarControls === void 0 ? void 0 : sidebarControls.length) > 1;
+  const blockName = props.name;
+  const clientId = props.clientId;
+  const canInsertBlockInSidebar = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    // Use an empty string to represent the root block list, which
+    // in the customizer editor represents a sidebar/widget area.
+    return select(external_wp_blockEditor_namespaceObject.store).canInsertBlockType(blockName, '');
+  }, [blockName]);
+  const block = (0,external_wp_data_namespaceObject.useSelect)(select => select(external_wp_blockEditor_namespaceObject.store).getBlock(clientId), [clientId]);
+  const {
+    removeBlock
+  } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_blockEditor_namespaceObject.store);
+  const [, focusWidget] = useFocusControl();
+
+  function moveToSidebar(sidebarControlId) {
+    const newSidebarControl = sidebarControls.find(sidebarControl => sidebarControl.id === sidebarControlId);
+
+    if (widgetId) {
+      /**
+       * If there's a widgetId, move it to the other sidebar.
+       */
+      const oldSetting = activeSidebarControl.setting;
+      const newSetting = newSidebarControl.setting;
+      oldSetting((0,external_lodash_namespaceObject.without)(oldSetting(), widgetId));
+      newSetting([...newSetting(), widgetId]);
+    } else {
+      /**
+       * If there isn't a widgetId, it's most likely a inner block.
+       * First, remove the block in the original sidebar,
+       * then, create a new widget in the new sidebar and get back its widgetId.
+       */
+      const sidebarAdapter = newSidebarControl.sidebarAdapter;
+      removeBlock(clientId);
+      const addedWidgetIds = sidebarAdapter.setWidgets([...sidebarAdapter.getWidgets(), blockToWidget(block)]); // The last non-null id is the added widget's id.
+
+      widgetId = addedWidgetIds.reverse().find(id => !!id);
+    } // Move focus to the moved widget and expand the sidebar.
+
+
+    focusWidget(widgetId);
+  }
+
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, (0,external_wp_element_namespaceObject.createElement)(BlockEdit, props), hasMultipleSidebars && canInsertBlockInSidebar && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockControls, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_widgets_namespaceObject.MoveToWidgetArea, {
+    widgetAreas: sidebarControls.map(sidebarControl => ({
+      id: sidebarControl.id,
+      name: sidebarControl.params.label,
+      description: sidebarControl.params.description
+    })),
+    currentWidgetAreaId: activeSidebarControl === null || activeSidebarControl === void 0 ? void 0 : activeSidebarControl.id,
+    onSelect: moveToSidebar
+  })));
+}, 'withMoveToSidebarToolbarItem');
+(0,external_wp_hooks_namespaceObject.addFilter)('editor.BlockEdit', 'core/customize-widgets/block-edit', withMoveToSidebarToolbarItem);
+//# sourceMappingURL=move-to-sidebar.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/filters/replace-media-upload.js
+/**
+ * WordPress dependencies
+ */
+
+
+
+const replaceMediaUpload = () => external_wp_mediaUtils_namespaceObject.MediaUpload;
+
+(0,external_wp_hooks_namespaceObject.addFilter)('editor.MediaUpload', 'core/edit-widgets/replace-media-upload', replaceMediaUpload);
+//# sourceMappingURL=replace-media-upload.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/filters/wide-widget-display.js
+
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+const {
+  wp: wide_widget_display_wp
+} = window;
+const withWideWidgetDisplay = (0,external_wp_compose_namespaceObject.createHigherOrderComponent)(BlockEdit => props => {
+  var _wp$customize$Widgets, _wp$customize$Widgets2;
+
+  const {
+    idBase
+  } = props.attributes;
+  const isWide = (_wp$customize$Widgets = (_wp$customize$Widgets2 = wide_widget_display_wp.customize.Widgets.data.availableWidgets.find(widget => widget.id_base === idBase)) === null || _wp$customize$Widgets2 === void 0 ? void 0 : _wp$customize$Widgets2.is_wide) !== null && _wp$customize$Widgets !== void 0 ? _wp$customize$Widgets : false;
+  return (0,external_wp_element_namespaceObject.createElement)(BlockEdit, _extends({}, props, {
+    isWide: isWide
+  }));
+}, 'withWideWidgetDisplay');
+(0,external_wp_hooks_namespaceObject.addFilter)('editor.BlockEdit', 'core/customize-widgets/wide-widget-display', withWideWidgetDisplay);
+//# sourceMappingURL=wide-widget-display.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/filters/index.js
+/**
+ * Internal dependencies
+ */
+
+
+
+//# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+const {
+  wp: build_module_wp
+} = window;
+const DISABLED_BLOCKS = ['core/more', 'core/block', 'core/freeform', 'core/template-part'];
+const ENABLE_EXPERIMENTAL_FSE_BLOCKS = false;
+/**
+ * Initializes the widgets block editor in the customizer.
+ *
+ * @param {string} editorName          The editor name.
+ * @param {Object} blockEditorSettings Block editor settings.
+ */
+
+function initialize(editorName, blockEditorSettings) {
+  (0,external_wp_data_namespaceObject.dispatch)(store).setFeatureDefaults('core/customize-widgets', {
+    fixedToolbar: false,
+    welcomeGuide: true
+  });
+
+  (0,external_wp_data_namespaceObject.dispatch)(external_wp_blocks_namespaceObject.store).__experimentalReapplyBlockTypeFilters();
+
+  const coreBlocks = (0,external_wp_blockLibrary_namespaceObject.__experimentalGetCoreBlocks)().filter(block => {
+    return !(DISABLED_BLOCKS.includes(block.name) || block.name.startsWith('core/post') || block.name.startsWith('core/query') || block.name.startsWith('core/site') || block.name.startsWith('core/navigation'));
+  });
+
+  (0,external_wp_blockLibrary_namespaceObject.registerCoreBlocks)(coreBlocks);
+  (0,external_wp_widgets_namespaceObject.registerLegacyWidgetBlock)();
+
+  if (true) {
+    (0,external_wp_blockLibrary_namespaceObject.__experimentalRegisterExperimentalCoreBlocks)({
+      enableFSEBlocks: ENABLE_EXPERIMENTAL_FSE_BLOCKS
+    });
+  }
+
+  (0,external_wp_widgets_namespaceObject.registerLegacyWidgetVariations)(blockEditorSettings);
+  (0,external_wp_widgets_namespaceObject.registerWidgetGroupBlock)(); // As we are unregistering `core/freeform` to avoid the Classic block, we must
+  // replace it with something as the default freeform content handler. Failure to
+  // do this will result in errors in the default block parser.
+  // see: https://github.com/WordPress/gutenberg/issues/33097
+
+  (0,external_wp_blocks_namespaceObject.setFreeformContentHandlerName)('core/html');
+  const SidebarControl = getSidebarControl(blockEditorSettings);
+  build_module_wp.customize.sectionConstructor.sidebar = getSidebarSection();
+  build_module_wp.customize.controlConstructor.sidebar_block_editor = SidebarControl;
+  const container = document.createElement('div');
+  document.body.appendChild(container);
+  build_module_wp.customize.bind('ready', () => {
+    const sidebarControls = [];
+    build_module_wp.customize.control.each(control => {
+      if (control instanceof SidebarControl) {
+        sidebarControls.push(control);
+      }
+    });
+    (0,external_wp_element_namespaceObject.render)((0,external_wp_element_namespaceObject.createElement)(CustomizeWidgets, {
+      api: build_module_wp.customize,
+      sidebarControls: sidebarControls,
+      blockEditorSettings: blockEditorSettings
+    }), container);
+  });
+}
+//# sourceMappingURL=index.js.map
+}();
+(window.wp = window.wp || {}).customizeWidgets = __webpack_exports__;
+/******/ })()
+;
