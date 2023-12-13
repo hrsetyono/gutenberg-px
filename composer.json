@@ -1,0 +1,16 @@
+{
+  "name": "pixelstudio/gutenberg",
+  "description": "WordPress editor with minor customization for version compatibility",
+  "keywords": ["wordpress", "plugin", "editor", "gutenberg"],
+  "type": "wordpress-plugin",
+  "homepage": "https://github.com/hrsetyono/gutenberg/",
+  "authors": [
+    {
+      "name": "Pixel Studio",
+      "email": "info@pixelstudio.id",
+      "homepage": "https://pixelstudio.id"
+    }
+  ],
+  "license": "MIT",
+  "require": {}
+}
