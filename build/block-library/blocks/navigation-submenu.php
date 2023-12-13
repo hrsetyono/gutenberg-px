@@ -2,7 +2,7 @@
 /**
  * Server-side rendering of the `core/navigation-submenu` block.
  *
- * @package gutenberg
+ * @package WordPress
  */
 
 /**
@@ -19,7 +19,7 @@ function gutenberg_block_core_navigation_submenu_build_css_colors( $context, $at
 		'inline_styles' => '',
 	);
 
-	$is_sub_menu = isset( $attributes['isTopLevelLink'] ) ? ( ! $attributes['isTopLevelLink'] ) : false;
+	$is_sub_menu = isset( $attributes['isTopLevelItem'] ) ? ( ! $attributes['isTopLevelItem'] ) : false;
 
 	// Text color.
 	$named_text_color  = null;
@@ -98,7 +98,14 @@ function gutenberg_block_core_navigation_submenu_build_css_font_sizes( $context 
 		$font_sizes['css_classes'][] = sprintf( 'has-%s-font-size', $context['fontSize'] );
 	} elseif ( $has_custom_font_size ) {
 		// Add the custom font size inline style.
-		$font_sizes['inline_styles'] = sprintf( 'font-size: %spx;', $context['style']['typography']['fontSize'] );
+		$font_sizes['inline_styles'] = sprintf(
+			'font-size: %s;',
+			gutenberg_get_typography_font_size_value(
+				array(
+					'size' => $context['style']['typography']['fontSize'],
+				)
+			)
+		);
 	}
 
 	return $font_sizes;
@@ -110,15 +117,15 @@ function gutenberg_block_core_navigation_submenu_build_css_font_sizes( $context 
  * @return string
  */
 function gutenberg_block_core_navigation_submenu_render_submenu_icon() {
-	return '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" role="img" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg>';
+	return '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg>';
 }
 
 /**
  * Renders the `core/navigation-submenu` block.
  *
- * @param array  $attributes The block attributes.
- * @param string $content The saved content.
- * @param object $block The parsed block.
+ * @param array    $attributes The block attributes.
+ * @param string   $content    The saved content.
+ * @param WP_Block $block      The parsed block.
  *
  * @return string Returns the post content with the legacy widget added.
  */
@@ -148,13 +155,7 @@ function gutenberg_render_block_core_navigation_submenu( $attributes, $content, 
 
 	$css_classes = trim( implode( ' ', $classes ) );
 	$has_submenu = count( $block->inner_blocks ) > 0;
-	$is_active   = ! empty( $attributes['id'] ) && ( get_the_ID() === $attributes['id'] );
-
-	$class_name = ! empty( $attributes['className'] ) ? implode( ' ', (array) $attributes['className'] ) : false;
-
-	if ( false !== $class_name ) {
-		$css_classes .= ' ' . $class_name;
-	}
+	$is_active   = ! empty( $attributes['id'] ) && ( get_queried_object_id() === (int) $attributes['id'] );
 
 	$show_submenu_indicators = isset( $block->context['showSubmenuIcon'] ) && $block->context['showSubmenuIcon'];
 	$open_on_click           = isset( $block->context['openSubmenusOnClick'] ) && $block->context['openSubmenusOnClick'];
@@ -169,14 +170,36 @@ function gutenberg_render_block_core_navigation_submenu( $attributes, $content, 
 			'style' => $style_attribute,
 		)
 	);
-	$html               = '<li ' . $wrapper_attributes . '>';
+
+	$label = '';
+
+	if ( isset( $attributes['label'] ) ) {
+		$label .= wp_kses_post( $attributes['label'] );
+	}
+
+	$aria_label = sprintf(
+		/* translators: Accessibility text. %s: Parent page title. */
+		__( '%s submenu' ),
+		wp_strip_all_tags( $label )
+	);
+
+	$html = '<li ' . $wrapper_attributes . '>';
 
 	// If Submenus open on hover, we render an anchor tag with attributes.
 	// If submenu icons are set to show, we also render a submenu button, so the submenu can be opened on click.
 	if ( ! $open_on_click ) {
-		$item_url = isset( $attributes['url'] ) ? esc_url( $attributes['url'] ) : '';
+		$item_url = isset( $attributes['url'] ) ? $attributes['url'] : '';
 		// Start appending HTML attributes to anchor tag.
-		$html .= '<a class="wp-block-navigation-item__content" href="' . $item_url . '"';
+		$html .= '<a class="wp-block-navigation-item__content"';
+
+		// The href attribute on a and area elements is not required;
+		// when those elements do not have href attributes they do not create hyperlinks.
+		// But also The href attribute must have a value that is a valid URL potentially
+		// surrounded by spaces.
+		// see: https://html.spec.whatwg.org/multipage/links.html#links-created-by-a-and-area-elements.
+		if ( ! empty( $item_url ) ) {
+			$html .= ' href="' . esc_url( $item_url ) . '"';
+		}
 
 		if ( $is_active ) {
 			$html .= ' aria-current="page"';
@@ -199,70 +222,30 @@ function gutenberg_render_block_core_navigation_submenu( $attributes, $content, 
 		$html .= '>';
 		// End appending HTML attributes to anchor tag.
 
-		if ( isset( $attributes['label'] ) ) {
-			$html .= wp_kses(
-				$attributes['label'],
-				array(
-					'code'   => array(),
-					'em'     => array(),
-					'img'    => array(
-						'scale' => array(),
-						'class' => array(),
-						'style' => array(),
-						'src'   => array(),
-						'alt'   => array(),
-					),
-					's'      => array(),
-					'span'   => array(
-						'style' => array(),
-					),
-					'strong' => array(),
-				)
-			);
-		}
+		$html .= $label;
 
 		$html .= '</a>';
 		// End anchor tag content.
 
 		if ( $show_submenu_indicators ) {
 			// The submenu icon is rendered in a button here
-			// so that there's a clickable elment to open the submenu.
-			$html .= '<button class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" aria-expanded="false">' . gutenberg_block_core_navigation_submenu_render_submenu_icon() . '</button>';
+			// so that there's a clickable element to open the submenu.
+			$html .= '<button aria-label="' . esc_attr( $aria_label ) . '" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" aria-expanded="false">' . gutenberg_block_core_navigation_submenu_render_submenu_icon() . '</button>';
 		}
 	} else {
 		// If menus open on click, we render the parent as a button.
-		$html .= '<button class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle" aria-expanded="false">';
+		$html .= '<button aria-label="' . esc_attr( $aria_label ) . '" class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle" aria-expanded="false">';
 
 		// Wrap title with span to isolate it from submenu icon.
 		$html .= '<span class="wp-block-navigation-item__label">';
 
-		if ( isset( $attributes['label'] ) ) {
-			$html .= wp_kses(
-				$attributes['label'],
-				array(
-					'code'   => array(),
-					'em'     => array(),
-					'img'    => array(
-						'scale' => array(),
-						'class' => array(),
-						'style' => array(),
-						'src'   => array(),
-						'alt'   => array(),
-					),
-					's'      => array(),
-					'span'   => array(
-						'style' => array(),
-					),
-					'strong' => array(),
-				)
-			);
-		}
+		$html .= $label;
 
 		$html .= '</span>';
 
-		$html .= '<span class="wp-block-navigation__submenu-icon">' . gutenberg_block_core_navigation_submenu_render_submenu_icon() . '</span>';
-
 		$html .= '</button>';
+
+		$html .= '<span class="wp-block-navigation__submenu-icon">' . gutenberg_block_core_navigation_submenu_render_submenu_icon() . '</span>';
 
 	}
 
@@ -270,6 +253,14 @@ function gutenberg_render_block_core_navigation_submenu( $attributes, $content, 
 		$inner_blocks_html = '';
 		foreach ( $block->inner_blocks as $inner_block ) {
 			$inner_blocks_html .= $inner_block->render();
+		}
+
+		if ( strpos( $inner_blocks_html, 'current-menu-item' ) ) {
+			$tag_processor = new WP_HTML_Tag_Processor( $html );
+			while ( $tag_processor->next_tag( array( 'class_name' => 'wp-block-navigation-item__content' ) ) ) {
+				$tag_processor->add_class( 'current-menu-ancestor' );
+			}
+			$html = $tag_processor->get_updated_html();
 		}
 
 		$html .= sprintf(
@@ -298,3 +289,35 @@ function gutenberg_register_block_core_navigation_submenu() {
 	);
 }
 add_action( 'init', 'gutenberg_register_block_core_navigation_submenu', 20 );
+
+/**
+ * Enables animation of the block inspector for the Navigation Submenu block.
+ *
+ * See:
+ * - https://github.com/WordPress/gutenberg/pull/46342
+ * - https://github.com/WordPress/gutenberg/issues/45884
+ *
+ * @param array $settings Default editor settings.
+ * @return array Filtered editor settings.
+ */
+function gutenberg_block_core_navigation_submenu_enable_inspector_animation( $settings ) {
+	$current_animation_settings = _wp_array_get(
+		$settings,
+		array( '__experimentalBlockInspectorAnimation' ),
+		array()
+	);
+
+	$settings['__experimentalBlockInspectorAnimation'] = array_merge(
+		$current_animation_settings,
+		array(
+			'core/navigation-submenu' =>
+				array(
+					'enterDirection' => 'rightToLeft',
+				),
+		)
+	);
+
+	return $settings;
+}
+
+add_filter( 'block_editor_settings_all', 'gutenberg_block_core_navigation_submenu_enable_inspector_animation' );

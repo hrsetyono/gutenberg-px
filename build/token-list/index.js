@@ -23,32 +23,22 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ TokenList; }
-});
-
-;// CONCATENATED MODULE: external "lodash"
-var external_lodash_namespaceObject = window["lodash"];
-;// CONCATENATED MODULE: ./packages/token-list/build-module/index.js
-/**
- * External dependencies
- */
-
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ TokenList; }
+/* harmony export */ });
 /**
  * A set of tokens.
  *
  * @see https://dom.spec.whatwg.org/#domtokenlist
  */
-
 class TokenList {
   /**
    * Constructs a new instance of TokenList.
    *
    * @param {string} initialValue Initial value to assign.
    */
-  constructor(initialValue = '') {
+  constructor() {
+    let initialValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     this.value = initialValue; // Disable reason: These are type hints on the class.
 
     /* eslint-disable no-unused-expressions */
@@ -66,32 +56,32 @@ class TokenList {
    */
 
 
-  entries(...args) {
-    return this._valueAsArray.entries(...args);
+  entries() {
+    return this._valueAsArray.entries(...arguments);
   }
   /**
    * @param {Parameters<Array<string>['forEach']>} args
    */
 
 
-  forEach(...args) {
-    return this._valueAsArray.forEach(...args);
+  forEach() {
+    return this._valueAsArray.forEach(...arguments);
   }
   /**
    * @param {Parameters<Array<string>['keys']>} args
    */
 
 
-  keys(...args) {
-    return this._valueAsArray.keys(...args);
+  keys() {
+    return this._valueAsArray.keys(...arguments);
   }
   /**
    * @param {Parameters<Array<string>['values']>} args
    */
 
 
-  values(...args) {
-    return this._valueAsArray.values(...args);
+  values() {
+    return this._valueAsArray.values(...arguments);
   }
   /**
    * Returns the associated set as string.
@@ -116,7 +106,7 @@ class TokenList {
 
   set value(value) {
     value = String(value);
-    this._valueAsArray = (0,external_lodash_namespaceObject.uniq)((0,external_lodash_namespaceObject.compact)(value.split(/\s+/g)));
+    this._valueAsArray = [...new Set(value.split(/\s+/g).filter(Boolean))];
     this._currentValue = this._valueAsArray.join(' ');
   }
   /**
@@ -193,7 +183,11 @@ class TokenList {
    */
 
 
-  add(...items) {
+  add() {
+    for (var _len = arguments.length, items = new Array(_len), _key = 0; _key < _len; _key++) {
+      items[_key] = arguments[_key];
+    }
+
     this.value += ' ' + items.join(' ');
   }
   /**
@@ -205,8 +199,12 @@ class TokenList {
    */
 
 
-  remove(...items) {
-    this.value = (0,external_lodash_namespaceObject.without)(this._valueAsArray, ...items).join(' ');
+  remove() {
+    for (var _len2 = arguments.length, items = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      items[_key2] = arguments[_key2];
+    }
+
+    this.value = this._valueAsArray.filter(val => !items.includes(val)).join(' ');
   }
   /**
    * If `force` is not given, "toggles" `token`, removing it if it’s present
@@ -275,7 +273,7 @@ class TokenList {
   }
 
 }
-//# sourceMappingURL=index.js.map
-(window.wp = window.wp || {}).tokenList = __webpack_exports__.default;
+
+(window.wp = window.wp || {}).tokenList = __webpack_exports__["default"];
 /******/ })()
 ;

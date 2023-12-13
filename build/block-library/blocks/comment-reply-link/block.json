@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "core/comment-reply-link",
 	"title": "Comment Reply Link",
 	"category": "theme",
-	"parent": [ "core/comment-template" ],
+	"ancestor": [ "core/comment-template" ],
 	"description": "Displays a link to reply to a comment.",
 	"textdomain": "default",
 	"usesContext": [ "commentId" ],
@@ -13,10 +14,19 @@
 		}
 	},
 	"supports": {
+		"anchor": true,
 		"color": {
 			"gradients": true,
 			"link": true,
-			"text": false
+			"text": false,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"link": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
 		},
 		"typography": {
 			"fontSize": true,
@@ -25,7 +35,11 @@
 			"__experimentalFontWeight": true,
 			"__experimentalFontStyle": true,
 			"__experimentalTextTransform": true,
-			"__experimentalLetterSpacing": true
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
 		},
 		"html": false
 	}
