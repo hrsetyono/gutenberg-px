@@ -58,8 +58,8 @@ __webpack_require__.d(selectors_namespaceObject, {
   "isViewportMatch": function() { return isViewportMatch; }
 });
 
-;// CONCATENATED MODULE: external ["wp","compose"]
-var external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external "lodash"
+var external_lodash_namespaceObject = window["lodash"];
 ;// CONCATENATED MODULE: external ["wp","data"]
 var external_wp_data_namespaceObject = window["wp"]["data"];
 ;// CONCATENATED MODULE: ./packages/viewport/build-module/store/reducer.js
@@ -72,10 +72,7 @@ var external_wp_data_namespaceObject = window["wp"]["data"];
  *
  * @return {Object} Updated state.
  */
-function reducer() {
-  let state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  let action = arguments.length > 1 ? arguments[1] : undefined;
-
+function reducer(state = {}, action) {
   switch (action.type) {
     case 'SET_IS_MATCHING':
       return action.values;
@@ -85,15 +82,12 @@ function reducer() {
 }
 
 /* harmony default export */ var store_reducer = (reducer);
-
+//# sourceMappingURL=reducer.js.map
 ;// CONCATENATED MODULE: ./packages/viewport/build-module/store/actions.js
 /**
  * Returns an action object used in signalling that viewport queries have been
  * updated. Values are specified as an object of breakpoint query keys where
  * value represents whether query matches.
- * Ignored from documentation as it is for internal use only.
- *
- * @ignore
  *
  * @param {Object} values Breakpoint query matches.
  *
@@ -105,7 +99,7 @@ function setIsMatching(values) {
     values
   };
 }
-
+//# sourceMappingURL=actions.js.map
 ;// CONCATENATED MODULE: ./packages/viewport/build-module/store/selectors.js
 /**
  * Returns true if the viewport matches the given query, or false otherwise.
@@ -117,21 +111,8 @@ function setIsMatching(values) {
  * @example
  *
  * ```js
- * import { store as viewportStore } from '@wordpress/viewport';
- * import { useSelect } from '@wordpress/data';
- * import { __ } from '@wordpress/i18n';
- * const ExampleComponent = () => {
- *     const isMobile = useSelect(
- *         ( select ) => select( viewportStore ).isViewportMatch( '< small' ),
- *         []
- *     );
- *
- *     return isMobile ? (
- *         <div>{ __( 'Mobile' ) }</div>
- *     ) : (
- *         <div>{ __( 'Not Mobile' ) }</div>
- *     );
- * };
+ * isViewportMatch( state, '< huge' );
+ * isViewPortMatch( state, 'medium' );
  * ```
  *
  * @return {boolean} Whether viewport matches query.
@@ -144,7 +125,7 @@ function isViewportMatch(state, query) {
 
   return !!state[query];
 }
-
+//# sourceMappingURL=selectors.js.map
 ;// CONCATENATED MODULE: ./packages/viewport/build-module/store/index.js
 /**
  * WordPress dependencies
@@ -172,8 +153,12 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
   selectors: selectors_namespaceObject
 });
 (0,external_wp_data_namespaceObject.register)(store);
-
+//# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: ./packages/viewport/build-module/listener.js
+/**
+ * External dependencies
+ */
+
 /**
  * WordPress dependencies
  */
@@ -190,13 +175,10 @@ const addDimensionsEventListener = (breakpoints, operators) => {
    * Callback invoked when media query state should be updated. Is invoked a
    * maximum of one time per call stack.
    */
-  const setIsMatching = (0,external_wp_compose_namespaceObject.debounce)(() => {
-    const values = Object.fromEntries(queries.map(_ref => {
-      let [key, query] = _ref;
-      return [key, query.matches];
-    }));
+  const setIsMatching = (0,external_lodash_namespaceObject.debounce)(() => {
+    const values = (0,external_lodash_namespaceObject.mapValues)(queries, query => query.matches);
     (0,external_wp_data_namespaceObject.dispatch)(store).setIsMatching(values);
-  }, 0, {
+  }, {
     leading: true
   });
   /**
@@ -209,24 +191,25 @@ const addDimensionsEventListener = (breakpoints, operators) => {
    * @type {Object<string,MediaQueryList>}
    */
 
-  const operatorEntries = Object.entries(operators);
-  const queries = Object.entries(breakpoints).flatMap(_ref2 => {
-    let [name, width] = _ref2;
-    return operatorEntries.map(_ref3 => {
-      let [operator, condition] = _ref3;
+  const queries = (0,external_lodash_namespaceObject.reduce)(breakpoints, (result, width, name) => {
+    (0,external_lodash_namespaceObject.forEach)(operators, (condition, operator) => {
       const list = window.matchMedia(`(${condition}: ${width}px)`);
-      list.addEventListener('change', setIsMatching);
-      return [`${operator} ${name}`, list];
+      list.addListener(setIsMatching);
+      const key = [operator, name].join(' ');
+      result[key] = list;
     });
-  });
-  window.addEventListener('orientationchange', setIsMatching); // Set initial values.
+    return result;
+  }, {});
+  window.addEventListener('orientationchange', setIsMatching); // Set initial values
 
   setIsMatching();
   setIsMatching.flush();
 };
 
 /* harmony default export */ var listener = (addDimensionsEventListener);
-
+//# sourceMappingURL=listener.js.map
+;// CONCATENATED MODULE: external ["wp","compose"]
+var external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -252,8 +235,13 @@ var external_wp_element_namespaceObject = window["wp"]["element"];
 
 
 /**
+ * External dependencies
+ */
+
+/**
  * WordPress dependencies
  */
+
 
 /**
  * Higher-order component creator, creating a new component which renders with
@@ -280,10 +268,7 @@ var external_wp_element_namespaceObject = window["wp"]["element"];
  */
 
 const withViewportMatch = queries => {
-  const queryEntries = Object.entries(queries);
-
-  const useViewPortQueriesResult = () => Object.fromEntries(queryEntries.map(_ref => {
-    let [key, query] = _ref;
+  const useViewPortQueriesResult = () => (0,external_lodash_namespaceObject.mapValues)(queries, query => {
     let [operator, breakpointName] = query.split(' ');
 
     if (breakpointName === undefined) {
@@ -295,8 +280,8 @@ const withViewportMatch = queries => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
 
 
-    return [key, (0,external_wp_compose_namespaceObject.useViewportMatch)(breakpointName, operator)];
-  }));
+    return (0,external_wp_compose_namespaceObject.useViewportMatch)(breakpointName, operator);
+  });
 
   return (0,external_wp_compose_namespaceObject.createHigherOrderComponent)(WrappedComponent => {
     return (0,external_wp_compose_namespaceObject.pure)(props => {
@@ -307,7 +292,7 @@ const withViewportMatch = queries => {
 };
 
 /* harmony default export */ var with_viewport_match = (withViewportMatch);
-
+//# sourceMappingURL=with-viewport-match.js.map
 ;// CONCATENATED MODULE: ./packages/viewport/build-module/if-viewport-matches.js
 /**
  * WordPress dependencies
@@ -344,7 +329,7 @@ const ifViewportMatches = query => (0,external_wp_compose_namespaceObject.create
 }), (0,external_wp_compose_namespaceObject.ifCondition)(props => props.isViewportMatch)]), 'ifViewportMatches');
 
 /* harmony default export */ var if_viewport_matches = (ifViewportMatches);
-
+//# sourceMappingURL=if-viewport-matches.js.map
 ;// CONCATENATED MODULE: ./packages/viewport/build-module/index.js
 /**
  * Internal dependencies
@@ -380,7 +365,7 @@ const OPERATORS = {
   '>=': 'min-width'
 };
 listener(BREAKPOINTS, OPERATORS);
-
+//# sourceMappingURL=index.js.map
 (window.wp = window.wp || {}).viewport = __webpack_exports__;
 /******/ })()
 ;

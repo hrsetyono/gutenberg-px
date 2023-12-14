@@ -107,12 +107,12 @@ function apiFetch(request) {
  * @param {Array} args Arguments passed without change to the `@wordpress/data` control.
  */
 
-function build_module_select() {
+function build_module_select(...args) {
   external_wp_deprecated_default()('`select` control in `@wordpress/data-controls`', {
     since: '5.7',
     alternative: 'built-in `resolveSelect` control in `@wordpress/data`'
   });
-  return external_wp_data_namespaceObject.controls.resolveSelect(...arguments);
+  return external_wp_data_namespaceObject.controls.resolveSelect(...args);
 }
 /**
  * Control for calling a selector in a registered data store.
@@ -121,12 +121,12 @@ function build_module_select() {
  * @param {Array} args Arguments passed without change to the `@wordpress/data` control.
  */
 
-function syncSelect() {
+function syncSelect(...args) {
   external_wp_deprecated_default()('`syncSelect` control in `@wordpress/data-controls`', {
     since: '5.7',
     alternative: 'built-in `select` control in `@wordpress/data`'
   });
-  return external_wp_data_namespaceObject.controls.select(...arguments);
+  return external_wp_data_namespaceObject.controls.select(...args);
 }
 /**
  * Control for dispatching an action in a registered data store.
@@ -135,12 +135,12 @@ function syncSelect() {
  * @param {Array} args Arguments passed without change to the `@wordpress/data` control.
  */
 
-function dispatch() {
+function dispatch(...args) {
   external_wp_deprecated_default()('`dispatch` control in `@wordpress/data-controls`', {
     since: '5.7',
     alternative: 'built-in `dispatch` control in `@wordpress/data`'
   });
-  return external_wp_data_namespaceObject.controls.dispatch(...arguments);
+  return external_wp_data_namespaceObject.controls.dispatch(...args);
 }
 /**
  * Dispatches a control action for awaiting on a promise to be resolved.
@@ -197,22 +197,18 @@ const __unstableAwaitPromise = function (promise) {
  */
 
 const controls = {
-  AWAIT_PROMISE: _ref => {
-    let {
-      promise
-    } = _ref;
-    return promise;
-  },
+  AWAIT_PROMISE: ({
+    promise
+  }) => promise,
 
-  API_FETCH(_ref2) {
-    let {
-      request
-    } = _ref2;
+  API_FETCH({
+    request
+  }) {
     return external_wp_apiFetch_default()(request);
   }
 
 };
-
+//# sourceMappingURL=index.js.map
 (window.wp = window.wp || {}).dataControls = __webpack_exports__;
 /******/ })()
 ;

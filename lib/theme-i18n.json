@@ -1,41 +1,53 @@
 {
-	"title": "Style variation name",
 	"settings": {
 		"typography": {
-			"fontSizes": [
-				{
-					"name": "Font size name"
-				}
-			],
-			"fontFamilies": [
-				{
-					"name": "Font family name"
-				}
-			]
+				"fontSizes": [
+					{
+						"name": "Font size name"
+					}
+				],
+				"fontStyles": [
+					{
+						"name": "Font style name"
+					}
+				],
+				"fontWeights": [
+					{
+						"name": "Font weight name"
+					}
+				],
+				"fontFamilies": [
+					{
+						"name": "Font family name"
+					}
+				],
+				"textTransforms": [
+					{
+						"name": "Text transform name"
+					}
+				],
+				"textDecorations": [
+					{
+						"name": "Text decoration name"
+					}
+				]
 		},
 		"color": {
-			"palette": [
-				{
-					"name": "Color name"
-				}
-			],
-			"gradients": [
-				{
-					"name": "Gradient name"
-				}
-			],
-			"duotone": [
-				{
-					"name": "Duotone name"
-				}
-			]
-		},
-		"spacing": {
-			"spacingSizes": [
-				{
-					"name": "Space size name"
-				}
-			]
+				"palette": [
+					{
+						"name": "Color name"
+					}
+				],
+				"gradients": [
+					{
+						"name": "Gradient name"
+					}
+				],
+				"duotone": [
+					{
+						"name": "Duotone name"
+					}
+				]
 		},
 		"blocks": {
 			"*": {
@@ -45,9 +57,29 @@
 							"name": "Font size name"
 						}
 					],
+					"fontStyles": [
+						{
+							"name": "Font style name"
+						}
+					],
+					"fontWeights": [
+						{
+							"name": "Font weight name"
+						}
+					],
 					"fontFamilies": [
 						{
 							"name": "Font family name"
+						}
+					],
+					"textTransforms": [
+						{
+							"name": "Text transform name"
+						}
+					],
+					"textDecorations": [
+						{
+							"name": "Text decoration name"
 						}
 					]
 				},
@@ -60,13 +92,6 @@
 					"gradients": [
 						{
 							"name": "Gradient name"
-						}
-					]
-				},
-				"spacing": {
-					"spacingSizes": [
-						{
-							"name": "Space size name"
 						}
 					]
 				}

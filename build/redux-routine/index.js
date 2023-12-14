@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 9025:
+/***/ 3859:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -12,13 +12,13 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.race = exports.join = exports.fork = exports.promise = undefined;
 
-var _is = __webpack_require__(9681);
+var _is = __webpack_require__(7333);
 
 var _is2 = _interopRequireDefault(_is);
 
-var _helpers = __webpack_require__(7783);
+var _helpers = __webpack_require__(3467);
 
-var _dispatcher = __webpack_require__(2451);
+var _dispatcher = __webpack_require__(701);
 
 var _dispatcher2 = _interopRequireDefault(_dispatcher);
 
@@ -119,11 +119,11 @@ var subscribe = function subscribe(value, next) {
   return true;
 };
 
-exports["default"] = [promise, fork, join, race, subscribe];
+exports.default = [promise, fork, join, race, subscribe];
 
 /***/ }),
 
-/***/ 7961:
+/***/ 8016:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -133,7 +133,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.iterator = exports.array = exports.object = exports.error = exports.any = undefined;
 
-var _is = __webpack_require__(9681);
+var _is = __webpack_require__(7333);
 
 var _is2 = _interopRequireDefault(_is);
 
@@ -219,11 +219,11 @@ var iterator = exports.iterator = function iterator(value, next, rungen, yieldNe
   return true;
 };
 
-exports["default"] = [error, iterator, array, object, any];
+exports.default = [error, iterator, array, object, any];
 
 /***/ }),
 
-/***/ 2165:
+/***/ 1850:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -233,7 +233,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.cps = exports.call = undefined;
 
-var _is = __webpack_require__(9681);
+var _is = __webpack_require__(7333);
 
 var _is2 = _interopRequireDefault(_is);
 
@@ -261,11 +261,11 @@ var cps = exports.cps = function cps(value, next, rungen, yieldNext, raiseNext) 
   return true;
 };
 
-exports["default"] = [call, cps];
+exports.default = [call, cps];
 
 /***/ }),
 
-/***/ 6288:
+/***/ 8909:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -274,11 +274,11 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var _builtin = __webpack_require__(7961);
+var _builtin = __webpack_require__(8016);
 
 var _builtin2 = _interopRequireDefault(_builtin);
 
-var _is = __webpack_require__(9681);
+var _is = __webpack_require__(7333);
 
 var _is2 = _interopRequireDefault(_is);
 
@@ -346,11 +346,11 @@ var create = function create() {
   return runtime;
 };
 
-exports["default"] = create;
+exports.default = create;
 
 /***/ }),
 
-/***/ 2290:
+/***/ 4320:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -360,7 +360,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.wrapControls = exports.asyncControls = exports.create = undefined;
 
-var _helpers = __webpack_require__(7783);
+var _helpers = __webpack_require__(3467);
 
 Object.keys(_helpers).forEach(function (key) {
   if (key === "default") return;
@@ -372,15 +372,15 @@ Object.keys(_helpers).forEach(function (key) {
   });
 });
 
-var _create = __webpack_require__(6288);
+var _create = __webpack_require__(8909);
 
 var _create2 = _interopRequireDefault(_create);
 
-var _async = __webpack_require__(9025);
+var _async = __webpack_require__(3859);
 
 var _async2 = _interopRequireDefault(_async);
 
-var _wrap = __webpack_require__(2165);
+var _wrap = __webpack_require__(1850);
 
 var _wrap2 = _interopRequireDefault(_wrap);
 
@@ -392,7 +392,7 @@ exports.wrapControls = _wrap2.default;
 
 /***/ }),
 
-/***/ 2451:
+/***/ 701:
 /***/ (function(__unused_webpack_module, exports) {
 
 
@@ -420,11 +420,11 @@ var createDispatcher = function createDispatcher() {
   };
 };
 
-exports["default"] = createDispatcher;
+exports.default = createDispatcher;
 
 /***/ }),
 
-/***/ 7783:
+/***/ 3467:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -434,7 +434,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.createChannel = exports.subscribe = exports.cps = exports.apply = exports.call = exports.invoke = exports.delay = exports.race = exports.join = exports.fork = exports.error = exports.all = undefined;
 
-var _keys = __webpack_require__(9851);
+var _keys = __webpack_require__(1309);
 
 var _keys2 = _interopRequireDefault(_keys);
 
@@ -564,7 +564,7 @@ var createChannel = exports.createChannel = function createChannel(callback) {
 
 /***/ }),
 
-/***/ 9681:
+/***/ 7333:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -575,7 +575,7 @@ Object.defineProperty(exports, "__esModule", ({
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-var _keys = __webpack_require__(9851);
+var _keys = __webpack_require__(1309);
 
 var _keys2 = _interopRequireDefault(_keys);
 
@@ -624,11 +624,11 @@ var is = {
   }
 };
 
-exports["default"] = is;
+exports.default = is;
 
 /***/ }),
 
-/***/ 9851:
+/***/ 1309:
 /***/ (function(__unused_webpack_module, exports) {
 
 
@@ -647,7 +647,7 @@ var keys = {
   subscribe: Symbol('subscribe')
 };
 
-exports["default"] = keys;
+exports.default = keys;
 
 /***/ })
 
@@ -723,49 +723,15 @@ function isGenerator(object) {
   // These checks seem to be compatible with several generator helpers as well as the native implementation.
   return !!object && typeof object[Symbol.iterator] === 'function' && typeof object.next === 'function';
 }
-
+//# sourceMappingURL=is-generator.js.map
 // EXTERNAL MODULE: ./node_modules/rungen/dist/index.js
-var dist = __webpack_require__(2290);
+var dist = __webpack_require__(4320);
+;// CONCATENATED MODULE: external "lodash"
+var external_lodash_namespaceObject = window["lodash"];
 ;// CONCATENATED MODULE: ./node_modules/is-promise/index.mjs
 function isPromise(obj) {
   return !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function';
 }
-
-;// CONCATENATED MODULE: ./node_modules/is-plain-object/dist/is-plain-object.mjs
-/*!
- * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
- *
- * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-
-function isObject(o) {
-  return Object.prototype.toString.call(o) === '[object Object]';
-}
-
-function isPlainObject(o) {
-  var ctor,prot;
-
-  if (isObject(o) === false) return false;
-
-  // If has modified constructor
-  ctor = o.constructor;
-  if (ctor === undefined) return true;
-
-  // If has modified prototype
-  prot = ctor.prototype;
-  if (isObject(prot) === false) return false;
-
-  // If constructor does not have an Object-specific method
-  if (prot.hasOwnProperty('isPrototypeOf') === false) {
-    return false;
-  }
-
-  // Most likely a plain Object
-  return true;
-}
-
-
 
 ;// CONCATENATED MODULE: ./packages/redux-routine/build-module/is-action.js
 /**
@@ -783,7 +749,7 @@ function isPlainObject(o) {
  */
 
 function isAction(object) {
-  return isPlainObject(object) && typeof object.type === 'string';
+  return (0,external_lodash_namespaceObject.isPlainObject)(object) && (0,external_lodash_namespaceObject.isString)(object.type);
 }
 /**
  * Returns true if the given object quacks like an action and has a specific
@@ -799,11 +765,12 @@ function isActionOfType(object, expectedType) {
   /* eslint-enable jsdoc/valid-types */
   return isAction(object) && object.type === expectedType;
 }
-
+//# sourceMappingURL=is-action.js.map
 ;// CONCATENATED MODULE: ./packages/redux-routine/build-module/runtime.js
 /**
  * External dependencies
  */
+
 
 
 
@@ -818,27 +785,22 @@ function isActionOfType(object, expectedType) {
  * @param  dispatch Unhandled action dispatch.
  */
 
-function createRuntime() {
-  let controls = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  let dispatch = arguments.length > 1 ? arguments[1] : undefined;
-  const rungenControls = Object.entries(controls).map(_ref => {
-    let [actionType, control] = _ref;
-    return (value, next, iterate, yieldNext, yieldError) => {
-      if (!isActionOfType(value, actionType)) {
-        return false;
-      }
+function createRuntime(controls = {}, dispatch) {
+  const rungenControls = (0,external_lodash_namespaceObject.map)(controls, (control, actionType) => (value, next, iterate, yieldNext, yieldError) => {
+    if (!isActionOfType(value, actionType)) {
+      return false;
+    }
 
-      const routine = control(value);
+    const routine = control(value);
 
-      if (isPromise(routine)) {
-        // Async control routine awaits resolution.
-        routine.then(yieldNext, yieldError);
-      } else {
-        yieldNext(routine);
-      }
+    if (isPromise(routine)) {
+      // Async control routine awaits resolution.
+      routine.then(yieldNext, yieldError);
+    } else {
+      yieldNext(routine);
+    }
 
-      return true;
-    };
+    return true;
   });
 
   const unhandledActionControl = (value, next) => {
@@ -861,7 +823,7 @@ function createRuntime() {
     resolve(result);
   }, reject));
 }
-
+//# sourceMappingURL=runtime.js.map
 ;// CONCATENATED MODULE: ./packages/redux-routine/build-module/index.js
 /**
  * Internal dependencies
@@ -881,8 +843,7 @@ function createRuntime() {
  * @return {import('redux').Middleware} Co-routine runtime
  */
 
-function createMiddleware() {
-  let controls = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+function createMiddleware(controls = {}) {
   return store => {
     const runtime = createRuntime(controls, store.dispatch);
     return next => action => {
@@ -894,8 +855,8 @@ function createMiddleware() {
     };
   };
 }
-
+//# sourceMappingURL=index.js.map
 }();
-(window.wp = window.wp || {}).reduxRoutine = __webpack_exports__["default"];
+(window.wp = window.wp || {}).reduxRoutine = __webpack_exports__.default;
 /******/ })()
 ;

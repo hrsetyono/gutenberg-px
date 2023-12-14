@@ -43,8 +43,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "isBlobURL": function() { return /* binding */ isBlobURL; }
 /* harmony export */ });
 /**
+ * Browser dependencies
+ */
+const {
+  createObjectURL,
+  revokeObjectURL
+} = window.URL;
+/**
  * @type {Record<string, File|undefined>}
  */
+
 const cache = {};
 /**
  * Create a blob URL from a file.
@@ -55,7 +63,7 @@ const cache = {};
  */
 
 function createBlobURL(file) {
-  const url = window.URL.createObjectURL(file);
+  const url = createObjectURL(file);
   cache[url] = file;
   return url;
 }
@@ -95,7 +103,7 @@ function getBlobTypeByURL(url) {
 
 function revokeBlobURL(url) {
   if (cache[url]) {
-    window.URL.revokeObjectURL(url);
+    revokeObjectURL(url);
   }
 
   delete cache[url];
@@ -115,7 +123,7 @@ function isBlobURL(url) {
 
   return url.indexOf('blob:') === 0;
 }
-
+//# sourceMappingURL=index.js.map
 (window.wp = window.wp || {}).blob = __webpack_exports__;
 /******/ })()
 ;

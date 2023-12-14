@@ -87,7 +87,7 @@ function validateNamespace(namespace) {
 }
 
 /* harmony default export */ var build_module_validateNamespace = (validateNamespace);
-
+//# sourceMappingURL=validateNamespace.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/validateHookName.js
 /**
  * Validate a hookName string.
@@ -121,7 +121,7 @@ function validateHookName(hookName) {
 }
 
 /* harmony default export */ var build_module_validateHookName = (validateHookName);
-
+//# sourceMappingURL=validateHookName.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createAddHook.js
 /**
  * Internal dependencies
@@ -149,8 +149,7 @@ function validateHookName(hookName) {
  */
 
 function createAddHook(hooks, storeKey) {
-  return function addHook(hookName, namespace, callback) {
-    let priority = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
+  return function addHook(hookName, namespace, callback, priority = 10) {
     const hooksStore = hooks[storeKey];
 
     if (!build_module_validateHookName(hookName)) {
@@ -225,7 +224,7 @@ function createAddHook(hooks, storeKey) {
 }
 
 /* harmony default export */ var build_module_createAddHook = (createAddHook);
-
+//# sourceMappingURL=createAddHook.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createRemoveHook.js
 /**
  * Internal dependencies
@@ -257,8 +256,7 @@ function createAddHook(hooks, storeKey) {
  * @return {RemoveHook} Function that removes hooks.
  */
 
-function createRemoveHook(hooks, storeKey) {
-  let removeAll = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+function createRemoveHook(hooks, storeKey, removeAll = false) {
   return function removeHook(hookName, namespace) {
     const hooksStore = hooks[storeKey];
 
@@ -268,7 +266,7 @@ function createRemoveHook(hooks, storeKey) {
 
     if (!removeAll && !build_module_validateNamespace(namespace)) {
       return;
-    } // Bail if no hooks exist by this name.
+    } // Bail if no hooks exist by this name
 
 
     if (!hooksStore[hookName]) {
@@ -314,7 +312,7 @@ function createRemoveHook(hooks, storeKey) {
 }
 
 /* harmony default export */ var build_module_createRemoveHook = (createRemoveHook);
-
+//# sourceMappingURL=createRemoveHook.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createHasHook.js
 /**
  * @callback HasHook
@@ -351,7 +349,7 @@ function createHasHook(hooks, storeKey) {
 }
 
 /* harmony default export */ var build_module_createHasHook = (createHasHook);
-
+//# sourceMappingURL=createHasHook.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createRunHook.js
 /**
  * Returns a function which, when invoked, will execute all callbacks
@@ -365,9 +363,8 @@ function createHasHook(hooks, storeKey) {
  *
  * @return {(hookName:string, ...args: unknown[]) => unknown} Function that runs hook callbacks.
  */
-function createRunHook(hooks, storeKey) {
-  let returnFirstArg = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  return function runHooks(hookName) {
+function createRunHook(hooks, storeKey, returnFirstArg = false) {
+  return function runHooks(hookName, ...args) {
     const hooksStore = hooks[storeKey];
 
     if (!hooksStore[hookName]) {
@@ -381,10 +378,6 @@ function createRunHook(hooks, storeKey) {
     const handlers = hooksStore[hookName].handlers; // The following code is stripped from production builds.
 
     if (false) {}
-
-    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
 
     if (!handlers || !handlers.length) {
       return returnFirstArg ? args[0] : undefined;
@@ -417,7 +410,7 @@ function createRunHook(hooks, storeKey) {
 }
 
 /* harmony default export */ var build_module_createRunHook = (createRunHook);
-
+//# sourceMappingURL=createRunHook.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createCurrentHook.js
 /**
  * Returns a function which, when invoked, will return the name of the
@@ -439,7 +432,7 @@ function createCurrentHook(hooks, storeKey) {
 }
 
 /* harmony default export */ var build_module_createCurrentHook = (createCurrentHook);
-
+//# sourceMappingURL=createCurrentHook.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createDoingHook.js
 /**
  * @callback DoingHook
@@ -475,7 +468,7 @@ function createDoingHook(hooks, storeKey) {
 }
 
 /* harmony default export */ var build_module_createDoingHook = (createDoingHook);
-
+//# sourceMappingURL=createDoingHook.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createDidHook.js
 /**
  * Internal dependencies
@@ -514,7 +507,7 @@ function createDidHook(hooks, storeKey) {
 }
 
 /* harmony default export */ var build_module_createDidHook = (createDidHook);
-
+//# sourceMappingURL=createDidHook.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/createHooks.js
 /**
  * Internal dependencies
@@ -575,7 +568,7 @@ function createHooks() {
 }
 
 /* harmony default export */ var build_module_createHooks = (createHooks);
-
+//# sourceMappingURL=createHooks.js.map
 ;// CONCATENATED MODULE: ./packages/hooks/build-module/index.js
 /**
  * Internal dependencies
@@ -636,7 +629,7 @@ const {
   filters
 } = defaultHooks;
 
-
+//# sourceMappingURL=index.js.map
 (window.wp = window.wp || {}).hooks = __webpack_exports__;
 /******/ })()
 ;

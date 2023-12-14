@@ -55,27 +55,34 @@ __webpack_require__.d(__webpack_exports__, {
   "uploadMedia": function() { return /* reexport */ uploadMedia; }
 });
 
+;// CONCATENATED MODULE: external "lodash"
+var external_lodash_namespaceObject = window["lodash"];
 ;// CONCATENATED MODULE: external ["wp","element"]
 var external_wp_element_namespaceObject = window["wp"]["element"];
 ;// CONCATENATED MODULE: external ["wp","i18n"]
 var external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// CONCATENATED MODULE: ./packages/media-utils/build-module/components/media-upload/index.js
 /**
+ * External dependencies
+ */
+
+/**
  * WordPress dependencies
  */
 
 
+
+const {
+  wp
+} = window;
 const DEFAULT_EMPTY_GALLERY = [];
 /**
  * Prepares the Featured Image toolbars and frames.
  *
- * @return {window.wp.media.view.MediaFrame.Select} The default media workflow.
+ * @return {wp.media.view.MediaFrame.Select} The default media workflow.
  */
 
 const getFeaturedImageMediaFrame = () => {
-  const {
-    wp
-  } = window;
   return wp.media.view.MediaFrame.Select.extend({
     /**
      * Enables the Set Featured Image Button.
@@ -124,14 +131,11 @@ const getFeaturedImageMediaFrame = () => {
 /**
  * Prepares the Gallery toolbars and frames.
  *
- * @return {window.wp.media.view.MediaFrame.Post} The default media workflow.
+ * @return {wp.media.view.MediaFrame.Post} The default media workflow.
  */
 
 
 const getGalleryDetailsMediaFrame = () => {
-  const {
-    wp
-  } = window;
   /**
    * Custom gallery details frame.
    *
@@ -139,7 +143,6 @@ const getGalleryDetailsMediaFrame = () => {
    * @class GalleryDetailsMediaFrame
    * @class
    */
-
   return wp.media.view.MediaFrame.Post.extend({
     /**
      * Set up gallery toolbar.
@@ -210,10 +213,9 @@ const getGalleryDetailsMediaFrame = () => {
         filterable: 'uploaded',
         multiple: 'add',
         editable: false,
-        library: wp.media.query({
-          type: 'image',
-          ...this.options.library
-        })
+        library: wp.media.query((0,external_lodash_namespaceObject.defaults)({
+          type: 'image'
+        }, this.options.library))
       }), new wp.media.controller.EditImage({
         model: this.options.editImage
       }), new wp.media.controller.GalleryEdit({
@@ -225,25 +227,16 @@ const getGalleryDetailsMediaFrame = () => {
       }), new wp.media.controller.GalleryAdd()]);
     }
   });
-}; // The media library image object contains numerous attributes
-// we only need this set to display the image in the library.
+}; // the media library image object contains numerous attributes
+// we only need this set to display the image in the library
 
 
 const slimImageObject = img => {
   const attrSet = ['sizes', 'mime', 'type', 'subtype', 'id', 'url', 'alt', 'link', 'caption'];
-  return attrSet.reduce((result, key) => {
-    if (img !== null && img !== void 0 && img.hasOwnProperty(key)) {
-      result[key] = img[key];
-    }
-
-    return result;
-  }, {});
+  return (0,external_lodash_namespaceObject.pick)(img, attrSet);
 };
 
 const getAttachmentsCollection = ids => {
-  const {
-    wp
-  } = window;
   return wp.media.query({
     order: 'ASC',
     orderby: 'post__in',
@@ -255,24 +248,20 @@ const getAttachmentsCollection = ids => {
 };
 
 class MediaUpload extends external_wp_element_namespaceObject.Component {
-  constructor(_ref) {
-    let {
-      allowedTypes,
-      gallery = false,
-      unstableFeaturedImageFlow = false,
-      modalClass,
-      multiple = false,
-      title = (0,external_wp_i18n_namespaceObject.__)('Select or Upload Media')
-    } = _ref;
+  constructor({
+    allowedTypes,
+    gallery = false,
+    unstableFeaturedImageFlow = false,
+    modalClass,
+    multiple = false,
+    title = (0,external_wp_i18n_namespaceObject.__)('Select or Upload Media')
+  }) {
     super(...arguments);
     this.openModal = this.openModal.bind(this);
     this.onOpen = this.onOpen.bind(this);
     this.onSelect = this.onSelect.bind(this);
     this.onUpdate = this.onUpdate.bind(this);
     this.onClose = this.onClose.bind(this);
-    const {
-      wp
-    } = window;
 
     if (gallery) {
       this.buildAndSetGalleryFrame();
@@ -329,9 +318,6 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
       return;
     }
 
-    const {
-      wp
-    } = window;
     this.lastGalleryValue = value; // If a frame already existed remove it.
 
     if (this.frame) {
@@ -373,9 +359,6 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
 
 
   buildAndSetFeatureImageFrame() {
-    const {
-      wp
-    } = window;
     const featuredImageFrame = getFeaturedImageMediaFrame();
     const attachments = getAttachmentsCollection(this.props.value);
     const selection = new wp.media.model.Selection(attachments.models, {
@@ -418,28 +401,19 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
     const {
       onSelect,
       multiple = false
-    } = this.props; // Get media attachment details from the frame state.
+    } = this.props; // Get media attachment details from the frame state
 
     const attachment = this.frame.state().get('selection').toJSON();
     onSelect(multiple ? attachment : attachment[0]);
   }
 
   onOpen() {
-    const {
-      wp
-    } = window;
-    const {
-      value
-    } = this.props;
-    this.updateCollection(); //Handle active tab in media model on model open.
+    var _this$props$value;
 
-    if (this.props.mode) {
-      this.frame.content.mode(this.props.mode);
-    } // Handle both this.props.value being either (number[]) multiple ids
+    this.updateCollection(); // Handle both this.props.value being either (number[]) multiple ids
     // (for galleries) or a (number) singular id (e.g. image block).
 
-
-    const hasMedia = Array.isArray(value) ? !!(value !== null && value !== void 0 && value.length) : !!value;
+    const hasMedia = Array.isArray(this.props.value) ? !!((_this$props$value = this.props.value) !== null && _this$props$value !== void 0 && _this$props$value.length) : !!this.props.value;
 
     if (!hasMedia) {
       return;
@@ -447,16 +421,15 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
 
     const isGallery = this.props.gallery;
     const selection = this.frame.state().get('selection');
-    const valueArray = Array.isArray(value) ? value : [value];
 
     if (!isGallery) {
-      valueArray.forEach(id => {
+      (0,external_lodash_namespaceObject.castArray)(this.props.value).forEach(id => {
         selection.add(wp.media.attachment(id));
       });
     } // Load the images so they are available in the media modal.
 
 
-    const attachments = getAttachmentsCollection(valueArray); // Once attachments are loaded, set the current selection.
+    const attachments = getAttachmentsCollection((0,external_lodash_namespaceObject.castArray)(this.props.value)); // Once attachments are loaded, set the current selection.
 
     attachments.more().done(function () {
       var _attachments$models;
@@ -481,11 +454,11 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
     const frameContent = this.frame.content.get();
 
     if (frameContent && frameContent.collection) {
-      const collection = frameContent.collection; // Clean all attachments we have in memory.
+      const collection = frameContent.collection; // clean all attachments we have in memory.
 
-      collection.toArray().forEach(model => model.trigger('destroy', model)); // Reset has more flag, if library had small amount of items all items may have been loaded before.
+      collection.toArray().forEach(model => model.trigger('destroy', model)); // reset has more flag, if library had small amount of items all items may have been loaded before.
 
-      collection.mirroring._hasMore = true; // Request items.
+      collection.mirroring._hasMore = true; // request items
 
       collection.more();
     }
@@ -508,16 +481,22 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
 }
 
 /* harmony default export */ var media_upload = (MediaUpload);
-
+//# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: ./packages/media-utils/build-module/components/index.js
 
-
+//# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: external ["wp","apiFetch"]
 var external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
 var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
 ;// CONCATENATED MODULE: external ["wp","blob"]
 var external_wp_blob_namespaceObject = window["wp"]["blob"];
 ;// CONCATENATED MODULE: ./packages/media-utils/build-module/utils/upload-media.js
+
+
+/**
+ * External dependencies
+ */
+
 /**
  * WordPress dependencies
  */
@@ -525,7 +504,6 @@ var external_wp_blob_namespaceObject = window["wp"]["blob"];
 
 
 
-const noop = () => {};
 /**
  * Browsers may use unexpected mime types, and they differ from browser to browser.
  * This function computes a flexible array of mime types from the mime type structured provided by the server.
@@ -540,18 +518,16 @@ const noop = () => {};
  * @return {?Array} An array of mime types or the parameter passed if it was "falsy".
  */
 
-
 function getMimeTypesArray(wpMimeTypesObject) {
   if (!wpMimeTypesObject) {
     return wpMimeTypesObject;
   }
 
-  return Object.entries(wpMimeTypesObject).map(_ref => {
-    let [extensionsString, mime] = _ref;
+  return (0,external_lodash_namespaceObject.flatMap)(wpMimeTypesObject, (mime, extensionsString) => {
     const [type] = mime.split('/');
     const extensions = extensionsString.split('|');
-    return [mime, ...extensions.map(extension => `${type}/${extension}`)];
-  }).flat();
+    return [mime, ...(0,external_lodash_namespaceObject.map)(extensions, extension => `${type}/${extension}`)];
+  });
 }
 /**
  *	Media Upload is used by audio, image, gallery, video, and file blocks to
@@ -569,27 +545,24 @@ function getMimeTypesArray(wpMimeTypesObject) {
  * @param {?Object}  $0.wpAllowedMimeTypes List of allowed mime types and file extensions.
  */
 
-async function uploadMedia(_ref2) {
-  let {
-    allowedTypes,
-    additionalData = {},
-    filesList,
-    maxUploadFileSize,
-    onError = noop,
-    onFileChange,
-    wpAllowedMimeTypes = null
-  } = _ref2;
-  // Cast filesList to array.
+async function uploadMedia({
+  allowedTypes,
+  additionalData = {},
+  filesList,
+  maxUploadFileSize,
+  onError = external_lodash_namespaceObject.noop,
+  onFileChange,
+  wpAllowedMimeTypes = null
+}) {
+  // Cast filesList to array
   const files = [...filesList];
   const filesSet = [];
 
   const setAndUpdateFiles = (idx, value) => {
-    var _filesSet$idx;
-
-    (0,external_wp_blob_namespaceObject.revokeBlobURL)((_filesSet$idx = filesSet[idx]) === null || _filesSet$idx === void 0 ? void 0 : _filesSet$idx.url);
+    (0,external_wp_blob_namespaceObject.revokeBlobURL)((0,external_lodash_namespaceObject.get)(filesSet, [idx, 'url']));
     filesSet[idx] = value;
-    onFileChange(filesSet.filter(Boolean));
-  }; // Allowed type specified by consumer.
+    onFileChange((0,external_lodash_namespaceObject.compact)(filesSet));
+  }; // Allowed type specified by consumer
 
 
   const isAllowedType = fileType => {
@@ -597,22 +570,30 @@ async function uploadMedia(_ref2) {
       return true;
     }
 
-    return allowedTypes.some(allowedType => {
+    return (0,external_lodash_namespaceObject.some)(allowedTypes, allowedType => {
       // If a complete mimetype is specified verify if it matches exactly the mime type of the file.
-      if (allowedType.includes('/')) {
+      if ((0,external_lodash_namespaceObject.includes)(allowedType, '/')) {
         return allowedType === fileType;
       } // Otherwise a general mime type is used and we should verify if the file mimetype starts with it.
 
 
-      return fileType.startsWith(`${allowedType}/`);
+      return (0,external_lodash_namespaceObject.startsWith)(fileType, `${allowedType}/`);
     });
-  }; // Allowed types for the current WP_User.
+  }; // Allowed types for the current WP_User
 
 
   const allowedMimeTypesForUser = getMimeTypesArray(wpAllowedMimeTypes);
 
   const isAllowedMimeTypeForUser = fileType => {
-    return allowedMimeTypesForUser.includes(fileType);
+    return (0,external_lodash_namespaceObject.includes)(allowedMimeTypesForUser, fileType);
+  }; // Build the error message including the filename
+
+
+  const triggerError = error => {
+    error.message = [(0,external_wp_element_namespaceObject.createElement)("strong", {
+      key: "filename"
+    }, error.file.name), ': ', error.message];
+    onError(error);
   };
 
   const validFiles = [];
@@ -621,10 +602,9 @@ async function uploadMedia(_ref2) {
     // Verify if user is allowed to upload this mime type.
     // Defer to the server when type not detected.
     if (allowedMimeTypesForUser && mediaFile.type && !isAllowedMimeTypeForUser(mediaFile.type)) {
-      onError({
+      triggerError({
         code: 'MIME_TYPE_NOT_ALLOWED_FOR_USER',
-        message: (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %s: file name.
-        (0,external_wp_i18n_namespaceObject.__)('%s: Sorry, you are not allowed to upload this file type.'), mediaFile.name),
+        message: (0,external_wp_i18n_namespaceObject.__)('Sorry, this file type is not permitted for security reasons.'),
         file: mediaFile
       });
       continue;
@@ -633,21 +613,19 @@ async function uploadMedia(_ref2) {
 
 
     if (mediaFile.type && !isAllowedType(mediaFile.type)) {
-      onError({
+      triggerError({
         code: 'MIME_TYPE_NOT_SUPPORTED',
-        message: (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %s: file name.
-        (0,external_wp_i18n_namespaceObject.__)('%s: Sorry, this file type is not supported here.'), mediaFile.name),
+        message: (0,external_wp_i18n_namespaceObject.__)('Sorry, this file type is not supported here.'),
         file: mediaFile
       });
       continue;
-    } // Verify if file is greater than the maximum file upload size allowed for the site.
+    } // verify if file is greater than the maximum file upload size allowed for the site.
 
 
     if (maxUploadFileSize && mediaFile.size > maxUploadFileSize) {
-      onError({
+      triggerError({
         code: 'SIZE_ABOVE_LIMIT',
-        message: (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %s: file name.
-        (0,external_wp_i18n_namespaceObject.__)('%s: This file exceeds the maximum upload size for this site.'), mediaFile.name),
+        message: (0,external_wp_i18n_namespaceObject.__)('This file exceeds the maximum upload size for this site.'),
         file: mediaFile
       });
       continue;
@@ -655,17 +633,16 @@ async function uploadMedia(_ref2) {
 
 
     if (mediaFile.size <= 0) {
-      onError({
+      triggerError({
         code: 'EMPTY_FILE',
-        message: (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %s: file name.
-        (0,external_wp_i18n_namespaceObject.__)('%s: This file is empty.'), mediaFile.name),
+        message: (0,external_wp_i18n_namespaceObject.__)('This file is empty.'),
         file: mediaFile
       });
       continue;
     }
 
     validFiles.push(mediaFile); // Set temporary URL to create placeholder media file, this is replaced
-    // with final file from media gallery when upload is `done` below.
+    // with final file from media gallery when upload is `done` below
 
     filesSet.push({
       url: (0,external_wp_blob_namespaceObject.createBlobURL)(mediaFile)
@@ -677,18 +654,10 @@ async function uploadMedia(_ref2) {
     const mediaFile = validFiles[idx];
 
     try {
-      var _savedMedia$caption$r, _savedMedia$caption;
-
-      const savedMedia = await createMediaFromFile(mediaFile, additionalData); // eslint-disable-next-line camelcase
-
-      const {
-        alt_text,
-        source_url,
-        ...savedMediaProps
-      } = savedMedia;
-      const mediaObject = { ...savedMediaProps,
+      const savedMedia = await createMediaFromFile(mediaFile, additionalData);
+      const mediaObject = { ...(0,external_lodash_namespaceObject.omit)(savedMedia, ['alt_text', 'source_url']),
         alt: savedMedia.alt_text,
-        caption: (_savedMedia$caption$r = (_savedMedia$caption = savedMedia.caption) === null || _savedMedia$caption === void 0 ? void 0 : _savedMedia$caption.raw) !== null && _savedMedia$caption$r !== void 0 ? _savedMedia$caption$r : '',
+        caption: (0,external_lodash_namespaceObject.get)(savedMedia, ['caption', 'raw'], ''),
         title: savedMedia.title.raw,
         url: savedMedia.source_url
       };
@@ -698,8 +667,8 @@ async function uploadMedia(_ref2) {
       setAndUpdateFiles(idx, null);
       let message;
 
-      if (error.message) {
-        message = error.message;
+      if ((0,external_lodash_namespaceObject.has)(error, ['message'])) {
+        message = (0,external_lodash_namespaceObject.get)(error, ['message']);
       } else {
         message = (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %s: file name
         (0,external_wp_i18n_namespaceObject.__)('Error while uploading file %s to the media library.'), mediaFile.name);
@@ -721,31 +690,24 @@ async function uploadMedia(_ref2) {
  */
 
 function createMediaFromFile(file, additionalData) {
-  // Create upload payload.
+  // Create upload payload
   const data = new window.FormData();
   data.append('file', file, file.name || file.type.replace('/', '.'));
-
-  if (additionalData) {
-    Object.entries(additionalData).forEach(_ref3 => {
-      let [key, value] = _ref3;
-      return data.append(key, value);
-    });
-  }
-
+  (0,external_lodash_namespaceObject.forEach)(additionalData, (value, key) => data.append(key, value));
   return external_wp_apiFetch_default()({
     path: '/wp/v2/media',
     body: data,
     method: 'POST'
   });
 }
-
+//# sourceMappingURL=upload-media.js.map
 ;// CONCATENATED MODULE: ./packages/media-utils/build-module/utils/index.js
 
-
+//# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: ./packages/media-utils/build-module/index.js
 
 
-
+//# sourceMappingURL=index.js.map
 (window.wp = window.wp || {}).mediaUtils = __webpack_exports__;
 /******/ })()
 ;

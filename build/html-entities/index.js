@@ -56,10 +56,10 @@ let _decodeTextArea;
 
 
 function decodeEntities(html) {
-  // Not a string, or no entities to decode.
+  // not a string, or no entities to decode
   if ('string' !== typeof html || -1 === html.indexOf('&')) {
     return html;
-  } // Create a textarea for decoding entities, that we can reuse.
+  } // create a textarea for decoding entities, that we can reuse
 
 
   if (undefined === _decodeTextArea) {
@@ -96,7 +96,7 @@ function decodeEntities(html) {
     decoded
   );
 }
-
+//# sourceMappingURL=index.js.map
 (window.wp = window.wp || {}).htmlEntities = __webpack_exports__;
 /******/ })()
 ;

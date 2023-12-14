@@ -1,15 +1,19 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "core/navigation",
 	"title": "Navigation",
 	"category": "theme",
 	"description": "A collection of blocks that allow visitors to get around your site.",
-	"keywords": [ "menu", "navigation", "links" ],
+	"keywords": [
+		"menu",
+		"navigation",
+		"links"
+	],
 	"textdomain": "default",
 	"attributes": {
-		"ref": {
-			"type": "number"
+		"orientation": {
+			"type": "string",
+			"default": "horizontal"
 		},
 		"textColor": {
 			"type": "string"
@@ -29,6 +33,9 @@
 		"rgbBackgroundColor": {
 			"type": "string"
 		},
+		"itemsJustification": {
+			"type": "string"
+		},
 		"showSubmenuIcon": {
 			"type": "boolean",
 			"default": true
@@ -39,15 +46,7 @@
 		},
 		"overlayMenu": {
 			"type": "string",
-			"default": "mobile"
-		},
-		"icon": {
-			"type": "string",
-			"default": "handle"
-		},
-		"hasIcon": {
-			"type": "boolean",
-			"default": true
+			"default": "never"
 		},
 		"__unstableLocation": {
 			"type": "string"
@@ -63,14 +62,6 @@
 		},
 		"customOverlayTextColor": {
 			"type": "string"
-		},
-		"maxNestingLevel": {
-			"type": "number",
-			"default": 5
-		},
-		"templateLock": {
-			"type": [ "string", "boolean" ],
-			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"providesContext": {
@@ -87,11 +78,13 @@
 		"showSubmenuIcon": "showSubmenuIcon",
 		"openSubmenusOnClick": "openSubmenusOnClick",
 		"style": "style",
-		"orientation": "orientation",
-		"maxNestingLevel": "maxNestingLevel"
+		"orientation": "orientation"
 	},
 	"supports": {
-		"align": [ "wide", "full" ],
+		"align": [
+			"wide",
+			"full"
+		],
 		"anchor": true,
 		"html": false,
 		"inserter": true,
@@ -102,40 +95,23 @@
 			"__experimentalFontWeight": true,
 			"__experimentalTextTransform": true,
 			"__experimentalFontFamily": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalSkipSerialization": [ "textDecoration" ],
-			"__experimentalDefaultControls": {
-				"fontSize": true
-			}
+			"__experimentalTextDecoration": true
 		},
 		"spacing": {
 			"blockGap": true,
-			"units": [ "px", "em", "rem", "vh", "vw" ],
+			"units": [
+				"px",
+				"em",
+				"rem",
+				"vh",
+				"vw"
+			],
 			"__experimentalDefaultControls": {
 				"blockGap": true
 			}
-		},
-		"__experimentalLayout": {
-			"allowSwitching": false,
-			"allowInheriting": false,
-			"allowVerticalAlignment": false,
-			"allowSizingOnChildren": true,
-			"default": {
-				"type": "flex"
-			}
-		},
-		"__experimentalStyle": {
-			"elements": {
-				"link": {
-					"color": {
-						"text": "inherit"
-					}
-				}
-			}
 		}
 	},
-	"viewScript": [ "file:./view.min.js", "file:./view-modal.min.js" ],
+	"viewScript": "file:./view.min.js",
 	"editorStyle": "wp-block-navigation-editor",
 	"style": "wp-block-navigation"
 }

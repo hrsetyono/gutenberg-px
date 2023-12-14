@@ -1,5 +1,4 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "core/pullquote",
 	"title": "Pullquote",
@@ -10,7 +9,8 @@
 		"value": {
 			"type": "string",
 			"source": "html",
-			"selector": "p",
+			"selector": "blockquote",
+			"multiline": "p",
 			"__experimentalRole": "content"
 		},
 		"citation": {
@@ -30,43 +30,13 @@
 		"color": {
 			"gradients": true,
 			"background": true,
-			"link": true,
-			"__experimentalDefaultControls": {
-				"background": true,
-				"text": true
-			}
-		},
-		"typography": {
-			"fontSize": true,
-			"lineHeight": true,
-			"__experimentalFontFamily": true,
-			"__experimentalFontWeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalDefaultControls": {
-				"fontSize": true,
-				"fontAppearance": true
-			}
+			"link": true
 		},
 		"__experimentalBorder": {
 			"color": true,
 			"radius": true,
 			"style": true,
-			"width": true,
-			"__experimentalDefaultControls": {
-				"color": true,
-				"radius": true,
-				"style": true,
-				"width": true
-			}
-		},
-		"__experimentalStyle": {
-			"typography": {
-				"fontSize": "1.5em",
-				"lineHeight": "1.6"
-			}
+			"width": true
 		}
 	},
 	"editorStyle": "wp-block-pullquote-editor",

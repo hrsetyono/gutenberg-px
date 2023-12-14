@@ -30,7 +30,7 @@ function gutenberg_latest_comments_draft_or_post_title( $post = 0 ) {
 	if ( empty( $title ) ) {
 		$title = __( '(no title)' );
 	}
-	return $title;
+	return esc_html( $title );
 }
 
 /**

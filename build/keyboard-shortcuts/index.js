@@ -68,7 +68,13 @@ __webpack_require__.d(selectors_namespaceObject, {
 
 ;// CONCATENATED MODULE: external ["wp","data"]
 var external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: external "lodash"
+var external_lodash_namespaceObject = window["lodash"];
 ;// CONCATENATED MODULE: ./packages/keyboard-shortcuts/build-module/store/reducer.js
+/**
+ * External dependencies
+ */
+
 /**
  * Reducer returning the registered shortcuts
  *
@@ -77,10 +83,8 @@ var external_wp_data_namespaceObject = window["wp"]["data"];
  *
  * @return {Object} Updated state.
  */
-function reducer() {
-  let state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  let action = arguments.length > 1 ? arguments[1] : undefined;
 
+function reducer(state = {}, action) {
   switch (action.type) {
     case 'REGISTER_SHORTCUT':
       return { ...state,
@@ -93,18 +97,14 @@ function reducer() {
       };
 
     case 'UNREGISTER_SHORTCUT':
-      const {
-        [action.name]: actionName,
-        ...remainingState
-      } = state;
-      return remainingState;
+      return (0,external_lodash_namespaceObject.omit)(state, action.name);
   }
 
   return state;
 }
 
 /* harmony default export */ var store_reducer = (reducer);
-
+//# sourceMappingURL=reducer.js.map
 ;// CONCATENATED MODULE: ./packages/keyboard-shortcuts/build-module/store/actions.js
 /** @typedef {import('@wordpress/keycodes').WPKeycodeModifier} WPKeycodeModifier */
 
@@ -136,14 +136,13 @@ function reducer() {
  *
  * @return {Object} action.
  */
-function registerShortcut(_ref) {
-  let {
-    name,
-    category,
-    description,
-    keyCombination,
-    aliases
-  } = _ref;
+function registerShortcut({
+  name,
+  category,
+  description,
+  keyCombination,
+  aliases
+}) {
   return {
     type: 'REGISTER_SHORTCUT',
     name,
@@ -167,61 +166,35 @@ function unregisterShortcut(name) {
     name
   };
 }
-
+//# sourceMappingURL=actions.js.map
 ;// CONCATENATED MODULE: ./node_modules/rememo/es/rememo.js
 
 
-/** @typedef {(...args: any[]) => *[]} GetDependants */
-
-/** @typedef {() => void} Clear */
-
-/**
- * @typedef {{
- *   getDependants: GetDependants,
- *   clear: Clear
- * }} EnhancedSelector
- */
-
-/**
- * Internal cache entry.
- *
- * @typedef CacheNode
- *
- * @property {?CacheNode|undefined} [prev] Previous node.
- * @property {?CacheNode|undefined} [next] Next node.
- * @property {*[]} args Function arguments for cache entry.
- * @property {*} val Function result.
- */
-
-/**
- * @typedef Cache
- *
- * @property {Clear} clear Function to clear cache.
- * @property {boolean} [isUniqueByDependants] Whether dependants are valid in
- * considering cache uniqueness. A cache is unique if dependents are all arrays
- * or objects.
- * @property {CacheNode?} [head] Cache head.
- * @property {*[]} [lastDependants] Dependants from previous invocation.
- */
+var LEAF_KEY, hasWeakMap;
 
 /**
  * Arbitrary value used as key for referencing cache object in WeakMap tree.
  *
- * @type {{}}
+ * @type {Object}
  */
-var LEAF_KEY = {};
+LEAF_KEY = {};
+
+/**
+ * Whether environment supports WeakMap.
+ *
+ * @type {boolean}
+ */
+hasWeakMap = typeof WeakMap !== 'undefined';
 
 /**
  * Returns the first argument as the sole entry in an array.
  *
- * @template T
+ * @param {*} value Value to return.
  *
- * @param {T} value Value to return.
- *
- * @return {[T]} Value returned as entry in array.
+ * @return {Array} Value returned as entry in array.
  */
-function arrayOf(value) {
-	return [value];
+function arrayOf( value ) {
+	return [ value ];
 }
 
 /**
@@ -232,19 +205,18 @@ function arrayOf(value) {
  *
  * @return {boolean} Whether value is object-like.
  */
-function isObjectLike(value) {
-	return !!value && 'object' === typeof value;
+function isObjectLike( value ) {
+	return !! value && 'object' === typeof value;
 }
 
 /**
  * Creates and returns a new cache object.
  *
- * @return {Cache} Cache object.
+ * @return {Object} Cache object.
  */
 function createCache() {
-	/** @type {Cache} */
 	var cache = {
-		clear: function () {
+		clear: function() {
 			cache.head = null;
 		},
 	};
@@ -256,21 +228,21 @@ function createCache() {
  * Returns true if entries within the two arrays are strictly equal by
  * reference from a starting index.
  *
- * @param {*[]} a First array.
- * @param {*[]} b Second array.
+ * @param {Array}  a         First array.
+ * @param {Array}  b         Second array.
  * @param {number} fromIndex Index from which to start comparison.
  *
  * @return {boolean} Whether arrays are shallowly equal.
  */
-function isShallowEqual(a, b, fromIndex) {
+function isShallowEqual( a, b, fromIndex ) {
 	var i;
 
-	if (a.length !== b.length) {
+	if ( a.length !== b.length ) {
 		return false;
 	}
 
-	for (i = fromIndex; i < a.length; i++) {
-		if (a[i] !== b[i]) {
+	for ( i = fromIndex; i < a.length; i++ ) {
+		if ( a[ i ] !== b[ i ] ) {
 			return false;
 		}
 	}
@@ -286,18 +258,31 @@ function isShallowEqual(a, b, fromIndex) {
  * dependant references remain the same. If getDependants returns a different
  * reference(s), the cache is cleared and the selector value regenerated.
  *
- * @template {(...args: *[]) => *} S
+ * @param {Function} selector      Selector function.
+ * @param {Function} getDependants Dependant getter returning an immutable
+ *                                 reference or array of reference used in
+ *                                 cache bust consideration.
  *
- * @param {S} selector Selector function.
- * @param {GetDependants=} getDependants Dependant getter returning an array of
- * references used in cache bust consideration.
+ * @return {Function} Memoized selector.
  */
-/* harmony default export */ function rememo(selector, getDependants) {
-	/** @type {WeakMap<*,*>} */
-	var rootCache;
+/* harmony default export */ function rememo(selector, getDependants ) {
+	var rootCache, getCache;
 
-	/** @type {GetDependants} */
-	var normalizedGetDependants = getDependants ? getDependants : arrayOf;
+	// Use object source as dependant if getter not provided
+	if ( ! getDependants ) {
+		getDependants = arrayOf;
+	}
+
+	/**
+	 * Returns the root cache. If WeakMap is supported, this is assigned to the
+	 * root WeakMap cache set, otherwise it is a shared instance of the default
+	 * cache object.
+	 *
+	 * @return {(WeakMap|Object)} Root cache object.
+	 */
+	function getRootCache() {
+		return rootCache;
+	}
 
 	/**
 	 * Returns the cache for a given dependants array. When possible, a WeakMap
@@ -313,93 +298,85 @@ function isShallowEqual(a, b, fromIndex) {
 	 *
 	 * @see isObjectLike
 	 *
-	 * @param {*[]} dependants Selector dependants.
+	 * @param {Array} dependants Selector dependants.
 	 *
-	 * @return {Cache} Cache object.
+	 * @return {Object} Cache object.
 	 */
-	function getCache(dependants) {
+	function getWeakMapCache( dependants ) {
 		var caches = rootCache,
 			isUniqueByDependants = true,
-			i,
-			dependant,
-			map,
-			cache;
+			i, dependant, map, cache;
 
-		for (i = 0; i < dependants.length; i++) {
-			dependant = dependants[i];
+		for ( i = 0; i < dependants.length; i++ ) {
+			dependant = dependants[ i ];
 
 			// Can only compose WeakMap from object-like key.
-			if (!isObjectLike(dependant)) {
+			if ( ! isObjectLike( dependant ) ) {
 				isUniqueByDependants = false;
 				break;
 			}
 
 			// Does current segment of cache already have a WeakMap?
-			if (caches.has(dependant)) {
+			if ( caches.has( dependant ) ) {
 				// Traverse into nested WeakMap.
-				caches = caches.get(dependant);
+				caches = caches.get( dependant );
 			} else {
 				// Create, set, and traverse into a new one.
 				map = new WeakMap();
-				caches.set(dependant, map);
+				caches.set( dependant, map );
 				caches = map;
 			}
 		}
 
 		// We use an arbitrary (but consistent) object as key for the last item
 		// in the WeakMap to serve as our running cache.
-		if (!caches.has(LEAF_KEY)) {
+		if ( ! caches.has( LEAF_KEY ) ) {
 			cache = createCache();
 			cache.isUniqueByDependants = isUniqueByDependants;
-			caches.set(LEAF_KEY, cache);
+			caches.set( LEAF_KEY, cache );
 		}
 
-		return caches.get(LEAF_KEY);
+		return caches.get( LEAF_KEY );
 	}
+
+	// Assign cache handler by availability of WeakMap
+	getCache = hasWeakMap ? getWeakMapCache : getRootCache;
 
 	/**
 	 * Resets root memoization cache.
 	 */
 	function clear() {
-		rootCache = new WeakMap();
+		rootCache = hasWeakMap ? new WeakMap() : createCache();
 	}
 
-	/* eslint-disable jsdoc/check-param-names */
+	// eslint-disable-next-line jsdoc/check-param-names
 	/**
 	 * The augmented selector call, considering first whether dependants have
 	 * changed before passing it to underlying memoize function.
 	 *
-	 * @param {*}    source    Source object for derivation.
-	 * @param {...*} extraArgs Additional arguments to pass to selector.
+	 * @param {Object} source    Source object for derivation.
+	 * @param {...*}   extraArgs Additional arguments to pass to selector.
 	 *
 	 * @return {*} Selector result.
 	 */
-	/* eslint-enable jsdoc/check-param-names */
-	function callSelector(/* source, ...extraArgs */) {
+	function callSelector( /* source, ...extraArgs */ ) {
 		var len = arguments.length,
-			cache,
-			node,
-			i,
-			args,
-			dependants;
+			cache, node, i, args, dependants;
 
 		// Create copy of arguments (avoid leaking deoptimization).
-		args = new Array(len);
-		for (i = 0; i < len; i++) {
-			args[i] = arguments[i];
+		args = new Array( len );
+		for ( i = 0; i < len; i++ ) {
+			args[ i ] = arguments[ i ];
 		}
 
-		dependants = normalizedGetDependants.apply(null, args);
-		cache = getCache(dependants);
+		dependants = getDependants.apply( null, args );
+		cache = getCache( dependants );
 
-		// If not guaranteed uniqueness by dependants (primitive type), shallow
-		// compare against last dependants and, if references have changed,
-		// destroy cache to recalculate result.
-		if (!cache.isUniqueByDependants) {
-			if (
-				cache.lastDependants &&
-				!isShallowEqual(dependants, cache.lastDependants, 0)
-			) {
+		// If not guaranteed uniqueness by dependants (primitive type or lack
+		// of WeakMap support), shallow compare against last dependants and, if
+		// references have changed, destroy cache to recalculate result.
+		if ( ! cache.isUniqueByDependants ) {
+			if ( cache.lastDependants && ! isShallowEqual( dependants, cache.lastDependants, 0 ) ) {
 				cache.clear();
 			}
 
@@ -407,9 +384,9 @@ function isShallowEqual(a, b, fromIndex) {
 		}
 
 		node = cache.head;
-		while (node) {
+		while ( node ) {
 			// Check whether node arguments match arguments
-			if (!isShallowEqual(node.args, args, 1)) {
+			if ( ! isShallowEqual( node.args, args, 1 ) ) {
 				node = node.next;
 				continue;
 			}
@@ -417,16 +394,16 @@ function isShallowEqual(a, b, fromIndex) {
 			// At this point we can assume we've found a match
 
 			// Surface matched node to head if not already
-			if (node !== cache.head) {
+			if ( node !== cache.head ) {
 				// Adjust siblings to point to each other.
-				/** @type {CacheNode} */ (node.prev).next = node.next;
-				if (node.next) {
+				node.prev.next = node.next;
+				if ( node.next ) {
 					node.next.prev = node.prev;
 				}
 
 				node.next = cache.head;
 				node.prev = null;
-				/** @type {CacheNode} */ (cache.head).prev = node;
+				cache.head.prev = node;
 				cache.head = node;
 			}
 
@@ -436,20 +413,20 @@ function isShallowEqual(a, b, fromIndex) {
 
 		// No cached value found. Continue to insertion phase:
 
-		node = /** @type {CacheNode} */ ({
+		node = {
 			// Generate the result from original function
-			val: selector.apply(null, args),
-		});
+			val: selector.apply( null, args ),
+		};
 
 		// Avoid including the source object in the cache.
-		args[0] = null;
+		args[ 0 ] = null;
 		node.args = args;
 
 		// Don't need to check whether node is already head, since it would
 		// have been returned above already if it was
 
 		// Shift existing head down list
-		if (cache.head) {
+		if ( cache.head ) {
 			cache.head.prev = node;
 			node.next = cache.head;
 		}
@@ -459,11 +436,11 @@ function isShallowEqual(a, b, fromIndex) {
 		return node.val;
 	}
 
-	callSelector.getDependants = normalizedGetDependants;
+	callSelector.getDependants = getDependants;
 	callSelector.clear = clear;
 	clear();
 
-	return /** @type {S & EnhancedSelector} */ (callSelector);
+	return callSelector;
 }
 
 ;// CONCATENATED MODULE: external ["wp","keycodes"]
@@ -472,6 +449,7 @@ var external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
 /**
  * External dependencies
  */
+
 
 /**
  * WordPress dependencies
@@ -544,8 +522,7 @@ function getShortcutKeyCombination(state, name) {
  * @return {string?} Shortcut representation.
  */
 
-function getShortcutRepresentation(state, name) {
-  let representation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'display';
+function getShortcutRepresentation(state, name, representation = 'display') {
   const shortcut = getShortcutKeyCombination(state, name);
   return getKeyCombinationRepresentation(shortcut, representation);
 }
@@ -574,7 +551,7 @@ function getShortcutAliases(state, name) {
   return state[name] && state[name].aliases ? state[name].aliases : EMPTY_ARRAY;
 }
 const getAllShortcutKeyCombinations = rememo((state, name) => {
-  return [getShortcutKeyCombination(state, name), ...getShortcutAliases(state, name)].filter(Boolean);
+  return (0,external_lodash_namespaceObject.compact)([getShortcutKeyCombination(state, name), ...getShortcutAliases(state, name)]);
 }, (state, name) => [state[name]]);
 /**
  * Returns the raw representation of all the keyboard combinations of a given shortcut name.
@@ -598,15 +575,9 @@ const getAllShortcutRawKeyCombinations = rememo((state, name) => {
  */
 
 const getCategoryShortcuts = rememo((state, categoryName) => {
-  return Object.entries(state).filter(_ref => {
-    let [, shortcut] = _ref;
-    return shortcut.category === categoryName;
-  }).map(_ref2 => {
-    let [name] = _ref2;
-    return name;
-  });
+  return Object.entries(state).filter(([, shortcut]) => shortcut.category === categoryName).map(([name]) => name);
 }, state => [state]);
-
+//# sourceMappingURL=selectors.js.map
 ;// CONCATENATED MODULE: ./packages/keyboard-shortcuts/build-module/store/index.js
 /**
  * WordPress dependencies
@@ -634,7 +605,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
   selectors: selectors_namespaceObject
 });
 (0,external_wp_data_namespaceObject.register)(store);
-
+//# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: external ["wp","element"]
 var external_wp_element_namespaceObject = window["wp"]["element"];
 ;// CONCATENATED MODULE: ./packages/keyboard-shortcuts/build-module/hooks/use-shortcut-event-match.js
@@ -651,7 +622,7 @@ var external_wp_element_namespaceObject = window["wp"]["element"];
 /**
  * Returns a function to check if a keyboard event matches a shortcut name.
  *
- * @return {Function} A function to check if a keyboard event matches a
+ * @return {Function} A function to to check if a keyboard event matches a
  *                    predefined shortcut combination.
  */
 
@@ -670,25 +641,24 @@ function useShortcutEventMatch() {
    */
 
   function isMatch(name, event) {
-    return getAllShortcutKeyCombinations(name).some(_ref => {
-      let {
-        modifier,
-        character
-      } = _ref;
+    return getAllShortcutKeyCombinations(name).some(({
+      modifier,
+      character
+    }) => {
       return external_wp_keycodes_namespaceObject.isKeyboardEvent[modifier](event, character);
     });
   }
 
   return isMatch;
 }
-
+//# sourceMappingURL=use-shortcut-event-match.js.map
 ;// CONCATENATED MODULE: ./packages/keyboard-shortcuts/build-module/context.js
 /**
  * WordPress dependencies
  */
 
 const context = (0,external_wp_element_namespaceObject.createContext)();
-
+//# sourceMappingURL=context.js.map
 ;// CONCATENATED MODULE: ./packages/keyboard-shortcuts/build-module/hooks/use-shortcut.js
 /**
  * WordPress dependencies
@@ -709,10 +679,9 @@ const context = (0,external_wp_element_namespaceObject.createContext)();
  * @param {boolean}  options.isDisabled Whether to disable to shortut.
  */
 
-function useShortcut(name, callback) {
-  let {
-    isDisabled
-  } = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+function useShortcut(name, callback, {
+  isDisabled
+} = {}) {
   const shortcuts = (0,external_wp_element_namespaceObject.useContext)(context);
   const isMatch = useShortcutEventMatch();
   const callbackRef = (0,external_wp_element_namespaceObject.useRef)();
@@ -734,7 +703,7 @@ function useShortcut(name, callback) {
     };
   }, [name, isDisabled]);
 }
-
+//# sourceMappingURL=use-shortcut.js.map
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -797,13 +766,13 @@ function ShortcutProvider(props) {
   })));
   /* eslint-enable jsx-a11y/no-static-element-interactions */
 }
-
+//# sourceMappingURL=shortcut-provider.js.map
 ;// CONCATENATED MODULE: ./packages/keyboard-shortcuts/build-module/index.js
 
 
 
 
-
+//# sourceMappingURL=index.js.map
 (window.wp = window.wp || {}).keyboardShortcuts = __webpack_exports__;
 /******/ })()
 ;

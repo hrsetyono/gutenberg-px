@@ -1,5 +1,4 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "core/post-comments-form",
 	"title": "Post Comments Form",
@@ -13,36 +12,15 @@
 	},
 	"usesContext": [ "postId", "postType" ],
 	"supports": {
-		"anchor": true,
 		"html": false,
 		"color": {
 			"gradients": true,
-			"link": true,
-			"__experimentalDefaultControls": {
-				"background": true,
-				"text": true
-			}
-		},
-		"spacing": {
-			"margin": true,
-			"padding": true
+			"link": true
 		},
 		"typography": {
 			"fontSize": true,
-			"lineHeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalFontWeight": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalTextTransform": true,
-			"__experimentalDefaultControls": {
-				"fontSize": true
-			}
+			"lineHeight": true
 		}
 	},
-	"editorStyle": "wp-block-post-comments-form-editor",
-	"style": [
-		"wp-block-post-comments-form",
-		"wp-block-buttons",
-		"wp-block-button"
-	]
+	"style": [ "wp-block-post-comments-form", "wp-block-buttons", "wp-block-button" ]
 }

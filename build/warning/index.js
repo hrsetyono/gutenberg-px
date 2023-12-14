@@ -37,7 +37,7 @@ __webpack_require__.d(__webpack_exports__, {
  * @type {Set<string>}
  */
 const logged = new Set();
-
+//# sourceMappingURL=utils.js.map
 ;// CONCATENATED MODULE: ./packages/warning/build-module/index.js
 /**
  * Internal dependencies
@@ -83,12 +83,12 @@ function warning(message) {
 
   try {
     throw Error(message);
-  } catch (x) {// Do nothing.
+  } catch (x) {// do nothing
   }
 
   logged.add(message);
 }
-
-(window.wp = window.wp || {}).warning = __webpack_exports__["default"];
+//# sourceMappingURL=index.js.map
+(window.wp = window.wp || {}).warning = __webpack_exports__.default;
 /******/ })()
 ;
