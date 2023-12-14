@@ -3,9 +3,9 @@
  * Plugin Name: Gutenberg
  * Plugin URI: https://github.com/hrsetyono/gutenberg
  * Description: WordPress editor with minor customization for version compatibility.
- * Requires at least: 6.2
- * Requires PHP: 7.4
- * Version: 6.2.0
+ * Requires at least: 5.8
+ * Requires PHP: 7.3
+ * Version: 5.8.0
  * Author: Gutenberg Team & Pixel Studio
  * Text Domain: gutenberg
  *
@@ -13,8 +13,8 @@
  */
 
 ### BEGIN AUTO-GENERATED DEFINES
-define( 'GUTENBERG_VERSION', '15.1.0' );
-define( 'GUTENBERG_GIT_COMMIT', '159ff44078fa078a2fd34e83cdc8ebba5651074f' );
+define( 'GUTENBERG_VERSION', '10.7.4' );
+define( 'GUTENBERG_GIT_COMMIT', '6a1b8079187f582814257c5cff2136bb12f07b2f' );
 ### END AUTO-GENERATED DEFINES
 
 gutenberg_pre_init();
@@ -27,7 +27,7 @@ gutenberg_pre_init();
 function gutenberg_wordpress_version_notice() {
 	echo '<div class="error"><p>';
 	/* translators: %s: Minimum required version */
-	printf( __( 'Gutenberg requires WordPress %s or later to function properly. Please upgrade WordPress before activating Gutenberg.', 'gutenberg' ), '5.9' );
+	printf( __( 'Gutenberg requires WordPress %s or later to function properly. Please upgrade WordPress before activating Gutenberg.', 'gutenberg' ), '5.6' );
 	echo '</p></div>';
 
 	deactivate_plugins( array( 'gutenberg/gutenberg.php' ) );
@@ -40,7 +40,7 @@ function gutenberg_wordpress_version_notice() {
  */
 function gutenberg_build_files_notice() {
 	echo '<div class="error"><p>';
-	_e( 'Gutenberg development mode requires files to be built. Run <code>npm install</code> to install dependencies, <code>npm run build</code> to build the files or <code>npm run dev</code> to build the files and watch for changes. Read the <a href="https://github.com/WordPress/gutenberg/blob/HEAD/docs/contributors/code/getting-started-with-code-contribution.md">contributing</a> file for more information.', 'gutenberg' );
+	_e( 'Gutenberg development mode requires files to be built. Run <code>npm install</code> to install dependencies, <code>npm run build</code> to build the files or <code>npm run dev</code> to build the files and watch for changes. Read the <a href="https://github.com/WordPress/gutenberg/blob/HEAD/docs/contributors/getting-started.md">contributing</a> file for more information.', 'gutenberg' );
 	echo '</p></div>';
 }
 
@@ -65,7 +65,7 @@ function gutenberg_pre_init() {
 	// Compare against major release versions (X.Y) rather than minor (X.Y.Z)
 	// unless a minor release is the actual minimum requirement. WordPress reports
 	// X.Y for its major releases.
-	if ( version_compare( $version, '5.9', '<' ) ) {
+	if ( version_compare( $version, '5.6', '<' ) ) {
 		add_action( 'admin_notices', 'gutenberg_wordpress_version_notice' );
 		return;
 	}

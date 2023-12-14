@@ -1,12 +1,11 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "core/post-title",
 	"title": "Post Title",
-	"category": "theme",
+	"category": "design",
 	"description": "Displays the title of a post, page, or any other content-type.",
 	"textdomain": "default",
-	"usesContext": [ "postId", "postType", "queryId" ],
+	"usesContext": [ "postId", "postType" ],
 	"attributes": {
 		"textAlign": {
 			"type": "string"
@@ -31,36 +30,14 @@
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
-		"anchor": true,
 		"html": false,
 		"color": {
 			"gradients": true,
-			"link": true,
-			"__experimentalDefaultControls": {
-				"background": true,
-				"text": true,
-				"link": true
-			}
+			"link": true
 		},
-		"spacing": {
-			"margin": true,
-			"padding": true
-		},
-		"typography": {
-			"fontSize": true,
-			"lineHeight": true,
-			"__experimentalFontFamily": true,
-			"__experimentalFontWeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalDefaultControls": {
-				"fontSize": true,
-				"fontAppearance": true,
-				"textTransform": true
-			}
-		}
+		"fontSize": true,
+		"lineHeight": true,
+		"__experimentalFontFamily": true
 	},
 	"style": "wp-block-post-title"
 }
