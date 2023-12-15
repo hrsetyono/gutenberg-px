@@ -61,14 +61,16 @@
 			"__experimentalSkipSerialization": true,
 			"gradients": true
 		},
-		"fontSize": true,
 		"reusable": false,
 		"__experimentalBorder": {
 			"radius": true,
 			"__experimentalSkipSerialization": true
 		},
-		"__experimentalFontFamily": true,
-		"__experimentalSelector": ".wp-block-button__link"
+		"__experimentalSelector": ".wp-block-button__link",
+		"typography": {
+			"fontSize": true,
+			"__experimentalFontFamily": true
+		}
 	},
 	"styles": [
 		{ "name": "fill", "label": "Fill", "isDefault": true },

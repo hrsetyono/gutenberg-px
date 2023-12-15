@@ -27,12 +27,14 @@
 	"usesContext": [ "postType", "postId" ],
 	"supports": {
 		"html": false,
-		"fontSize": true,
 		"color": {
 			"gradients": true,
 			"link": true
 		},
-		"lineHeight": true
+		"typography": {
+			"lineHeight": true,
+			"fontSize": true
+		}
 	},
 	"editorStyle": "wp-block-post-author-editor",
 	"style": "wp-block-post-author"

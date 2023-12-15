@@ -25,10 +25,12 @@
 			"gradients": true,
 			"link": true
 		},
-		"__experimentalFontFamily": true,
-		"fontSize": true,
 		"spacing": {
 			"padding": true
+		},
+		"typography": {
+			"__experimentalFontFamily": true,
+			"fontSize": true
 		}
 	},
 	"style": "wp-block-verse",

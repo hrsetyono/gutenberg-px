@@ -5,7 +5,7 @@
  * Description: WordPress editor with minor customization for version compatibility.
  * Requires at least: 5.8
  * Requires PHP: 7.3
- * Version: 5.8.0
+ * Version: 5.8.1
  * Author: Gutenberg Team & Pixel Studio
  * Text Domain: gutenberg
  *

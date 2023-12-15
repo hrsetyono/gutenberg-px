@@ -16,11 +16,13 @@
 	"usesContext": [ "postId", "postType" ],
 	"supports": {
 		"html": false,
-		"fontSize": true,
 		"color": {
 			"gradients": true,
 			"link": true
 		},
-		"lineHeight": true
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
 	}
 }

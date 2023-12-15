@@ -14,12 +14,14 @@
 	"supports": {
 		"html": false,
 		"align": [ "wide", "full" ],
-		"fontSize": true,
 		"color": {
 			"gradients": true,
 			"link": true
 		},
-		"lineHeight": true
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
 	},
 	"style": "wp-block-post-comments"
 }

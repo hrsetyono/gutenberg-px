@@ -37,11 +37,13 @@
 	"supports": {
 		"anchor": true,
 		"className": false,
-		"fontSize": true,
 		"color": {
 			"gradients": true
 		},
-		"__unstablePasteTextInline": true
+		"__unstablePasteTextInline": true,
+		"typography": {
+			"fontSize": true
+		}
 	},
 	"editorStyle": "wp-block-list-editor",
 	"style": "wp-block-list"
