@@ -701,7 +701,7 @@ function MoreMenuDropdown(_ref) {
     icon: more_vertical,
     label: label,
     popoverProps: {
-      placement: 'bottom-end',
+      position: 'bottom left',
       ...popoverProps,
       className: classnames_default()('interface-more-menu-dropdown__content', popoverProps === null || popoverProps === void 0 ? void 0 : popoverProps.className)
     },
@@ -1328,6 +1328,7 @@ function KeyboardShortcutHelpModal(_ref4) {
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Modal, {
     className: "customize-widgets-keyboard-shortcut-help-modal",
     title: (0,external_wp_i18n_namespaceObject.__)('Keyboard shortcuts'),
+    closeLabel: (0,external_wp_i18n_namespaceObject.__)('Close'),
     onRequestClose: toggleModal
   }, (0,external_wp_element_namespaceObject.createElement)(ShortcutSection, {
     className: "customize-widgets-keyboard-shortcut-help-modal__main-shortcuts",
@@ -1897,18 +1898,6 @@ function useBlocksFocusControl(blocks) {
   }, [focusedWidgetIdRef, selectBlock]);
 }
 
-;// CONCATENATED MODULE: external ["wp","experiments"]
-var external_wp_experiments_namespaceObject = window["wp"]["experiments"];
-;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/experiments.js
-/**
- * WordPress dependencies
- */
-
-const {
-  lock,
-  unlock
-} = (0,external_wp_experiments_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I know using unstable features means my plugin or theme will inevitably break on the next WordPress release.', '@wordpress/customize-widgets');
-
 ;// CONCATENATED MODULE: ./packages/customize-widgets/build-module/components/sidebar-block-editor/sidebar-editor-provider.js
 
 
@@ -1922,10 +1911,6 @@ const {
 
 
 
-
-const {
-  ExperimentalBlockEditorProvider
-} = unlock(external_wp_blockEditor_namespaceObject.experiments);
 function SidebarEditorProvider(_ref) {
   let {
     sidebar,
@@ -1934,7 +1919,7 @@ function SidebarEditorProvider(_ref) {
   } = _ref;
   const [blocks, onInput, onChange] = useSidebarBlockEditor(sidebar);
   useBlocksFocusControl(blocks);
-  return (0,external_wp_element_namespaceObject.createElement)(ExperimentalBlockEditorProvider, {
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockEditorProvider, {
     value: blocks,
     onInput: onInput,
     onChange: onChange,

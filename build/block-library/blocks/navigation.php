@@ -411,25 +411,6 @@ function gutenberg_block_core_navigation_filter_out_empty_blocks( $parsed_blocks
 }
 
 /**
- * Returns true if the navigation block contains a nested navigation block.
- *
- * @param WP_Block_List $inner_blocks Inner block instance to be normalized.
- * @return bool true if the navigation block contains a nested navigation block.
- */
-function gutenberg_block_core_navigation_block_contains_core_navigation( $inner_blocks ) {
-	foreach ( $inner_blocks as $block ) {
-		if ( 'core/navigation' === $block->name ) {
-			return true;
-		}
-		if ( $block->inner_blocks && gutenberg_block_core_navigation_block_contains_core_navigation( $block->inner_blocks ) ) {
-			return true;
-		}
-	}
-
-	return false;
-}
-
-/**
  * Retrieves the appropriate fallback to be used on the front of the
  * site when there is no menu assigned to the Nav block.
  *
@@ -462,8 +443,7 @@ function gutenberg_block_core_navigation_get_fallback_blocks() {
 
 	// Use the first non-empty Navigation as fallback if available.
 	if ( $navigation_post ) {
-		$parsed_blocks  = parse_blocks( $navigation_post->post_content );
-		$maybe_fallback = gutenberg_block_core_navigation_filter_out_empty_blocks( $parsed_blocks );
+		$maybe_fallback = gutenberg_block_core_navigation_filter_out_empty_blocks( parse_blocks( $navigation_post->post_content ) );
 
 		// Normalizing blocks may result in an empty array of blocks if they were all `null` blocks.
 		// In this case default to the (Page List) fallback.
@@ -531,6 +511,7 @@ function gutenberg_block_core_navigation_from_block_get_post_ids( $block ) {
 function gutenberg_render_block_core_navigation( $attributes, $content, $block ) {
 
 	static $seen_menu_names = array();
+	static $seen_ref        = array();
 
 	// Flag used to indicate whether the rendered output is considered to be
 	// a fallback (i.e. the block has no menu associated with it).
@@ -601,6 +582,11 @@ function gutenberg_render_block_core_navigation( $attributes, $content, $block )
 
 	// Load inner blocks from the navigation post.
 	if ( array_key_exists( 'ref', $attributes ) ) {
+		if ( in_array( $attributes['ref'], $seen_ref, true ) ) {
+			return '';
+		}
+		$seen_ref[] = $attributes['ref'];
+
 		$navigation_post = get_post( $attributes['ref'] );
 		if ( ! isset( $navigation_post ) ) {
 			return '';
@@ -641,10 +627,6 @@ function gutenberg_render_block_core_navigation( $attributes, $content, $block )
 		}
 
 		$inner_blocks = new WP_Block_List( $fallback_blocks, $attributes );
-	}
-
-	if ( gutenberg_block_core_navigation_block_contains_core_navigation( $inner_blocks ) ) {
-		return '';
 	}
 
 	/**
@@ -885,7 +867,7 @@ add_filter( 'render_block_data', 'gutenberg_block_core_navigation_typographic_pr
  * @param array $settings Default editor settings.
  * @return array Filtered editor settings.
  */
-function gutenberg_block_core_navigation_enable_inspector_animation( $settings ) {
+function gutenberg_gutenberg_enable_animation_for_navigation_inspector( $settings ) {
 	$current_animation_settings = _wp_array_get(
 		$settings,
 		array( '__experimentalBlockInspectorAnimation' ),
@@ -905,4 +887,4 @@ function gutenberg_block_core_navigation_enable_inspector_animation( $settings )
 	return $settings;
 }
 
-add_filter( 'block_editor_settings_all', 'gutenberg_block_core_navigation_enable_inspector_animation' );
+add_filter( 'block_editor_settings_all', 'gutenberg_gutenberg_enable_animation_for_navigation_inspector' );

@@ -654,9 +654,7 @@ function ImportDropdown(_ref) {
     onUpload
   } = _ref;
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Dropdown, {
-    popoverProps: {
-      placement: 'bottom-start'
-    },
+    position: "bottom right",
     contentClassName: "list-reusable-blocks-import-dropdown__content",
     renderToggle: _ref2 => {
       let {

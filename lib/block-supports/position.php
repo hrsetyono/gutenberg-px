@@ -61,22 +61,19 @@ function gutenberg_render_position_support( $block_content, $block ) {
 	$selector        = ".$class_name";
 	$position_styles = array();
 	$position_type   = _wp_array_get( $style_attribute, array( 'position', 'type' ), '' );
-	$wrapper_classes = array();
 
 	if (
 		in_array( $position_type, $allowed_position_types, true )
 	) {
-		$wrapper_classes[] = $class_name;
-		$wrapper_classes[] = 'is-position-' . $position_type;
-		$sides             = array( 'top', 'right', 'bottom', 'left' );
+		$sides = array( 'top', 'right', 'bottom', 'left' );
 
 		foreach ( $sides as $side ) {
 			$side_value = _wp_array_get( $style_attribute, array( 'position', $side ) );
 			if ( null !== $side_value ) {
 				/*
-				 * For fixed or sticky top positions,
-				 * ensure the value includes an offset for the logged in admin bar.
-				 */
+				* For fixed or sticky top positions,
+				* ensure the value includes an offset for the logged in admin bar.
+				*/
 				if (
 					'top' === $side &&
 					( 'fixed' === $position_type || 'sticky' === $position_type )
@@ -87,7 +84,7 @@ function gutenberg_render_position_support( $block_content, $block ) {
 					}
 
 					// Ensure current side value also factors in the height of the logged in admin bar.
-					$side_value = "calc($side_value + var(--wp-admin--admin-bar--position-offset, 0px))";
+					$side_value = "calc($side_value + var(--wp-admin--admin-bar--height, 0px))";
 				}
 
 				$position_styles[] =
@@ -125,9 +122,7 @@ function gutenberg_render_position_support( $block_content, $block ) {
 		// Inject class name to block container markup.
 		$content = new WP_HTML_Tag_Processor( $block_content );
 		$content->next_tag();
-		foreach ( $wrapper_classes as $class ) {
-			$content->add_class( $class );
-		}
+		$content->add_class( $class_name );
 		return (string) $content;
 	}
 

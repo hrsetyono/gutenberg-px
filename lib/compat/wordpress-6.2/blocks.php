@@ -20,7 +20,6 @@ function gutenberg_safe_style_attrs_6_2( $attrs ) {
 	$attrs[] = 'bottom';
 	$attrs[] = 'left';
 	$attrs[] = 'z-index';
-	$attrs[] = 'box-shadow';
 
 	return $attrs;
 }

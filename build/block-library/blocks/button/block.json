@@ -83,7 +83,6 @@
 			}
 		},
 		"reusable": false,
-		"shadow": true,
 		"spacing": {
 			"__experimentalSkipSerialization": true,
 			"padding": [ "horizontal", "vertical" ],

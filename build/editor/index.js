@@ -1460,7 +1460,6 @@ __webpack_require__.d(__webpack_exports__, {
   "__unstableRichTextInputEvent": function() { return /* reexport */ __unstableRichTextInputEvent; },
   "cleanForSlug": function() { return /* reexport */ cleanForSlug; },
   "createCustomColorsHOC": function() { return /* reexport */ createCustomColorsHOC; },
-  "experiments": function() { return /* reexport */ experiments; },
   "getColorClassName": function() { return /* reexport */ getColorClassName; },
   "getColorObjectByAttributeValues": function() { return /* reexport */ getColorObjectByAttributeValues; },
   "getColorObjectByColorValue": function() { return /* reexport */ getColorObjectByColorValue; },
@@ -1719,7 +1718,8 @@ var external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
 const EDITOR_SETTINGS_DEFAULTS = { ...external_wp_blockEditor_namespaceObject.SETTINGS_DEFAULTS,
   richEditingEnabled: true,
   codeEditingEnabled: true,
-  enableCustomFields: undefined
+  enableCustomFields: undefined,
+  supportsLayout: true
 };
 
 ;// CONCATENATED MODULE: ./packages/editor/build-module/store/reducer.js
@@ -3180,7 +3180,7 @@ function isPreviewingPost(state) {
  *
  * @param {Object} state Global application state.
  *
- * @return {string | undefined} Preview Link.
+ * @return {string?} Preview Link.
  */
 
 function getEditedPostPreviewLink(state) {
@@ -5120,8 +5120,13 @@ function getUserLabel(user) {
 
 ;// CONCATENATED MODULE: ./packages/editor/build-module/hooks/default-autocompleters.js
 /**
+ * External dependencies
+ */
+
+/**
  * WordPress dependencies
  */
+
 
 /**
  * Internal dependencies
@@ -5132,8 +5137,7 @@ function getUserLabel(user) {
 function setDefaultCompleters() {
   let completers = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   // Provide copies so filters may directly modify them.
-  completers.push({ ...user
-  });
+  completers.push((0,external_lodash_namespaceObject.clone)(user));
   return completers;
 }
 
@@ -6267,18 +6271,6 @@ function EntitiesSavedStates(_ref) {
 
 
 
-function getContent() {
-  try {
-    // While `select` in a component is generally discouraged, it is
-    // used here because it (a) reduces the chance of data loss in the
-    // case of additional errors by performing a direct retrieval and
-    // (b) avoids the performance cost associated with unnecessary
-    // content serialization throughout the lifetime of a non-erroring
-    // application.
-    return (0,external_wp_data_namespaceObject.select)(store_store).getEditedPostContent();
-  } catch (error) {}
-}
-
 function CopyButton(_ref) {
   let {
     text,
@@ -6294,19 +6286,34 @@ function CopyButton(_ref) {
 class ErrorBoundary extends external_wp_element_namespaceObject.Component {
   constructor() {
     super(...arguments);
+    this.reboot = this.reboot.bind(this);
+    this.getContent = this.getContent.bind(this);
     this.state = {
       error: null
     };
   }
 
   componentDidCatch(error) {
+    this.setState({
+      error
+    });
     (0,external_wp_hooks_namespaceObject.doAction)('editor.ErrorBoundary.errorLogged', error);
   }
 
-  static getDerivedStateFromError(error) {
-    return {
-      error
-    };
+  reboot() {
+    this.props.onError();
+  }
+
+  getContent() {
+    try {
+      // While `select` in a component is generally discouraged, it is
+      // used here because it (a) reduces the chance of data loss in the
+      // case of additional errors by performing a direct retrieval and
+      // (b) avoids the performance cost associated with unnecessary
+      // content serialization throughout the lifetime of a non-erroring
+      // application.
+      return (0,external_wp_data_namespaceObject.select)(store_store).getEditedPostContent();
+    } catch (error) {}
   }
 
   render() {
@@ -6318,16 +6325,19 @@ class ErrorBoundary extends external_wp_element_namespaceObject.Component {
       return this.props.children;
     }
 
-    const actions = [(0,external_wp_element_namespaceObject.createElement)(CopyButton, {
-      key: "copy-post",
-      text: getContent
-    }, (0,external_wp_i18n_namespaceObject.__)('Copy Post Text')), (0,external_wp_element_namespaceObject.createElement)(CopyButton, {
-      key: "copy-error",
-      text: error.stack
-    }, (0,external_wp_i18n_namespaceObject.__)('Copy Error'))];
     return (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.Warning, {
       className: "editor-error-boundary",
-      actions: actions
+      actions: [(0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+        key: "recovery",
+        onClick: this.reboot,
+        variant: "secondary"
+      }, (0,external_wp_i18n_namespaceObject.__)('Attempt Recovery')), (0,external_wp_element_namespaceObject.createElement)(CopyButton, {
+        key: "copy-post",
+        text: this.getContent
+      }, (0,external_wp_i18n_namespaceObject.__)('Copy Post Text')), (0,external_wp_element_namespaceObject.createElement)(CopyButton, {
+        key: "copy-error",
+        text: error.stack
+      }, (0,external_wp_i18n_namespaceObject.__)('Copy Error'))]
     }, (0,external_wp_i18n_namespaceObject.__)('The editor has encountered an unexpected error.'));
   }
 
@@ -6702,11 +6712,6 @@ var remove_accents_default = /*#__PURE__*/__webpack_require__.n(remove_accents);
  */
 
 /**
- * WordPress dependencies
- */
-
-
-/**
  * Returns terms in a tree form.
  *
  * @param {Array} flatTerms Array of terms in flat format.
@@ -6738,12 +6743,14 @@ function buildTermsTree(flatTerms) {
   };
 
   return fillWithChildren(termsByParent['0'] || []);
-}
+} // Lodash unescape function handles &#39; but not &#039; which may be return in some API requests.
+
 const unescapeString = arg => {
-  return (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(arg);
+  return (0,external_lodash_namespaceObject.unescape)(arg.replace('&#039;', "'"));
 };
 /**
  * Returns a term object with name unescaped.
+ * The unescape of the name property is done using lodash unescape function.
  *
  * @param {Object} term The term object to unescape.
  *
@@ -6765,7 +6772,7 @@ const unescapeTerm = term => {
  */
 
 const unescapeTerms = terms => {
-  return (terms !== null && terms !== void 0 ? terms : []).map(unescapeTerm);
+  return (0,external_lodash_namespaceObject.map)(terms, unescapeTerm);
 };
 
 ;// CONCATENATED MODULE: ./packages/editor/build-module/components/page-attributes/parent.js
@@ -6867,7 +6874,7 @@ function PageAttributesParent() {
       let level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
       const mappedNodes = tree.map(treeNode => [{
         value: treeNode.id,
-        label: '— '.repeat(level) + (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(treeNode.name),
+        label: '— '.repeat(level) + (0,external_lodash_namespaceObject.unescape)(treeNode.name),
         rawName: treeNode.name
       }, ...getOptionsFromTree(treeNode.children || [], level + 1)]);
       const sortedNodes = mappedNodes.sort((_ref, _ref2) => {
@@ -7001,13 +7008,10 @@ function PostTemplate() {
         template: templateSlug || ''
       });
     },
-    options: Object.entries(availableTemplates !== null && availableTemplates !== void 0 ? availableTemplates : {}).map(_ref => {
-      let [templateSlug, templateName] = _ref;
-      return {
-        value: templateSlug,
-        label: templateName
-      };
-    })
+    options: (0,external_lodash_namespaceObject.map)(availableTemplates, (templateName, templateSlug) => ({
+      value: templateSlug,
+      label: templateName
+    }))
   });
 }
 /* harmony default export */ var post_template = (PostTemplate);
@@ -10358,7 +10362,6 @@ function PostFormatPanel() {
 
 
 
-
 /**
  * Internal dependencies
  */
@@ -10666,7 +10669,7 @@ function HierarchicalTermSelector(_ref) {
           const termId = parseInt(term.id, 10);
           onChange(termId);
         },
-        label: (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(term.name)
+        label: (0,external_lodash_namespaceObject.unescape)(term.name)
       }), !!term.children.length && (0,external_wp_element_namespaceObject.createElement)("div", {
         className: "editor-post-taxonomies__hierarchical-terms-subchoices"
       }, renderTerms(term.children)));
@@ -10684,7 +10687,6 @@ function HierarchicalTermSelector(_ref) {
   const groupLabel = (0,external_lodash_namespaceObject.get)(taxonomy, ['name'], (0,external_wp_i18n_namespaceObject.__)('Terms'));
   const showFilter = availableTerms.length >= MIN_TERMS_COUNT_FOR_FILTER;
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, showFilter && (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
-    __nextHasNoMarginBottom: true,
     className: "editor-post-taxonomies__hierarchical-terms-filter",
     label: filterLabel,
     value: filterValue,
@@ -10701,8 +10703,7 @@ function HierarchicalTermSelector(_ref) {
     variant: "link"
   }, newTermButtonLabel), showForm && (0,external_wp_element_namespaceObject.createElement)("form", {
     onSubmit: onAddTerm
-  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.__experimentalVStack, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
-    __nextHasNoMarginBottom: true,
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
     className: "editor-post-taxonomies__hierarchical-terms-input",
     label: newTermLabel,
     value: formName,
@@ -10714,7 +10715,7 @@ function HierarchicalTermSelector(_ref) {
     onChange: onChangeFormParent,
     selectedId: formParent,
     tree: availableTermsTree
-  })), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+  }), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
     variant: "secondary",
     type: "submit",
     className: "editor-post-taxonomies__hierarchical-terms-submit"
@@ -11029,7 +11030,6 @@ class PostPublishPanelPostpublish extends external_wp_element_namespaceObject.Co
     }, (0,external_wp_element_namespaceObject.createElement)("strong", null, (0,external_wp_i18n_namespaceObject.__)('What’s next?'))), (0,external_wp_element_namespaceObject.createElement)("div", {
       className: "post-publish-panel__postpublish-post-address-container"
     }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
-      __nextHasNoMarginBottom: true,
       className: "post-publish-panel__postpublish-post-address",
       readOnly: true,
       label: (0,external_wp_i18n_namespaceObject.sprintf)(
@@ -11670,7 +11670,6 @@ class PostSlug extends external_wp_element_namespaceObject.Component {
       editedSlug
     } = this.state;
     return (0,external_wp_element_namespaceObject.createElement)(PostSlugCheck, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
-      __nextHasNoMarginBottom: true,
       label: (0,external_wp_i18n_namespaceObject.__)('Slug'),
       autoComplete: "off",
       spellCheck: "false",
@@ -12384,7 +12383,6 @@ function PostURL(_ref) {
     title: (0,external_wp_i18n_namespaceObject.__)('URL'),
     onClose: onClose
   }), isEditable && (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
-    __nextHasNoMarginBottom: true,
     label: (0,external_wp_i18n_namespaceObject.__)('Permalink'),
     value: forceEmptyField ? '' : postSlug,
     autoComplete: "off",
@@ -12758,9 +12756,7 @@ function TableOfContents(_ref, ref) {
   } = _ref;
   const hasBlocks = (0,external_wp_data_namespaceObject.useSelect)(select => !!select(external_wp_blockEditor_namespaceObject.store).getBlockCount(), []);
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Dropdown, {
-    popoverProps: {
-      placement: repositionDropdown ? 'right' : 'bottom'
-    },
+    position: repositionDropdown ? 'middle right right' : 'bottom',
     className: "table-of-contents",
     contentClassName: "table-of-contents__popover",
     renderToggle: _ref2 => {
@@ -12827,7 +12823,7 @@ function UnsavedChangesWarning() {
    *
    * @param {Event} event `beforeunload` event.
    *
-   * @return {string | undefined} Warning prompt message, if unsaved changes exist.
+   * @return {?string} Warning prompt message, if unsaved changes exist.
    */
 
   const warnIfUnsavedChanges = event => {
@@ -12896,232 +12892,6 @@ const withRegistryProvider = (0,external_wp_compose_namespaceObject.createHigher
   }, (0,external_wp_element_namespaceObject.createElement)(WrappedComponent, additionalProps));
 }), 'withRegistryProvider');
 /* harmony default export */ var with_registry_provider = (withRegistryProvider);
-
-;// CONCATENATED MODULE: ./packages/editor/build-module/components/media-categories/index.js
-/**
- * The `editor` settings here need to be in sync with the corresponding ones in `editor` package.
- * See `packages/editor/src/components/media-categories/index.js`.
- *
- * In the future we could consider creating an Openvese package that can be used in both `editor` and `site-editor`.
- * The rest of the settings would still need to be in sync though.
- */
-
-/**
- * WordPress dependencies
- */
-
-
-
-/**
- * Internal dependencies
- */
-
-
-/** @typedef {import('@wordpress/block-editor').InserterMediaRequest} InserterMediaRequest */
-
-/** @typedef {import('@wordpress/block-editor').InserterMediaItem} InserterMediaItem */
-
-/**
- * Interface for inserter media category labels.
- *
- * @typedef {Object} InserterMediaCategoryLabels
- * @property {string} name                    General name of the media category. It's used in the inserter media items list.
- * @property {string} [search_items='Search'] Label for searching items. Default is ‘Search Posts’ / ‘Search Pages’.
- */
-
-/**
- * Interface for inserter media category.
- *
- * @typedef {Object} InserterMediaCategory
- * @property {string}                                                 name                 The name of the media category, that should be unique among all media categories.
- * @property {InserterMediaCategoryLabels}                            labels               Labels for the media category.
- * @property {('image'|'audio'|'video')}                              mediaType            The media type of the media category.
- * @property {(InserterMediaRequest) => Promise<InserterMediaItem[]>} fetch                The function to fetch media items for the category.
- * @property {(InserterMediaItem) => string}                          [getReportUrl]       If the media category supports reporting media items, this function should return
- *                                                                                         the report url for the media item. It accepts the `InserterMediaItem` as an argument.
- * @property {boolean}                                                [isExternalResource] If the media category is an external resource, this should be set to true.
- *                                                                                         This is used to avoid making a request to the external resource when the user
- *                                                                                         opens the inserter for the first time.
- */
-
-const getExternalLink = (url, text) => `<a ${getExternalLinkAttributes(url)}>${text}</a>`;
-
-const getExternalLinkAttributes = url => `href="${url}" target="_blank" rel="noreferrer noopener"`;
-
-const getOpenverseLicense = (license, licenseVersion) => {
-  let licenseName = license.trim(); // PDM has no abbreviation
-
-  if (license !== 'pdm') {
-    licenseName = license.toUpperCase().replace('SAMPLING', 'Sampling');
-  } // If version is known, append version to the name.
-  // The license has to have a version to be valid. Only
-  // PDM (public domain mark) doesn't have a version.
-
-
-  if (licenseVersion) {
-    licenseName += ` ${licenseVersion}`;
-  } // For licenses other than public-domain marks, prepend 'CC' to the name.
-
-
-  if (!['pdm', 'cc0'].includes(license)) {
-    licenseName = `CC ${licenseName}`;
-  }
-
-  return licenseName;
-};
-
-const getOpenverseCaption = item => {
-  const {
-    title,
-    foreign_landing_url: foreignLandingUrl,
-    creator,
-    creator_url: creatorUrl,
-    license,
-    license_version: licenseVersion,
-    license_url: licenseUrl
-  } = item;
-  const fullLicense = getOpenverseLicense(license, licenseVersion);
-
-  const _creator = (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(creator);
-
-  let _caption;
-
-  if (_creator) {
-    _caption = title ? (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %1s: Title of a media work from Openverse; %2s: Name of the work's creator; %3s: Work's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('"%1$s" by %2$s/ %3$s', 'caption'), getExternalLink(foreignLandingUrl, (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(title)), creatorUrl ? getExternalLink(creatorUrl, _creator) : _creator, licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense) : (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %1s: Link attributes for a given Openverse media work; %2s: Name of the work's creator; %3s: Works's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('<a %1$s>Work</a> by %2$s/ %3$s', 'caption'), getExternalLinkAttributes(foreignLandingUrl), creatorUrl ? getExternalLink(creatorUrl, _creator) : _creator, licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense);
-  } else {
-    _caption = title ? (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %1s: Title of a media work from Openverse; %2s: Work's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('"%1$s"/ %2$s', 'caption'), getExternalLink(foreignLandingUrl, (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(title)), licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense) : (0,external_wp_i18n_namespaceObject.sprintf)( // translators: %1s: Link attributes for a given Openverse media work; %2s: Works's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('<a %1$s>Work</a>/ %3$s', 'caption'), getExternalLinkAttributes(foreignLandingUrl), licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense);
-  }
-
-  return _caption.replace(/\s{2}/g, ' ');
-};
-
-const coreMediaFetch = async function () {
-  let query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  const mediaItems = await (0,external_wp_data_namespaceObject.resolveSelect)(external_wp_coreData_namespaceObject.store).getMediaItems({ ...query,
-    orderBy: !!(query !== null && query !== void 0 && query.search) ? 'relevance' : 'date'
-  });
-  return mediaItems.map(mediaItem => {
-    var _mediaItem$media_deta, _mediaItem$media_deta2, _mediaItem$media_deta3, _mediaItem$caption;
-
-    return { ...mediaItem,
-      alt: mediaItem.alt_text,
-      url: mediaItem.source_url,
-      previewUrl: (_mediaItem$media_deta = mediaItem.media_details) === null || _mediaItem$media_deta === void 0 ? void 0 : (_mediaItem$media_deta2 = _mediaItem$media_deta.sizes) === null || _mediaItem$media_deta2 === void 0 ? void 0 : (_mediaItem$media_deta3 = _mediaItem$media_deta2.medium) === null || _mediaItem$media_deta3 === void 0 ? void 0 : _mediaItem$media_deta3.source_url,
-      caption: (_mediaItem$caption = mediaItem.caption) === null || _mediaItem$caption === void 0 ? void 0 : _mediaItem$caption.raw
-    };
-  });
-};
-/** @type {InserterMediaCategory[]} */
-
-
-const inserterMediaCategories = [{
-  name: 'images',
-  labels: {
-    name: (0,external_wp_i18n_namespaceObject.__)('Images'),
-    search_items: (0,external_wp_i18n_namespaceObject.__)('Search images')
-  },
-  mediaType: 'image',
-
-  async fetch() {
-    let query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    return coreMediaFetch({ ...query,
-      media_type: 'image'
-    });
-  }
-
-}, {
-  name: 'videos',
-  labels: {
-    name: (0,external_wp_i18n_namespaceObject.__)('Videos'),
-    search_items: (0,external_wp_i18n_namespaceObject.__)('Search videos')
-  },
-  mediaType: 'video',
-
-  async fetch() {
-    let query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    return coreMediaFetch({ ...query,
-      media_type: 'video'
-    });
-  }
-
-}, {
-  name: 'audio',
-  labels: {
-    name: (0,external_wp_i18n_namespaceObject.__)('Audio'),
-    search_items: (0,external_wp_i18n_namespaceObject.__)('Search audio')
-  },
-  mediaType: 'audio',
-
-  async fetch() {
-    let query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    return coreMediaFetch({ ...query,
-      media_type: 'audio'
-    });
-  }
-
-}, {
-  name: 'openverse',
-  labels: {
-    name: (0,external_wp_i18n_namespaceObject.__)('Openverse'),
-    search_items: (0,external_wp_i18n_namespaceObject.__)('Search Openverse')
-  },
-  mediaType: 'image',
-
-  async fetch() {
-    let query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    const defaultArgs = {
-      mature: false,
-      excluded_source: 'flickr,inaturalist,wikimedia',
-      license: 'pdm,cc0'
-    };
-    const finalQuery = { ...query,
-      ...defaultArgs
-    };
-    const mapFromInserterMediaRequest = {
-      per_page: 'page_size',
-      search: 'q'
-    };
-    const url = new URL('https://api.openverse.engineering/v1/images/');
-    Object.entries(finalQuery).forEach(_ref => {
-      let [key, value] = _ref;
-      const queryKey = mapFromInserterMediaRequest[key] || key;
-      url.searchParams.set(queryKey, value);
-    });
-    const response = await window.fetch(url, {
-      headers: {
-        'User-Agent': 'WordPress/inserter-media-fetch'
-      }
-    });
-    const jsonResponse = await response.json();
-    const results = jsonResponse.results;
-    return results.map(result => {
-      var _result$title;
-
-      return { ...result,
-        // This is a temp solution for better titles, until Openverse API
-        // completes the cleaning up of some titles of their upstream data.
-        title: (_result$title = result.title) !== null && _result$title !== void 0 && _result$title.toLowerCase().startsWith('file:') ? result.title.slice(5) : result.title,
-        sourceId: result.id,
-        id: undefined,
-        caption: getOpenverseCaption(result),
-        previewUrl: result.thumbnail
-      };
-    });
-  },
-
-  getReportUrl: _ref2 => {
-    let {
-      sourceId
-    } = _ref2;
-    return `https://wordpress.org/openverse/image/${sourceId}/report/`;
-  },
-  isExternalResource: true
-}];
-/* harmony default export */ var media_categories = (inserterMediaCategories);
 
 ;// CONCATENATED MODULE: external ["wp","mediaUtils"]
 var external_wp_mediaUtils_namespaceObject = window["wp"]["mediaUtils"];
@@ -13200,9 +12970,7 @@ function mediaUpload(_ref) {
 
 
 
-
 const EMPTY_BLOCKS_LIST = [];
-const BLOCK_EDITOR_SETTINGS = ['__experimentalBlockDirectory', '__experimentalBlockInspectorAnimation', '__experimentalDiscussionSettings', '__experimentalFeatures', '__experimentalGlobalStylesBaseStyles', '__experimentalPreferredStyleVariations', '__experimentalSetIsInserterOpened', '__unstableGalleryWithImageBlocks', 'alignWide', 'allowedBlockTypes', 'blockInspectorTabs', 'allowedMimeTypes', 'bodyPlaceholder', 'canLockBlocks', 'capabilities', 'clearBlockSelection', 'codeEditingEnabled', 'colors', 'disableCustomColors', 'disableCustomFontSizes', 'disableCustomSpacingSizes', 'disableCustomGradients', 'disableLayoutStyles', 'enableCustomLineHeight', 'enableCustomSpacing', 'enableCustomUnits', 'enableOpenverseMediaCategory', 'focusMode', 'fontSizes', 'gradients', 'generateAnchors', 'hasFixedToolbar', 'hasInlineToolbar', 'isDistractionFree', 'imageDefaultSize', 'imageDimensions', 'imageEditing', 'imageSizes', 'isRTL', 'keepCaretInsideBlock', 'locale', 'maxWidth', 'onUpdateDefaultBlockStyles', 'postsPerPage', 'readOnly', 'styles', 'template', 'templateLock', 'titlePlaceholder', 'supportsLayout', 'widgetTypesToHideFromLegacyWidgetBlock', '__unstableHasCustomAppender', '__unstableIsPreviewMode', '__unstableResolvedAssets'];
 /**
  * React hook used to compute the block editor settings to use for the post editor.
  *
@@ -13293,14 +13061,16 @@ function useBlockEditorSettings(settings, hasTemplate) {
 
   return (0,external_wp_element_namespaceObject.useMemo)(() => ({ ...Object.fromEntries(Object.entries(settings).filter(_ref2 => {
       let [key] = _ref2;
-      return BLOCK_EDITOR_SETTINGS.includes(key);
+      return ['__experimentalBlockDirectory', '__experimentalDiscussionSettings', '__experimentalFeatures', '__experimentalPreferredStyleVariations', '__experimentalSetIsInserterOpened', '__unstableGalleryWithImageBlocks', 'alignWide', 'allowedBlockTypes', 'blockInspectorTabs', 'bodyPlaceholder', 'canLockBlocks', 'codeEditingEnabled', 'colors', 'disableCustomColors', 'disableCustomFontSizes', 'disableCustomSpacingSizes', 'disableCustomGradients', 'disableLayoutStyles', 'enableCustomLineHeight', 'enableCustomSpacing', 'enableCustomUnits', 'focusMode', 'fontSizes', 'gradients', 'generateAnchors', 'hasFixedToolbar', 'isDistractionFree', 'hasInlineToolbar', 'imageDefaultSize', 'imageDimensions', 'imageEditing', 'imageSizes', 'isRTL', 'keepCaretInsideBlock', 'maxWidth', 'onUpdateDefaultBlockStyles', 'styles', 'template', 'templateLock', 'titlePlaceholder', 'supportsLayout', 'widgetTypesToHideFromLegacyWidgetBlock', '__unstableResolvedAssets'].includes(key);
     })),
     mediaUpload: hasUploadPermissions ? mediaUpload : undefined,
     __experimentalReusableBlocks: reusableBlocks,
     __experimentalBlockPatterns: blockPatterns,
     __experimentalBlockPatternCategories: blockPatternCategories,
     __experimentalFetchLinkSuggestions: (search, searchOptions) => (0,external_wp_coreData_namespaceObject.__experimentalFetchLinkSuggestions)(search, searchOptions, settings),
-    inserterMediaCategories: media_categories,
+    // TODO: We should find a proper way to consolidate similar cases
+    // like reusable blocks, fetch entities, etc.
+    __unstableFetchMedia: external_wp_coreData_namespaceObject.__experimentalFetchMedia,
     __experimentalFetchRichUrlData: external_wp_coreData_namespaceObject.__experimentalFetchUrlData,
     __experimentalCanUserUseUnfilteredHTML: canUseUnfilteredHTML,
     __experimentalUndo: undo,
@@ -13314,20 +13084,7 @@ function useBlockEditorSettings(settings, hasTemplate) {
 
 /* harmony default export */ var use_block_editor_settings = (useBlockEditorSettings);
 
-;// CONCATENATED MODULE: external ["wp","experiments"]
-var external_wp_experiments_namespaceObject = window["wp"]["experiments"];
-;// CONCATENATED MODULE: ./packages/editor/build-module/lockUnlock.js
-/**
- * WordPress dependencies
- */
-
-const {
-  lock,
-  unlock
-} = (0,external_wp_experiments_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I know using unstable features means my plugin or theme will inevitably break on the next WordPress release.', '@wordpress/editor');
-
 ;// CONCATENATED MODULE: ./packages/editor/build-module/components/provider/index.js
-
 
 
 /**
@@ -13348,18 +13105,14 @@ const {
 
 
 
-const {
-  ExperimentalBlockEditorProvider
-} = unlock(external_wp_blockEditor_namespaceObject.experiments);
-const ExperimentalEditorProvider = with_registry_provider(_ref => {
+function EditorProvider(_ref) {
   let {
     __unstableTemplate,
     post,
     settings,
     recovery,
     initialEdits,
-    children,
-    BlockEditorProviderComponent = ExperimentalBlockEditorProvider
+    children
   } = _ref;
   const defaultBlockContext = (0,external_wp_element_namespaceObject.useMemo)(() => {
     if (post.type === 'wp_template') {
@@ -13372,17 +13125,14 @@ const ExperimentalEditorProvider = with_registry_provider(_ref => {
     };
   }, [post.id, post.type]);
   const {
-    editorSettings,
     selection,
     isReady
   } = (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
-      getEditorSettings,
       getEditorSelection,
       __unstableIsEditorReady
     } = select(store_store);
     return {
-      editorSettings: getEditorSettings(),
       isReady: __unstableIsEditorReady(),
       selection: getEditorSelection()
     };
@@ -13394,7 +13144,7 @@ const ExperimentalEditorProvider = with_registry_provider(_ref => {
   const [blocks, onInput, onChange] = (0,external_wp_coreData_namespaceObject.useEntityBlockEditor)('postType', type, {
     id
   });
-  const blockEditorSettings = use_block_editor_settings(editorSettings, !!__unstableTemplate);
+  const editorSettings = use_block_editor_settings(settings, !!__unstableTemplate);
   const {
     updatePostLock,
     setupEditor,
@@ -13447,21 +13197,17 @@ const ExperimentalEditorProvider = with_registry_provider(_ref => {
     id: post.id
   }, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockContextProvider, {
     value: defaultBlockContext
-  }, (0,external_wp_element_namespaceObject.createElement)(BlockEditorProviderComponent, {
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockEditorProvider, {
     value: blocks,
     onChange: onChange,
     onInput: onInput,
     selection: selection,
-    settings: blockEditorSettings,
+    settings: editorSettings,
     useSubRegistry: false
   }, children, (0,external_wp_element_namespaceObject.createElement)(external_wp_reusableBlocks_namespaceObject.ReusableBlocksMenuItems, null)))));
-});
-function EditorProvider(props) {
-  return (0,external_wp_element_namespaceObject.createElement)(ExperimentalEditorProvider, _extends({}, props, {
-    BlockEditorProviderComponent: external_wp_blockEditor_namespaceObject.BlockEditorProvider
-  }), props.children);
 }
-/* harmony default export */ var provider = (EditorProvider);
+
+/* harmony default export */ var provider = (with_registry_provider(EditorProvider));
 
 ;// CONCATENATED MODULE: external ["wp","serverSideRender"]
 var external_wp_serverSideRender_namespaceObject = window["wp"]["serverSideRender"];
@@ -13678,22 +13424,10 @@ function cleanForSlug(string) {
 
 
 
-;// CONCATENATED MODULE: ./packages/editor/build-module/experiments.js
-/**
- * Internal dependencies
- */
-
-
-const experiments = {};
-lock(experiments, {
-  ExperimentalEditorProvider: ExperimentalEditorProvider
-});
-
 ;// CONCATENATED MODULE: ./packages/editor/build-module/index.js
 /**
  * Internal dependencies
  */
-
 
 
 
