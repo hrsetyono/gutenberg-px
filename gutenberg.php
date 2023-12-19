@@ -5,7 +5,7 @@
  * Description: Gutenberg editor with minor customization for version compatibility
  * Requires at least: 5.9
  * Requires PHP: 7.3
- * Version: 5.9.2
+ * Version: 5.9.3
  * Author: Gutenberg Team & Pixel Studio
  * Text Domain: gutenberg
  *
