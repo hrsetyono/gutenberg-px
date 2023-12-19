@@ -4577,7 +4577,7 @@ const getTextWithoutMarkup = text => {
  * @return {string} Returns the slug.
  */
 
-
+// @change - this always return null to prevent autogenerate Heading (applied to index.min.js, search for the regex)
 const getSlug = content => {
   // Get the slug.
   return (0,external_lodash_namespaceObject.trim)((0,external_lodash_namespaceObject.deburr)(getTextWithoutMarkup(content)).replace(/[^\p{L}\p{N}]+/gu, '-').toLowerCase(), '-');
