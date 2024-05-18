@@ -1,9 +1,9 @@
 {
-  "name": "pixelstudio/gutenberg",
+  "name": "pixelstudio/gutenberg-px",
   "description": "WordPress editor with minor customization for version compatibility",
   "keywords": ["wordpress", "plugin", "editor", "gutenberg"],
   "type": "wordpress-plugin",
-  "homepage": "https://github.com/hrsetyono/gutenberg/",
+  "homepage": "https://github.com/hrsetyono/gutenberg-px/",
   "authors": [
     {
       "name": "Pixel Studio",
