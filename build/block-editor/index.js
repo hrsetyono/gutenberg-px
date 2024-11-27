@@ -4,7 +4,7 @@
 /***/ 6411:
 /***/ (function(module, exports) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	autosize 4.0.2
 	license: MIT
 	http://www.jacklmoore.com/autosize
@@ -12042,7 +12042,7 @@ function SpacingSizesControl(_ref) {
     sides,
     splitOnAxis = false,
     useSelect,
-    minimumCustomValue = 0,
+    minimumCustomValue = -1000, // @changed - allow negative margin
     onMouseOver,
     onMouseOut
   } = _ref;
@@ -12865,7 +12865,7 @@ function MarginEdit(props) {
       allowReset: false,
       splitOnAxis: splitOnAxis,
       onMouseOver: onMouseOver,
-      onMouseOut: onMouseOut
+      onMouseOut: onMouseOut,
     }), (spacingSizes === null || spacingSizes === void 0 ? void 0 : spacingSizes.length) > 0 && (0,external_wp_element_namespaceObject.createElement)(SpacingSizesControl, {
       values: style === null || style === void 0 ? void 0 : (_style$spacing2 = style.spacing) === null || _style$spacing2 === void 0 ? void 0 : _style$spacing2.margin,
       onChange: onChange,
@@ -12875,7 +12875,7 @@ function MarginEdit(props) {
       allowReset: false,
       splitOnAxis: false,
       onMouseOver: onMouseOver,
-      onMouseOut: onMouseOut
+      onMouseOut: onMouseOut,
     })),
     native: null
   });
