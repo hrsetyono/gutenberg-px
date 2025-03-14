@@ -97,7 +97,7 @@ class Gutenberg_REST_Global_Styles_Controller_6_2 extends WP_REST_Global_Styles_
 	 *
 	 * @return array List of link relations.
 	 */
-	protected function get_available_actions() {
+	protected function get_available_actions($post=null, $request=null) {
 		$rels = array();
 
 		$post_type = get_post_type_object( $this->post_type );
