@@ -5,7 +5,7 @@
  * Description: WordPress editor with minor customization for version compatibility.
  * Requires at least: 6.2
  * Requires PHP: 7.4
- * Version: 62.4.0
+ * Version: 62.4.1
  * Author: Gutenberg Team & Pixel Studio
  * Text Domain: gutenberg
  *
@@ -13,7 +13,7 @@
  */
 
 ### BEGIN AUTO-GENERATED DEFINES
-define( 'GUTENBERG_VERSION', '62.4.0' ); // 15.2.4
+define( 'GUTENBERG_VERSION', '62.4.1' ); // 15.2.4
 define( 'GUTENBERG_GIT_COMMIT', '0429fb1969ad5d01b108a01f0498c7ec4247b600' );
 ### END AUTO-GENERATED DEFINES
 

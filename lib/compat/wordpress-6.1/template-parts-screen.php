@@ -214,4 +214,5 @@ function gutenberg_register_template_parts_theme_feature() {
 		)
 	);
 }
-add_action( 'setup_theme', 'gutenberg_register_template_parts_theme_feature', 5 );
+// @changed - from setup_theme to init because translation must be loaded on init or later
+add_action( 'init', 'gutenberg_register_template_parts_theme_feature', 5 );

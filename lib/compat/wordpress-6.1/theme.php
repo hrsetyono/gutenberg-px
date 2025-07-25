@@ -28,7 +28,9 @@ function gutenberg_create_initial_theme_features() {
 		)
 	);
 }
-add_action( 'setup_theme', 'gutenberg_create_initial_theme_features', 0 );
+
+// @changed - from setup_theme to init because translation must be loaded on init or later
+add_action( 'init', 'gutenberg_create_initial_theme_features', 0 );
 
 if ( ! function_exists( 'wp_theme_get_element_class_name' ) ) {
 	/**
